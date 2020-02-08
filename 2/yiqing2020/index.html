@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>疫情谣言一网打尽——千龙网</title>
+    <meta name="keywords" content="" />
+	<script src="http://img.qianlong.com/ql2019/index/js/jquery-1.8.3.min.js"></script>	
+</head>
+<body style="background: #04336d;">
+	<div class="container" style="background-size: contain;">
+		  <div class="banner">
+		  	   <img src="css/images/p1.png" class="p1">
+		  	   <div class="fsrs">
+		  	   	   <ul class="riqi">
+		  	   	   	    <li class="first">
+		  	   	   	    	<img src="css/images/p2-1.png">
+		  	   	   	    	<p>截止：<span class="nowtime"></span></p>
+		  	   	   	    </li>
+		  	   	   	    <li class="sec"></li> 
+		  	   	   </ul>
+		  	   </div>
+		  </div>
+		  <div  class="content"  style="padding-bottom: 1.1rem;">
+		  </div>
+		  <div class="footer">
+		  	 <a href="http://py.qianlong.com/"><img src="css/images/p6.png"></a>
+		  </div>
+	</div>
+		<link rel="stylesheet" href="css/style.css">
+</body>
+<style type="text/css">
+	.container{background-size: contain;}
+	.rumotag li.sec span{font-weight: bold;}
+	.cardtitle p a{font-size: 0.45rem;}
+	.contxq{padding-top: 3px;padding-bottom: 5px;}
+	.contxq img{padding-left: 2px;}
+	.sq{font-size: 16px;}
+	.cardcont p.cardcontent{line-height: 110%;}
+	.riqi li.sec{line-height: 110%;}
+</style>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    	//设置高度尺寸
+    	 + function() {
+        remLayout();
+
+        function remLayout() {
+            var w = document.documentElement.clientWidth;
+            w = w > 768 ? 768 : w;
+            w = w <= 320 ? 320 : w;
+            document.documentElement.style.fontSize = w / 7.5 + 'px';
+        }
+        window.addEventListener('resize', function() {
+            remLayout();
+        }, false);
+    }();
+	        //ajax填充数据       
+        function ajs(){
+            $.ajax({
+                url:"http://www.qianlong.com/qianlong-new/api/yiqing_h5.php",    //请求的url地址
+                dataType:"json",   //返回格式为json
+                // async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+                data:{},    //参数值,键值对
+                type:"post",   //请求方式
+                success:function(req){
+                    /请求成功时处理/
+                    if(req.status == 1){
+                         var str = '';
+                         var totalnum;
+                        for(var i = 0; i<req.data.length; i++){
+                                str += '<div class="rumocard">';
+                                str += '<ul class="rumotag">';
+                                str += '<li class="fir">';
+                                str += '<img src="css/images/p4.png"><span>' + req.data[i].time_format_display + '</span></li>';
+                                str += '<li class="sec">谣言No.<span>' + req.data[i].order + '</span></li>';
+                                str += '</ul>';
+                                str += ' <div class="yy"><img src="css/images/p3.png"></div>';
+                                str += '<div class="cardtitle">';
+                                str += '<p><a href="'+req.data[i].url+'">' + req.data[i].title + '</a></p> ';
+                                str += '</div>';
+                                str += '<div class="cardcont">';
+                                str += '<p class="cardcontent">';
+                                str += '<span class="zx" style="font-weight:bold;">真相：</span>';
+                                str += '<span class="maincont">' + req.data[i].description +'</span>';
+                                str += '</p>';
+                                str += '<div class="contxq"><span class="xq sq">展开详情</span>';
+                                str += '<img src="css/images/down.png"></div>';
+                                str += '</div>';
+                                str += '</div>';
+                            }
+                            totalnum = req.data[0].order;
+                            console.log(totalnum)
+                            $('.content').append(str);
+                 	        $('.riqi li.sec').html(totalnum);
+                          } 
+                	// console.log('success')
+                },
+                complete:function(){
+                    //请求完成的处理
+			        //获取当前时间
+			        // console.log('complete')
+			        var nowTime=getFormatDate();
+					function getFormatDate(){
+						    var nowDate = new Date();
+						    var year = nowDate.getFullYear();
+						    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+						    var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+						    var hour = nowDate.getHours()< 10 ? "0" + nowDate.getHours() : nowDate.getHours();
+						    var minute = nowDate.getMinutes()< 10 ? "0" + nowDate.getMinutes() : nowDate.getMinutes();
+						    return year + "." + month + "." + date+" "+hour+":"+minute;
+						}
+						$('.riqi li.first span.nowtime').html(getFormatDate());
+			        //设置每条内容的时间背景
+			        		$('.rumocard').each(function(){
+				        	var firSpan = $(this).find('.rumotag li.fir span');
+				        	var firImg =$(this).find('.rumotag li.fir img');
+				        	var firSpanHtml = firSpan.html();
+				        	console.log(firSpanHtml.length)
+				        	  if(firSpanHtml.length!= 0){
+				        	  	 firImg.attr({
+				        	  	 	'src':'css/images/p4-1.png'
+				        	  	 })
+				        	  	 $(this).find('.rumotag').css('top','-0.7rem')
+				        	  }
+
+			        })		
+			        //查看详情
+			            $('.xq').each(function(){
+			            	var self = $(this);
+			            	 self.click(function(){
+			            	 	var cardcontent = $(this).parent().parent().find('p.cardcontent'); 
+			            	 	var cardimg = $(this).parent().find('img'); 
+			            	 	var state  =  cardcontent.css('display');       	 	
+			            	 	if(state == 'none'){
+			            	 		cardcontent.css('display','block');
+			            	 		self.html('收起详情');
+			            	 		cardimg.attr('src','css/images/up.png');
+			            	 	}
+			            	 	else{
+			            	 		cardcontent.css('display','none');
+			            	 		self.html('展开详情');
+			            	 		cardimg.attr('src','css/images/down.png');
+			            	 	}
+			            	 })
+			            })
+			        	//No.后面的数字调整
+			        	
+			        	$('.rumocard').each(function(){
+			        		var num = $(this).find('.rumotag li.sec span').html();
+			        		if(num>99){
+			        			$(this).find('.rumotag li.sec').css('width','94px')
+			        		}
+			        		else if(num<10){
+			        			$(this).find('.rumotag li.sec').css('width','69px')
+			        		}else{
+			        			$(this).find('.rumotag li.sec').css('width','83px')
+			        		}
+			        	})
+			        	        //pad适配
+					function viewport() {
+						var e = window, a = 'inner';
+						if (!('innerWidth' in window )) {
+							a = 'client';
+							e = document.documentElement || document.body;
+						}
+						return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+						}
+						if(viewport().width>750){
+								$('html,body,.footer').css('width','768px');
+								$('html,body').css('margin','auto');
+								$('.footer').css('left','auto');
+								$('.rumocard').each(function(){
+					        	var firSpan = $(this).find('.rumotag li.fir span');
+					        	var firImg =$(this).find('.rumotag li.fir img');
+					        	var firSpanHtml = firSpan.html();
+					        	  if(firSpanHtml.length!= 0){
+					        	  	 firImg.attr({
+					        	  	 	'src':'css/images/p4-1o.png'
+					        	  	 })
+					        	  	 $(this).find('.rumotag').css('top','-0.7rem')
+					        	  }
+
+				              })
+						}  
+                },
+                error:function(){
+                    //请求出错处理
+                }
+           });
+        }
+        ajs();
+        
+    </script>
+</html>
