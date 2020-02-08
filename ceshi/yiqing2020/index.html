@@ -39,7 +39,9 @@
 	.contxq img{padding-left: 2px;}
 	.sq{font-size: 16px;}
 	.cardcont p.cardcontent{line-height: 110%;}
-	.riqi li.sec{line-height: 110%;}
+	.riqi li.sec{line-height: 120%;}
+	.rumotag li.sec{position: relative;}
+	.rumotag li.sec span{left: 2px;right: auto;}
 </style>
 <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
 <script type="text/javascript">
@@ -75,7 +77,8 @@
                                 str += '<ul class="rumotag">';
                                 str += '<li class="fir">';
                                 str += '<img src="css/images/p4.png"><span>' + req.data[i].time_format_display + '</span></li>';
-                                str += '<li class="sec">谣言No.<span>' + req.data[i].order + '</span></li>';
+                                str += '<li class="thr">谣言No.</li>';
+                                str += '<li class="sec"><span>' + req.data[i].order + '</span></li>';
                                 str += '</ul>';
                                 str += ' <div class="yy"><img src="css/images/p3.png"></div>';
                                 str += '<div class="cardtitle">';
