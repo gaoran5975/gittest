@@ -204,29 +204,20 @@ $signPackage = $jssdk->GetSignPackage();
         
     </script>
     <script type="text/javascript">
-    	$.ajax({
-    type: "get",
-    async: true,
-    url: "http://partner.qianlong.com/api/weixin/share/qianlong",
-    dataType: "jsonp",
-    data: {
-      "weburl": location.href.split("#")[0]
-    },
-    success: function(json){
-      //console.log(json);
-      wx.config({
-        debug: false,
-        appId: json.appId,
-        timestamp: json.timestamp,
-        nonceStr: json.nonceStr,
-        signature: json.signature,
-        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
-      });
-    },
-    error: function(){
-      console.log("share error");
-    }
-  });
+    	wx.config({
+        debug: false,// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。移动端会通过弹窗来提示相关信息。如果分享信息配置不正确的话，可以开了看对应报错信息
+        appId: '<?php echo $signPackage["appId"];?>',
+        timestamp: '<?php echo $signPackage["timestamp"];?>',
+        nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+        signature: '<?php echo $signPackage["signature"];?>',
+        jsApiList: [//需要使用的JS接口列表,分享默认这几个，如果有其他的功能比如图片上传之类的，需要添加对应api进来
+            'checkJsApi',
+            'onMenuShareTimeline',//
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo'
+        ]
+    });
   wx.ready(function(){
     console.log("ready to share");
     var obj_co = {
