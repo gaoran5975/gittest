@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>疫情谣言一网打尽——千龙网</title>
     <meta name="keywords" content="" />
 	<script src="http://img.qianlong.com/ql2019/index/js/jquery-1.8.3.min.js"></script>	
@@ -35,11 +34,14 @@
 	.container{background-size: contain;}
 	.rumotag li.sec span{font-weight: bold;}
 	.cardtitle p a{font-size: 0.45rem;}
-	.contxq{padding-top: 3px;padding-bottom: 5px;}
-	.contxq img{padding-left: 2px;}
-	.sq{font-size: 16px;}
+	.contxq{padding-top: 3px;padding-bottom: 3px;}
+	.contxq img{margin-left: 3px;}
+	.sq{font-size: 0.28rem;}
 	.cardcont p.cardcontent{line-height: 110%;}
-	.riqi li.sec{line-height: 110%;}
+	.riqi li.sec{line-height: 150%;}
+	.rumotag li.sec{position: relative;}
+	.rumotag li.sec span{left: 2px;right: auto;top: -1px;}
+	.rumocard{margin-bottom: 0.85rem;}
 </style>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
@@ -75,7 +77,8 @@
                                 str += '<ul class="rumotag">';
                                 str += '<li class="fir">';
                                 str += '<img src="css/images/p4.png"><span>' + req.data[i].time_format_display + '</span></li>';
-                                str += '<li class="sec">谣言No.<span>' + req.data[i].order + '</span></li>';
+                                str += '<li class="thr">谣言No.</li>';
+                                str += '<li class="sec"><span>' + req.data[i].order + '</span></li>';
                                 str += '</ul>';
                                 str += ' <div class="yy"><img src="css/images/p3.png"></div>';
                                 str += '<div class="cardtitle">';
@@ -121,7 +124,7 @@
 				        	// console.log(firSpanHtml.length)
 				        	  if(firSpanHtml.length!= 0){
 				        	  	 firImg.attr({
-				        	  	 	'src':'css/images/p4-1.png'
+				        	  	 	'src':'css/images/p4-2.png'
 				        	  	 })
 				        	  	 $(this).find('.rumotag').css('top','-0.7rem')
 				        	  }
