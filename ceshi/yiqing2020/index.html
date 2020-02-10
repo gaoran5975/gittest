@@ -44,7 +44,7 @@
 	.rumotag li.sec span{left: 2px;right: auto;top: -1px;}
 	.rumocard{margin-bottom: 0.85rem;}
 </style>
-<!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+<script src="jweixin-1.0.0.js"></script>
 <script type="text/javascript">
     	//设置高度尺寸
     	 + function() {
@@ -197,5 +197,61 @@
         }
         ajs();
         
+    </script>
+    <script type="text/javascript">
+    	$.ajax({
+    type: "get",
+    async: true,
+    url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+    dataType: "jsonp",
+    data: {
+      "weburl": location.href.split("#")[0]
+    },
+    success: function(json){
+      //console.log(json);
+      wx.config({
+        debug: false,
+        appId: json.appId,
+        timestamp: json.timestamp,
+        nonceStr: json.nonceStr,
+        signature: json.signature,
+        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+      });
+    },
+    error: function(){
+      console.log("share error");
+    }
+  });
+  wx.ready(function(){
+    console.log("ready to share");
+    var obj_co = {
+          title: '疫情谣言一网打尽',
+          link: "https://gaoran5975.github.io/gittest/ceshi/yiqing2020/",
+          imgUrl: "http://partner.qianlong.com/h5/zfyhzds/css/img/sutu.jpg",
+          success: function(){
+          },
+          cancel: function(){}
+        },
+        obj_co_desc = {
+          desc: '疫情谣言一网打尽'
+        },
+        obj_timeline = $.extend({}, obj_co),
+        obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+        obj_qq = $.extend({}, obj_co_desc, obj_co),
+        obj_wb = $.extend({}, obj_co_desc, obj_co),
+        obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+    wx.onMenuShareTimeline(obj_timeline);
+    wx.onMenuShareAppMessage(obj_appmsg);
+    wx.onMenuShareQQ(obj_qq);
+    wx.onMenuShareWeibo(obj_wb);
+    wx.onMenuShareQZone(obj_qzone);
+  });
+  wx.error(function (res) {
+    console.log(res.errMsg);
+    //alert(res.errMsg);
+  });
+</script>
+
     </script>
 </html>
