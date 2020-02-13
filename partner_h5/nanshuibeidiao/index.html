@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>一分钟了解南水北调中线生态水</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="lib/swiper-3.4.2.min.css">
+
+    <!-- Demo styles -->
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #fff;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 62.5%;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+			z-index:3;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+			overflow: hidden;
+
+        }
+        .swiper-container-f .swiper-wrapper{
+            animation-duration:2000ms;
+            -webkit-animation-duration:2000ms;
+        }
+        .swiper-slide img {
+			position:absolute;
+        }
+		
+		
+		
+		.pageLoading{
+			position: absolute;
+			width:100%;
+			height:100%;
+			z-index: 300;
+			background: #2b2d30;
+			color:#fff;
+		}
+		.pageLoading img {
+			width: 100%;
+			position: relative;
+		}
+		.pageLoading p {
+			position: absolute;
+			height: 20px;
+			text-align: center;
+			margin-top: 30%;
+			width:100%;
+			font-size:20px;
+			line-height:2em;
+			font-size:14px;
+		}
+		a.btnSound{
+			display: block;
+			width:32px;
+			height:32px;
+			position: absolute;
+			z-index: 2;
+			top:5%;
+			left:5%;
+			overflow:hidden;
+			background:#fff;
+			border:solid 2px #ccc;
+			border-radius: 10px;
+			opacity: 0.8;
+			padding:6px;
+		}
+		a.btnSound img{
+			width:100%;
+		}
+		img.toPlay{
+			display: none;
+		}
+		.pageLoading p span{
+			display:block;
+		}
+		a.btnEnter{
+			display:inline-block;
+			color:#fff;
+			height: 20px;
+			text-align: center;
+			margin-top: 30px;
+			width: 50px;
+			border:solid 1px #ccc;
+			font-size: 14px;
+			line-height: 20px;
+			font-size: 14px;
+			padding:2px 5px;
+			display:none;
+
+		}
+		img.btnMusic {
+			position: absolute;
+			right: 4px;
+			top: 10px;
+			display: block;
+			width: 10%;
+			z-index:100;
+		}
+		
+		
+		.arrow{position: absolute;bottom:10px;left:47.5%;z-index: 10;width:4.9%;}
+        .loading{position: absolute;top:20%;text-align: center;z-index: 11;width:100%;}
+        .swiper-pagination{display: none;}
+
+		.bgd{position:absolute;width:100%;}
+		.bgd img{
+			position:absolute;
+			top:100%;
+			left:0;
+			width:100%;
+		}
+
+		.bgd1 {
+			left: 0;
+			top:-10%;
+			width:100%;
+			position: absolute;
+		}
+		.bgd2 {
+			left: 0;
+			top:55%;
+			width:100%;
+			position: absolute;
+			z-index:2;
+		}
+		.itemAni0_1{
+			position:absolute;
+			width:76%;
+			left:12%;
+			top:12.8%;
+			z-index:2;
+		}
+		.itemAni0_2{
+			position:absolute;
+			width:76%;
+			left:12%;
+			top:36.5%;
+			z-index:4;
+		}
+		.itemAni0_3{
+			position:absolute;
+			width:76%;
+			left:12%;
+			top:41.5%;
+			z-index:3;
+		}
+		.itemAni0_4{
+			position:absolute;
+			width:23.6%;
+			left:38.2%;
+			top:50.1%;
+			z-index:3;
+		}
+		.itemAni1_1,.itemAni2_1{
+			position:absolute;
+			width:79.2%;
+			left:10.4%;
+			top:13.1%;
+		}
+		.itemAni1_2{
+			position:absolute;
+			width:48.5%;
+			left:25.8%;
+			top:24.9%;
+		}
+		.itemAni2_2{
+			position:absolute;
+			width:46%;
+			left:26%;
+			top:21.4%;
+		}
+		.itemAni3_1,.itemAni4_1,.itemAni5_1,.itemAni6_1{
+			position:absolute;
+			width:79.2%;
+			left:10.4%;
+			top:13.1%;
+		}
+		.itemAni3_2{
+			position:absolute;
+			width:68.3%;
+			left:15.8%;
+			top:27.9%;
+		}
+		.itemAni3_3{
+			position:absolute;
+			width:68.3%;
+			left:15.8%;
+			top:46.1%;
+		}
+		.itemAni3_4{
+			position:absolute;
+			width:68.3%;
+			left:15.8%;
+			top:64.7%;
+		}
+		.itemAni3_5{
+			position:absolute;
+			width:36.3%;
+			left:31.9%;
+			top:18.4%;
+		}
+		.itemAni4_2{
+			position:absolute;
+			width:59.4%;
+			left:20.3%;
+			top:18.6%;
+		}
+		.itemAni5_2{
+			position:absolute;
+			width:59.4%;
+			left:20.3%;
+			top:18.6%;
+		}
+		.itemAni6_2{
+			position:absolute;
+			width:59.4%;
+			left:20.3%;
+			top:18.6%;
+		}
+    </style>
+</head>
+<body>
+<!-- Swiper -->
+<div class="pageLoading">
+    <p><img src="img/loading3.gif" alt=""/> <span class="txtLoading">全力加载中...</span><span>打开声音效果更好！</span><span><a class="btnEnter">进入</a></span></p>
+</div>
+<div class="bgd bgd1">
+	<img src="img/p0_1.png"/>
+</div>
+<div class="bgd bgd2">
+	<img src="img/p0_2.png"/>
+</div>
+<div class="swiper-container swiper-container-v">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+			<img class="itemAni0_1" src="img/p0_3.png" alt=""/>
+			<img class="itemAni0_2" src="img/p0_4.png" alt=""/>
+			<img class="itemAni0_3" src="img/p0_5.png" alt=""/>
+			<img class="itemAni0_4" src="img/p0_6.png" alt=""/>
+		</div>  
+		
+        <div class="swiper-slide">           
+            <img class="itemAni1_1" src="img/p1_1.png" alt=""/>
+			<img class="itemAni1_2" src="img/p1_2.png" alt=""/>
+        </div>  
+		
+        <div class="swiper-slide">           
+            <img class="itemAni2_1" src="img/p1_1.png" alt=""/>
+			<img class="itemAni2_2" src="img/p2_2.png" alt=""/>
+        </div>  
+        <div class="swiper-slide">           
+            <img class="itemAni3_1" src="img/p3_1.png" alt=""/>
+			<img class="itemAni3_2" src="img/p3_2.png" alt=""/>
+			<img class="itemAni3_3" src="img/p3_3.png" alt=""/>
+			<img class="itemAni3_4" src="img/p3_4.png" alt=""/>
+			<img class="itemAni3_5" src="img/p3_5.png" alt=""/>
+        </div> 
+		<div class="swiper-slide">           
+			<img class="itemAni4_1" src="img/p3_1.png" alt=""/>
+			<img class="itemAni4_2" src="img/p4_2.png" alt=""/>
+		</div>                               
+		<div class="swiper-slide">           
+            <img class="itemAni5_1" src="img/p3_1.png" alt=""/>
+			<img class="itemAni5_2" src="img/p5_2.png" alt=""/>
+        </div>                         
+		<div class="swiper-slide">
+            <img class="itemAni6_1" src="img/p1_1.png" alt=""/>
+			<img class="itemAni6_2" src="img/p6_2.png" alt=""/>
+        </div>
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-v"></div>
+</div>
+<img class="btnMusic" src="img/music.png">
+<img class="arrow" src="img/y_arrow.png" />
+<!-- Swiper JS -->
+<script src="lib/jquery-1.8.3.min.js"></script>
+<script src="lib/swiper-3.4.2.jquery.min.js"></script>
+<script src="lib/TweenMax.min.js"></script>
+<script src="lib/howler.min.js"></script>
+<script src="lib/jquery.waitforimages.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var vh=$(window).height();
+    var vw=$(window).width();
+    var imgRatio=750/1206;
+	
+    if(vw>vh){
+        $('.swiper-container').height(vh);
+        $('.swiper-container').width(vh*imgRatio);
+    }
+	
+	//音乐按钮
+	var aniMusic;
+    var sndBgd=new Howl({
+        src: ['bgd.mp3'],
+        autoplay: false,
+        loop: true,
+        volume: 0.4,
+        onload: function() {
+        }
+    })
+	$('.btnMusic').click(function(){
+		console.log(sndBgd.playing());
+		if(sndBgd.playing()){
+			pauseMusic();
+			pauseMusic();
+		}else{
+			resumeMusic();
+		}
+		
+	})
+	function pauseMusic(){
+		console.log("func pause");
+			aniMusic.pause();
+			sndBgd.pause();
+	}
+	function resumeMusic(){
+			aniMusic.resume();
+			sndBgd.play();
+	}
+	function enterCover(){
+		aniMusic=TweenMax.to($('.btnMusic'), 7.2, {rotation:360, delay:0,ease:'Linear.easeNone',repeat:99})
+		sndBgd.play();
+		TweenMax.to($('.pageLoading'), 2, {opacity:0,ease:'Power2.easeNone'});
+		$('.pageLoading').hide();
+		arrayTl[0].restart();
+	}
+	
+  
+    $('img').waitForImages({
+        finished: function() {
+			console.log("imgs loaded");
+			$('.pageLoading p img').css("visibility","hidden");
+			//$('.txtLoading').text('加载完毕！');
+			//$('a.btnEnter').show();
+			//$('a.btnEnter').css('display','inline-block');
+			enterCover();
+			
+			
+			
+        },
+        each: function() {
+
+        },
+        waitForAll: true
+    });
+
+    
+    function makeSlideWithArrow(){
+        swiperV.enableTouchControl();
+        $('.arrow').show();
+    }
+
+	
+	
+	
+	
+	//第0帧,封面
+	
+	var tl0=new TimelineMax();
+	var ani0_1=TweenMax.from($('.itemAni0_1'), 1.5, {scale:0,opacity:0,ease:Power0.easeNone});
+	var ani0_2=TweenMax.from($('.itemAni0_2'), 1.5, {scale:4,x:'-300%',y:'200%',rotation:'20',ease:Power3.easeInOut,delay:1.5});
+	
+	var ani0_3=TweenMax.from($('.itemAni0_3'), 2, {opacity:0,scale:0,delay:3,ease: Elastic.easeOut});
+	var ani0_4=TweenMax.from($('.itemAni0_4'), 1, {scale:0,opacity:0,delay:4,ease:Power0.easeNone});
+
+	tl0.add([ani0_1,ani0_2,ani0_3,ani0_4]).pause();
+	
+	//第二页，今年4月份
+	var tl1=new TimelineMax();
+	var ani1_1=TweenMax.from($('.itemAni1_1'), 1, {x:"-300%",delay:0.5,ease: Power1.easeOut});
+	var ani1_2=TweenMax.from($('.itemAni1_2'), 1, {scale:0,delay:1.5});
+	tl1.add([ani1_1,ani1_2]).pause();
+	
+	//第三页，工程沿线
+	var tl2=new TimelineMax();
+	var ani2_1=TweenMax.from($('.itemAni2_1'), 1, {x:"-300%",delay:0.5,ease: Power1.easeOut});
+	var ani2_2=TweenMax.from($('.itemAni2_2'), 1, {scale:0,delay:1.5});
+	tl2.add([ani2_1,ani2_2]).pause();
+	
+	//第四页，河湖水量增加
+	
+	var tl3=new TimelineMax();
+	var ani3_1=TweenMax.from($('.itemAni3_1'), 1, {x:"-300%",delay:0.5,ease: Power1.easeOut});
+	var ani3_5=TweenMax.from($('.itemAni3_5'), 1, {x:"300%",delay:1.5});
+	var ani3_2=TweenMax.from($('.itemAni3_2'), 0.5, {scale:0,delay:2.5});
+	var ani3_3=TweenMax.from($('.itemAni3_3'), 0.5, {scale:0,delay:3});
+	var ani3_4=TweenMax.from($('.itemAni3_4'), 0.5, {scale:0,delay:3.5});
+	
+	tl3.add([ani3_1,ani3_5,ani3_2,ani3_3,ani3_4]).pause();
+	
+
+	//第五页,部分区域地下水位回升
+	var tl4=new TimelineMax();
+	var ani4_1=TweenMax.from($('.itemAni4_1'), 1, {y:"700%",delay:0.5,ease: Power1.easeOut});
+	var ani4_2=TweenMax.from($('.itemAni4_2'), 1, {y:"-200%",delay:1});
+	tl4.add([ani4_1,ani4_2]).pause();
+	
+	//第六页，河流水质提升
+	var tl5=new TimelineMax();
+	var ani5_1=TweenMax.from($('.itemAni5_1'), 1, {x:"-300%",delay:0.5,ease: Power1.easeOut});
+	var ani5_2=TweenMax.from($('.itemAni5_2'), 1, {scale:0,delay:1.5});
+	tl5.add([ani5_1,ani5_2]).pause();
+	
+	//第七页，部分地区饮水困难得到缓解
+	var tl6=new TimelineMax();
+	var ani6_1=TweenMax.from($('.itemAni6_1'), 1, {x:"-300%",delay:0.5,ease: Power1.easeOut});
+	var ani6_2=TweenMax.from($('.itemAni6_2'), 1, {scale:0,delay:1.5});
+	tl6.add([ani6_1,ani6_2]).pause();
+
+
+
+	
+	//所有帧动画数组
+	var arrayTl=[tl0,tl1,tl2,tl3,tl4,tl5,tl6];
+		
+	var curIdx=0;
+	var targIdx=0;
+	//var canMoveBgd=true;
+	
+    var swiperV = new Swiper('.swiper-container-v', {
+        pagination: '.swiper-pagination-v',
+        paginationClickable: true,
+        direction: 'vertical',
+        spaceBetween: 0,
+		mousewheelControl : true,
+		onSlideChangeStart: function(swiper){
+			targIdx=swiper.activeIndex;
+				if(targIdx>curIdx){
+					TweenMax.to($('.bgd1 img'), 1, {y:'-=1%',scale:'+=0.01'});
+					TweenMax.to($('.bgd2 img'), 1, {y:'+=0%',scale:'+=0.04'});
+				}else{
+					TweenMax.to($('.bgd1 img'), 1, {y:'+=1%',scale:'-=0.01'});
+					TweenMax.to($('.bgd2 img'), 1, {y:'-=0%',scale:'-=0.04'});
+				}
+		
+          },
+        onSlideChangeEnd: function(swiper){
+			arrayTl[curIdx].seek(0.1).reverse();
+			arrayTl[targIdx].restart();
+			curIdx=targIdx;
+           
+        }
+    });
+
+
+	//微信分享缩略图
+	
+	
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "一分钟了解南水北调中线生态水",
+					link: "http://partner.qianlong.com/h5/nanshuibeidiao/",
+					imgUrl: "http://partner.qianlong.com/h5/nanshuibeidiao/img/thumbShare.jpg",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "南水北调中线首次完成向北大规模生态补水"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		//alert(res.errMsg);
+	});
+	
+	
+	
+</script>
+</body>
+</html>

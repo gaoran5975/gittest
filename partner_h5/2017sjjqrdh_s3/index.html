@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width,user-scalable=no" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	
+	<style>
+		* {margin: 0; padding: 0; }
+body {margin: 0; padding: 0; }
+html {margin: 0; padding: 0; }
+ul {margin: 0;padding: 0; }
+li {margin: 0;padding: 0;list-style: none; }
+p, h1, h2, h3 {margin: 0;padding: 0; }
+form {margin: 0; padding: 0; }
+html, body {position: relative; height: 100%;}
+.swiper-container {width: 100%; height: 100%;}
+.anim {
+  transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+}
+
+
+.page {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    overflow: hidden; 
+}
+
+
+
+
+
+
+
+.swiper-slide{ position: relative; background: url(images/home.jpg) no-repeat; background-size: cover;}
+.page img:first-child{ position: absolute; bottom: 0;   }
+.box{  position: absolute; bottom: 0; height: 350px; overflow: hidden; width: 100%;}
+.box1{ animation:downToUp 1s ease-in; -webkit-animation:downToUp 1s ease-in; }
+.box1 img{ left: 0; width: 100%;}
+.resize{ position: fixed; right: 3%; top: 3%; width: 40px; z-index: 9; opacity: 1; }
+
+@keyframes downToUp{
+   0%   {height: 0px;}
+   100% {height: 130px;}
+}
+ 
+@-webkit-keyframes downToUp{
+   0%   {height: 0px;}
+   100% {height: 130px;}
+}
+
+
+.start{ position: absolute; bottom: 7.7%;left: 49%; width: 11px;}
+
+
+.box_line{ 
+    opacity: 1; 
+    height: 0;
+   /* animation:downToUp2 1s ease-in; 
+    -webkit-animation:downToUp2 1s ease-in; 
+    animation-delay : 2.2s; 
+    animation-fill-mode：forwards; 
+    -webkit-animation-fill-mode:forwards;*/
+}
+.box_line img{ left: 0; width: 100%;}
+
+/*@keyframes downToUp2{
+   0%   {height: 0px; opacity: 1}
+   100% {height: 430px; opacity: 1}
+}
+ 
+@-webkit-keyframes downToUp2{
+   0%   {height: 0px; opacity: 1}
+   100% {height: 430px; opacity: 1}
+}*/
+
+
+
+
+.line1{ bottom: 72%; height: 70px; width: 110px; right: 0;}
+
+.img_line1{ width: 174px !important; right: 0; bottom: 72%;}
+
+.logo{ position: absolute; bottom: 0; left: 0;width: 100%; }
+
+
+.line_left{ 
+    height: 100%;
+    width: 0;
+    /*animation:leftToRight 2s linear; 
+    -webkit-animation:leftToRight 2s linear; 
+    animation-delay :3.7s; 
+    animation-fill-mode：forwards; 
+    -webkit-animation-fill-mode:forwards;*/
+}
+.line_left img{ width: 300px;  top: 0; left: 0;}
+
+/*@keyframes leftToRight{
+   0%   {width: 0px; }
+   100% {width: 100%;}
+}
+ 
+@-webkit-keyframes leftToRight{
+   0%   {width: 0px; }
+   100% {width: 100%; }
+}*/
+
+.line_right{
+    height: 100%;
+    width: 0;
+    right: 0;
+    animation:leftToRight 2s ease-in-out; 
+    -webkit-animation:leftToRight 2s ease-in-out; 
+    animation-delay :3.7s; 
+    animation-fill-mode：forwards; 
+    -webkit-animation-fill-mode:forwards;
+}
+.line_right img{   top: -3px; right: 0;}
+
+.title{ width: 100%; bottom: 1%; position: absolute; left: 0;}
+.title2{ top: 0; width: 100%; position: absolute; left: 0;}
+.up{ width: 29px; position: absolute; bottom: 22%; left: 47%;
+    animation:up 5s 0.5s linear infinite;; 
+    -webkit-animation:up 2s 1s linear infinite;; 
+    animation-delay :4s; 
+    opacity: 0;
+}
+@keyframes up{
+   0%   {opacity: 0;}
+   50%  {opacity: 1;}
+   100% {opacity: 0;}
+}
+ 
+@-webkit-keyframes up{
+   0%   {opacity: 0;}
+   50%  {opacity: 1;}
+   100% {opacity: 0;}
+}
+
+
+
+/*第二页*/
+#page2 .box2-1{ height: 0; }
+
+.box2-2{ top: 0;  width: 0;}
+.box2-2 img{ width: 121px; left: 0; top: 0;}
+
+.box2-3{ top: 0;  width: 0;right: 0;}
+.box2-3 img{ width: 121px; right: 0; top: 0;}
+
+.p2-1{ width: 100%;  left: 0; top: 6%; position: absolute;}
+.p2-2{ width: 100%;  left: 0; top: 30%; position: absolute;}
+#page2 .up, #page3 .up, #page4 .up, #page5 .up, #page6 .up, #page7 .up, #page8 .up{ bottom: 2%; z-index: 10;}
+
+
+
+/*第3页*/
+#page3, #page4, #page5, #page6, #page7{ background: url(images/page3_bg.jpg) no-repeat; background-size: cover; }
+.box3-1{ top: 0;  width: 150px; height: 0;}
+.box3-1 img{ width: 69px; left: 0; top: 0;}
+
+.box3-2{ top: 0;  width: 0; height: 300px; right: 0;}
+.box3-2 img{ width: 186px; right: 0; top:0;}
+#page3>img{  position: absolute;}
+.p3-1{ top: 0; width: 100%; left: 0;}
+.p3-2{ top:0; width: 100%; left: 0;}
+
+/*第4页*/
+.box4-1{ top: 0;  width: 0; height: 300px;}
+.box4-1 img{ width: 210px; left: 0; top: 0;}
+
+.box4-2{ top: 0;  width: 300px; height: 0; right: 0;}
+.box4-2 img{ width: 94px; right: 0; top:0;}
+
+.p4-1{ top: 0%; width: 100%; left: 0;position: absolute;}
+.p4-2{ top:0; width: 100%; left: 0;position: absolute; z-index: 7}
+.p4-3{ bottom:0; width: 100%; left: 0;position: absolute;  z-index: 1}
+ 
+
+/*第5页*/
+.box5-1{ top: 0;  width: 0; height: 300px;}
+.box5-1 img{ width: 209px; left: 0; top: 0;}
+
+.box5-2{ top: 0;  width: 0; height: 300px; right: 0;}
+.box5-2 img{ width: 118px; right: 0; top:0;}
+.p5-1{ top: 0; width: 100%; left: 0;position: absolute;}
+.p5-2{ top:0; width: 100%; left: 0;position: absolute; }
+.p5-3{ bottom:0; width: 100%; left: 0;position: absolute; }
+
+/*第6页*/
+.box6-1{ top: 0;  width: 0; height: 300px;}
+.box6-1 img{ width: 84px; left: 0; top: 0;}
+
+.box6-2{ top: 0;  width: 0; height: 300px; right: 0;}
+.box6-2 img{ width: 101px; right: 0; top:0;}
+.p6-1{ top: 0; width: 100%; left: 0;position: absolute;}
+.p6-2{ bottom: 5%; width: 100%; left: 0;position: absolute;}
+.p6_1{ top: 28%; width: 100%; left: 0;position: absolute;}
+.p6_2{ top: 34%; width: 100%; left: 0;position: absolute;}
+.p6_3{ top: 39%; width: 100%; left: 0;position: absolute;}
+.p6_4{ top: 45%; width: 100%; left: 0;position: absolute;}
+.p6_5{ top: 50%; width: 100%; left: 0;position: absolute;}
+.p6_6{ top: 55.5%; width: 100%; left: 0;position: absolute;}
+
+
+/*第7页*/
+.box7-1{ top: 0;  width: 0; height: 300px;}
+.box7-1 img{ width: 99px; left: 0; top: 0;}
+
+.box7-2{ top: 0;  width: 0; height: 300px; right: 0;}
+.box7-2 img{ width: 99px; right: 0; top:0;}
+.p7-1{ top: 0; width: 100%; left: 0;position: absolute;}
+.p7-2{ top:0; width: 100%; left: 0;position: absolute; }
+.p7-3{ bottom:0; width: 100%; left: 0;position: absolute; }
+
+/*第8页*/
+.box8-2{ top: 0;  width: 300px; height: 0;}
+.box8-2 img{ width: 180px; left: 0; top: 0;}
+
+.box8-3{ top: 0;  width: 300px; height: 0; right: 0;}
+.box8-3 img{ width: 81px; right: 0; top:0;}
+
+.box8-4{ top: 0;  width: 0; height: 300px; right: 0;}
+.box8-4 img{ width: 168px; right: 0; top:0;}
+
+.p8-1{ top: -1%; width: 100%; left: 0;position: absolute;}
+.p8-2{ top:22%; width: 100%; left: 0;position: absolute; }
+.p8-3{ top:28%; width: 100%; left: 0;position: absolute; }
+.p8-4{ top:38%; width: 100%; left: 0;position: absolute; }
+.p8-5{ top:44%; width: 100%; left: 0;position: absolute; }
+.p8-6{ top:53%; width: 100%; left: 0;position: absolute; }
+.p8-7{ top:59%; width: 100%; left: 0;position: absolute; }
+.p8-8{ top:69%; width: 100%; left: 0;position: absolute; }
+.p8-9{ top:76%; width: 100%; left: 0;position: absolute; }
+
+/*播放器按钮*/
+.rotate{animation: rotate 2.5s 0.5s linear infinite;-webkit-animation: rotate 5s 0.5s linear infinite;}
+@keyframes rotate{
+    0%{opacity: 1;}
+    100%{transform: rotate(360deg);-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);opacity: 1;}
+}
+@-webkit-keyframes rotate{
+     0%{opacity: 1;}
+    100%{transform: rotate(360deg);-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);opacity: 1;}
+}
+
+
+
+
+@media screen and (max-width: 320px) {
+    html{font-size: 12px;}
+}
+
+
+	</style>
+</head>
+<body>
+
+
+
+<div class="swiper-container">
+	<img src="images/music.png" class="resize rotate" id="audioPlay"> 
+	<div class="swiper-wrapper">
+		<div class="swiper-slide page" id="page1">
+
+
+			<div class="box box1">
+				<img src="images/home_bg.png" class="title">
+			</div>
+			
+			<img src="images/ani_start.png" class="start ani" swiper-animate-effect="bounceIn" swiper-animate-duration=".7s" swiper-animate-delay="1.7s">
+			<div class="box box_line">
+				<img src="images/line.png" alt=""> 
+			</div>
+			
+			<img src="images/logo2.png" class="logo ani" swiper-animate-effect="rotateIn" swiper-animate-duration=".7s" swiper-animate-delay="3.2s">
+
+			<div class="box line_left">
+				<img src="images/line_left1.png" alt="">
+			</div>
+			<div class="box line_right">
+				<img src="images/line_right.png" alt="">
+			</div>
+			
+			<img src="images/title.png" class="title2 ani"  swiper-animate-effect="bounceIn" swiper-animate-duration=".7s" swiper-animate-delay="4.3s">
+			
+			<img src="images/icon.png" class="up">
+		</div>
+		
+
+		<!-- 第二页 -->
+		<div class="swiper-slide page" id="page2">
+			<div class="box box2-1">
+				<img src="images/home_bg.png" class="title">
+			</div>
+			<div class="box box2-2">
+				<img src="images/line2-1.png" alt="">
+			</div>
+			<div class="box box2-3">
+				<img src="images/line2-2.png" alt="">
+			</div>
+			<img src="images/p2-1.png" class="p2-1 ani" swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay="2s">
+			<img src="images/p2-2.png" class="p2-2 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration=".5s" swiper-animate-delay="2.3s">
+			<img src="images/icon.png" class="up">
+		</div> 
+
+
+
+		<!-- page3 -->
+		<div class="swiper-slide page" id="page3">
+			<div class="box box3-1">
+				<img src="images/line3-1.png" >
+			</div>
+			<div class="box box3-2">
+				<img src="images/line3-2.png" >
+			</div>
+			<img src="images/p3-1.png" class="ani p3-1"  swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay="1.8s">
+			<img src="images/p3-2.png" class="ani p3-2"  swiper-animate-effect="fadeInUp" swiper-animate-duration=".5s" swiper-animate-delay="2s">
+			<img src="images/icon.png" class="up">
+		</div> 
+
+
+		<!-- page4 -->
+		<div class="swiper-slide page" id="page4">
+			<div class="box box4-1">
+				<img src="images/line4-1.png" >
+			</div>
+			<div class="box box4-2">
+				<img src="images/line4-2.png" >
+			</div>
+			<img src="images/p4-1.png" class="ani p4-1"  swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay="1.8s">
+			<img src="images/p4-2.png" class="ani p4-2"  swiper-animate-effect="fadeInUp" swiper-animate-duration=".5s" swiper-animate-delay="2s">
+			<img src="images/p4-3.png" class="ani p4-3"  swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.4s">
+			<img src="images/icon.png" class="up">
+			
+		</div> 
+
+		<!-- page5 -->
+		<div class="swiper-slide page" id="page5">
+			<div class="box box5-1">
+				<img src="images/line5-1.png" >
+			</div>
+			<div class="box box5-2">
+				<img src="images/line5-2.png" >
+			</div>
+			<img src="images/p5-1.png" class="ani p5-1"  swiper-animate-effect="fadeInDown" swiper-animate-duration=".8s" swiper-animate-delay="1.7s">
+			<img src="images/p5-2.png" class="ani p5-2"  swiper-animate-effect="fadeInUp" swiper-animate-duration=".5s" swiper-animate-delay="2.2s">
+			<img src="images/p5-3.png" class="ani p5-3"  swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.6s">
+			<img src="images/icon.png" class="up">
+			
+		</div> 
+
+
+		<!-- page6 -->
+		<div class="swiper-slide page" id="page6">
+			<div class="box box6-1">
+				<img src="images/line6-1.png" >
+			</div>
+			<div class="box box6-2">
+				<img src="images/line6-2.png" >
+			</div>
+			<img src="images/p6-1.png" class="ani p6-1"  swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay="1.8s">
+			<img src="images/p6_1.png" class="ani p6_1"  swiper-animate-effect="fadeInLeft" swiper-animate-duration=".7s" swiper-animate-delay="2s">
+			<img src="images/p6_2.png" class="ani p6_2"  swiper-animate-effect="fadeInRight" swiper-animate-duration=".7s" swiper-animate-delay="2.1s">
+			<img src="images/p6_3.png" class="ani p6_3"  swiper-animate-effect="fadeInLeft" swiper-animate-duration=".7s" swiper-animate-delay="2.2s">
+			<img src="images/p6_4.png" class="ani p6_4"  swiper-animate-effect="fadeInRight" swiper-animate-duration=".7s" swiper-animate-delay="2.3s">
+			<img src="images/p6_5.png" class="ani p6_5"  swiper-animate-effect="fadeInLeft" swiper-animate-duration=".7s" swiper-animate-delay="2.4s">
+			<img src="images/p6_6.png" class="ani p6_6"  swiper-animate-effect="fadeInRight" swiper-animate-duration=".7s" swiper-animate-delay="2.5s">
+			<img src="images/p6-2.png" class="ani p6-2"  swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.8s">
+			<img src="images/icon.png" class="up">
+			
+		</div> 
+ 
+
+		<!-- page7 -->
+		<div class="swiper-slide page" id="page7">
+			<div class="box box7-1">
+				<img src="images/line7-1.png" >
+			</div>
+			<div class="box box7-2">
+				<img src="images/line7-2.png" >
+			</div>
+			<img src="images/p7-1.png" class="ani p7-1"  swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay="1.8s">
+			<img src="images/p7-2.png" class="ani p7-2"  swiper-animate-effect="fadeInUp" swiper-animate-duration=".5s" swiper-animate-delay="2.2s">
+			<img src="images/p7-3.png" class="ani p7-3"  swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.6s">
+			<img src="images/icon.png" class="up">
+			
+		</div> 
+
+		<!-- 第8页 -->
+		<div class="swiper-slide page" id="page8">
+			<div class="box box2-1">
+				<img src="images/home_bg.png" class="title">
+			</div>
+			<div class="box box8-2">
+				<img src="images/line8-1.png" alt="">
+			</div>
+			<div class="box box8-3">
+				<img src="images/line8-2.png" alt="">
+			</div>
+			<div class="box box8-4">
+				<img src="images/line8-3.png" alt="">
+			</div>
+			<img src="images/p8-1.png" class="p8-1 ani" swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay="2s">
+			<img src="images/p8-2.png" class="p8-2 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration=".5s" swiper-animate-delay="2.3s">
+			<img src="images/p8-3.png" class="p8-3 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration=".5s" swiper-animate-delay="2.4s">
+			<img src="images/p8-4.png" class="p8-4 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration=".5s" swiper-animate-delay="2.5s">
+			<img src="images/p8-5.png" class="p8-5 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration=".5s" swiper-animate-delay="2.6s">
+			<img src="images/p8-6.png" class="p8-6 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration=".5s" swiper-animate-delay="2.7s">
+			<img src="images/p8-7.png" class="p8-7 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration=".5s" swiper-animate-delay="2.8s">
+			<img src="images/p8-8.png" class="p8-8 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration=".5s" swiper-animate-delay="2.9s">
+			<img src="images/p8-9.png" class="p8-9 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration=".5s" swiper-animate-delay="3s">
+		</div> 
+
+	</div>
+	<audio src="http://partner.qianlong.com/h5/2017sjjqrdh_s1/bgd2.mp3" autoplay="autoplay" id="audio" hidden="hidden" loop="loop" preload="auto" x-webkit-airplay="true"></audio>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate1.0.2.min.js"></script>
+<script src="js/jweixin-1.0.0.js"></script>
+<script>
+
+
+
+
+var vh=$(window).height();
+var vw=$(window).width();
+var imgRatio=750/1334;
+if(vw>vh){
+   $('.swiper-container').height(vh);
+   $('.swiper-container').width(vh*imgRatio);
+}
+
+$('.line_left img').width(vw);
+$('.line_right img').width(vw);
+$('.box2-2 img').width(vw);
+$('.box2-3 img').width(vw);
+$('.box3-1 img').width(vw);
+$('.box3-2 img').width(vw);
+$('.box4-1 img').width(vw);
+$('.box4-2 img').width(vw);
+
+$('.box5-1 img').width(vw);
+$('.box5-2 img').width(vw);
+
+$('.box6-1 img').width(vw);
+$('.box6-2 img').width(vw);
+$('.box7-1 img').width(vw);
+$('.box7-2 img').width(vw);
+$('.box8-2 img').width(vw);
+$('.box8-3 img').width(vw);
+$('.box8-4 img').width(vw);
+//音乐播放按钮
+document.addEventListener('DOMContentLoaded', function () {
+   function audioAutoPlay() {
+      var audio = document.getElementById('audio');
+         audio.play();
+      document.addEventListener("WeixinJSBridgeReady",function(){WeixinJSBridge.invoke('getNetworkType',{}, function(e){document.getElementById('audio').play()})},false);
+   }
+   audioAutoPlay();
+});
+
+
+$('html,body').one('touchstart',function(){
+	audio.play();
+});
+
+$("#audioPlay").on('click',function(){
+   if(audio.paused){
+      audio.play();
+   	$("#audioPlay").addClass('rotate');
+	}else{
+   	audio.pause();
+   	$("#audioPlay").removeClass('rotate');
+	}
+});  
+window.onload = function(){
+   aniP1();
+}
+function aniP1(){
+   timer0 = setTimeout(function(){
+      $('#page1 .line_left').animate({
+         width: '100%'
+      });
+   }, 3500);
+   timer00 = setTimeout(function(){
+      $('#page1 .line_right').animate({
+         width: '100%'
+      });
+   }, 3800);
+   timer000 = setTimeout(function(){
+      $('#page1 .box_line').animate({
+         height: '500px'
+      }, 1500);
+   }, 1800);
+}
+
+function aniP2(){
+	timer1 = setTimeout(function(){
+		$('#page2 .box2-1').animate({
+			height: '135px'
+		});
+	}, 500);
+	timer2 = setTimeout(function(){
+		$('#page2 .box2-2').animate({
+			width: '100%'
+		});
+	}, 1500);
+	timer3 = setTimeout(function(){
+		$('#page2 .box2-3').animate({
+			width: '100%'
+		});
+	}, 1700);
+}
+
+function aniP3(){
+	timer4 = setTimeout(function(){
+		$('#page3 .box3-1').animate({
+			height: '300px'
+		});
+	}, 1000);
+	timer5 = setTimeout(function(){
+		$('#page3 .box3-2').animate({
+			width: '300px'
+		});
+	}, 1300);
+}
+function aniP4(){
+	timer6 = setTimeout(function(){
+		$('#page4 .box4-1').animate({
+			width: '300px'
+		});
+	}, 1000);
+	timer7 = setTimeout(function(){
+		$('#page4 .box4-2').animate({
+			height: '300px'
+		});
+	}, 1300);
+}
+
+function aniP5(){
+	timer8 = setTimeout(function(){
+		$('#page5 .box5-1').animate({
+			width: '300px'
+		});
+	}, 1000);
+	timer9 = setTimeout(function(){
+		$('#page5 .box5-2').animate({
+			width: '300px'
+		});
+	}, 1300);
+}
+function aniP6(){
+	timer10 = setTimeout(function(){
+		$('#page6 .box6-1').animate({
+			width: '300px'
+		});
+	}, 1000);
+	timer11 = setTimeout(function(){
+		$('#page6 .box6-2').animate({
+			width: '300px'
+		});
+	}, 1300);
+}
+function aniP7(){
+	timer12 = setTimeout(function(){
+		$('#page7 .box7-1').animate({
+			width: '300px'
+		});
+	}, 1000);
+	timer13 = setTimeout(function(){
+		$('#page7 .box7-2').animate({
+			width: '300px'
+		});
+	}, 1300);
+}
+
+function aniP8(){
+	timer14 = setTimeout(function(){
+		$('#page8 .box8-2').animate({
+			height: '300px'
+		});
+	}, 1000);
+	timer15 = setTimeout(function(){
+		$('#page8 .box8-3').animate({
+			height: '300px'
+		});
+	}, 1300);
+	timer16 = setTimeout(function(){
+		$('#page8 .box8-4').animate({
+			width: '300px'
+		});
+	}, 1600);
+}
+// 初始化
+$(document).ready(function() {
+	var mySwiper = new Swiper('.swiper-container', {
+		direction: 'vertical',
+		pagination: '.swiper-pagination',
+		mousewheelControl: true,
+		onInit: function(swiper) {
+			swiperAnimateCache(swiper);
+			swiperAnimate(swiper);
+		},
+		onSlideChangeEnd: function(swiper) {
+			swiperAnimate(swiper);
+		},
+		onTransitionEnd: function(swiper) {
+			swiperAnimate(swiper);
+		},
+      onTransitionStart:function(swiper){
+         swiperAnimate(swiper);
+         // clearTimeout(timer0);
+         // clearTimeout(timer00);
+         // clearTimeout(timer000);
+         $('.line_right').width(0);
+         $('.box_line').height(0);
+         $('.line_left').width(0);
+         $('.box2-2').width(0);
+         $('.box2-3').width(0);
+         $('.box3-1').height(0);
+         $('.box3-2').width(0);
+         $('.box4-1').width(0);
+         $('.box4-2').height(0);
+         $('.box5-1').width(0);
+         $('.box5-2').width(0);
+         $('.box6-1').width(0);
+         $('.box6-2').width(0);
+         $('.box7-1').width(0);
+         $('.box7-2').width(0);
+         $('.box8-2').height(0);
+         $('.box8-3').height(0);
+         $('.box8-4').width(0);
+      },
+
+		onSlideChangeStart: function(swiper){
+			swiperAnimate(swiper);
+			
+			aniP2();
+			switch (swiper.activeIndex) {
+            case 0:
+               aniP1();
+               break;
+				case 2:
+					aniP3();
+					break;
+				case 3:
+					aniP4();
+					break;
+				case 4:
+					aniP5();
+					break;
+				case 5:
+					aniP6();
+					break;
+				case 6:
+					aniP7();
+					break;
+				case 7:
+					aniP8();
+					break;
+				default:
+					break;
+			}
+		},
+
+	});
+});
+
+
+</script>
+
+<script type="text/javascript">   
+  $.ajax({
+    type: "get",
+    async: true,
+    url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+    dataType: "jsonp",
+    data: {
+      "weburl": location.href.split("#")[0]
+    },
+    success: function(json){
+      //console.log(json);
+      wx.config({
+        debug: false,
+        appId: json.appId,
+        timestamp: json.timestamp,
+        nonceStr: json.nonceStr,
+        signature: json.signature,
+        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+      });
+    },
+    error: function(){
+      console.log("share error");
+    }
+  });
+  wx.ready(function(){
+    console.log("ready to share");
+    var obj_co = {
+          title: "预见机器人——敢问路在何方",
+          link: "http://partner.qianlong.com/h5/2017sjjqrdh_s3",
+          imgUrl: "http://partner.qianlong.com/h5/2017sjjqrdh_s3/images/main_img.jpg",
+          success: function(){
+          },
+          cancel: function(){}
+        },
+        obj_co_desc = {
+          desc: "机器人的修炼法则"
+        },
+        obj_timeline = $.extend({}, obj_co),
+        obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+        obj_qq = $.extend({}, obj_co_desc, obj_co),
+        obj_wb = $.extend({}, obj_co_desc, obj_co),
+        obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+    wx.onMenuShareTimeline(obj_timeline);
+    wx.onMenuShareAppMessage(obj_appmsg);
+    wx.onMenuShareQQ(obj_qq);
+    wx.onMenuShareWeibo(obj_wb);
+    wx.onMenuShareQZone(obj_qzone);
+  });
+  wx.error(function (res) {
+    console.log(res.errMsg);
+    //alert(res.errMsg);
+  });
+</script>
+</body>
+</html>

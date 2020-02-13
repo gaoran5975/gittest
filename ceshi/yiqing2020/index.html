@@ -1,8 +1,3 @@
-<?php
-require_once "../php/jssdk.php";/* 这里的文件路径视`php`文件夹所在路径而定。不一定都要一样，个人建议扔到一个所有html文件夹都可以引用的目录*/
-$jssdk = new JSSDK("你的APPID", "你的APPSECRET");
-$signPackage = $jssdk->GetSignPackage();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +12,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body style="background: #04336d;">
 	<div class="container" style="background-size: contain;">
 		  <div class="banner">
+               <img src="css/images/logo.png" class="logo">
 		  	   <img src="css/images/p1.png" class="p1">
 		  	   <div class="fsrs">
 		  	   	   <ul class="riqi">
@@ -48,6 +44,7 @@ $signPackage = $jssdk->GetSignPackage();
 	.rumotag li.sec{position: relative;}
 	.rumotag li.sec span{left: 2px;right: auto;top: -1px;}
 	.rumocard{margin-bottom: 0.85rem;}
+    .logo{position: absolute;top: 0;left: 0;width: 100%;z-index: 3;height: auto;}
 </style>
 <script src="jweixin-1.0.0.js"></script>
 <script type="text/javascript">
@@ -203,60 +200,5 @@ $signPackage = $jssdk->GetSignPackage();
         ajs();
         
     </script>
-    <script type="text/javascript">
-    	$.ajax({
-    type: "get",
-    async: true,
-    url: "http://partner.qianlong.com/api/weixin/share/qianlong",
-    dataType: "jsonp",
-    data: {
-      "weburl": location.href.split("#")[0]
-    },
-    success: function(json){
-      //console.log(json);
-      wx.config({
-        debug: false,
-        appId: json.appId,
-        timestamp: json.timestamp,
-        nonceStr: json.nonceStr,
-        signature: json.signature,
-        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
-      });
-    },
-    error: function(){
-      console.log("share error");
-    }
-  });
-  wx.ready(function(){
-    console.log("ready to share");
-    var obj_co = {
-          title: '疫情谣言一网打尽',
-          link: "https://gaoran5975.github.io/gittest/ceshi/yiqing2020/",
-          imgUrl: "http://partner.qianlong.com/h5/zfyhzds/css/img/sutu.jpg",
-          success: function(){
-          },
-          cancel: function(){}
-        },
-        obj_co_desc = {
-          desc: '疫情谣言一网打尽'
-        },
-        obj_timeline = $.extend({}, obj_co),
-        obj_appmsg = $.extend({}, obj_co_desc, obj_co),
-        obj_qq = $.extend({}, obj_co_desc, obj_co),
-        obj_wb = $.extend({}, obj_co_desc, obj_co),
-        obj_qzone = $.extend({}, obj_co_desc, obj_co);
 
-    wx.onMenuShareTimeline(obj_timeline);
-    wx.onMenuShareAppMessage(obj_appmsg);
-    wx.onMenuShareQQ(obj_qq);
-    wx.onMenuShareWeibo(obj_wb);
-    wx.onMenuShareQZone(obj_qzone);
-  });
-  wx.error(function (res) {
-    console.log(res.errMsg);
-    //alert(res.errMsg);
-  });
-</script>
-
-    </script>
 </html>

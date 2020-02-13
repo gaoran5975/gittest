@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>“最北京”实体书店</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Demo styles -->
+    <style>
+		*{margin:0;padding:0;}
+		html{
+			font-size:100px;
+		}
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #fff;
+            font-family: "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";
+            color:#000;
+            margin: 0;
+            padding: 0;
+			font-size:0.3rem;
+			line-height:1.6em;
+        }
+		.textLoading{
+			margin-top:100px;
+			width:100%;
+			text-align:center;
+		}
+		.wrap{
+			position:relative;
+			width:100%;
+			max-width:414px;
+			margin:0 auto;
+			height:100%;
+			overflow:hidden;
+			display:none;
+		}
+		.tankMap{
+			width:100%;
+			position:relative;
+		}
+		.imgMap{
+			width:100%;
+		} 
+		.tankMap a{
+			position:absolute;
+			display:inline-block;
+			z-index:2;
+			background:#fff;
+			border:solid 1px #f00;
+			border-radius:6px;
+			font-size:11px;
+			color:#f00;
+			text-decoration:none;
+			line-height: 1.6em;
+			padding:0 2px;
+		}
+		.anchor1{
+			left:12.4%;
+			top:10%;
+		}
+		.anchor2{
+			left:60%;
+			top:52%;
+		}
+		.anchor3 {
+			left: 29%;
+			top: 74%;
+		}
+		.anchor4{
+			left:20%;
+			top:66%;
+		}
+		.anchor5{
+			left:23%;
+			top:49%;
+		}
+		.anchor6{
+			left:57%;
+			top:76%;
+		}
+		.anchor7{
+			left:78%;
+			top:58%;
+		}
+		.anchor8{
+			left:76%;
+			top:71%;
+		}
+		.anchor9{
+			left:62.5%;
+			top:62%;
+		}
+		.anchor10{
+			left:45%;
+			top:67.5%;
+		}
+		.panelTank{
+			position: absolute;
+			width: 1px;
+			left: 0;
+			z-index: 3;
+			height: 1px;
+			top:0;
+			padding-bottom:10%;
+			background: rgba(180, 180, 180, 0.7) none repeat scroll 0 0 !important;
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+			opacity:0;
+			border-radius: 10px;
+			
+		}
+		.panelLink {
+			
+		}
+		.panelLink li{
+			list-style:none;
+		}
+		.panelLink img {
+			width: 90%;
+			margin: 2% 5% 0 5%;
+			border: solid 1px #ccc;
+		}
+		a.btnClose {
+			display: block;
+			margin-top: 5px;
+			margin-right: 5px;
+			margin-left: auto;
+			width: 20px;
+			font-weight: bold;
+			text-align: center;
+			background: #ab8267;
+			color: #fff;
+			font-family: sans-serif;
+			border-radius: 5px;
+		}
+		.linkTop10{
+			display:block;
+			position:absolute;
+			top:70px;
+			right:10px;
+			color:#f00;
+			font-size: 14px;
+		}
+		h1 {
+			position: absolute;
+			top: 20%;
+			width: 80%;
+			left: 10%;
+			font-size: 34px;
+			text-align: center;
+			text-shadow: 5px 5px 5px #888888;
+			color: #dc3f00;
+			-webkit-text-stroke: 1px #ffffff;
+		}
+		.logo{
+			position:absolute;
+			top:-5px;
+			width:80%;
+			right:0%;
+			width:30%;
+			opacity:0.4;
+		}
+		
+		@media screen and (min-width:320px){
+		 html{font-size:42.6px;}
+		 h1{font-size:30px;}
+		}
+		@media screen and (min-width:360px){
+		 html{font-size:48px;}
+		}
+		@media screen and (min-width:375px){
+		 html{font-size:50px;}
+		}
+		@media screen and (min-width:384px){
+		 html{font-size:51.2px;}
+		}
+		@media screen and (min-width:400px){
+		 html{font-size:53.3px;}
+		}
+		@media screen and (min-width:414px){
+		 html{font-size:55.2px;}
+		}
+		@media screen and (min-width:424px){
+		 html{font-size:56.5px;}
+		}
+		@media screen and (min-width:480px){
+		 html{font-size:64px;}
+		}
+
+    </style>
+</head>
+<body>
+	<p class="textLoading">加载中...</p>
+	<div class="wrap">
+	<div class="tankMap">
+		<img class="imgMap" src="css/img/map.jpg">
+		
+		<a href="#" class="anchor1">雨枫书馆(万科馆)</a>
+		<a href="#" class="anchor2">三联韬奋书店<br>(美术馆总店)</a>
+		<a href="#" class="anchor3">甲骨文&middot;悦读空间</a>
+		<a href="#" class="anchor4">中国新闻书店</a>
+		<a href="#" class="anchor5">北京外研书店</a>
+		
+		<a href="#" class="anchor6">模范书局</a>
+		<a href="#" class="anchor7">中信书店<br>(侨福芳草地店)</a>
+		<a href="#" class="anchor8">青少年阅读<br>体验大世界</a>
+		<a href="#" class="anchor9">涵芬楼书店</a>
+		<a href="#" class="anchor10">中国书店(琉璃厂店)</a>
+		
+	</div><!--end tankMap-->
+	<div class="panelTank">
+		<a class="btnClose">X</a>
+	<ul class="panelLink">
+	
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2222711.shtml"><img src="css/img/1.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2207916.shtml"><img src="css/img/2.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2220467.shtml"><img src="css/img/3.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2220509.shtml"><img src="css/img/4.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2208626.shtml"><img src="css/img/5.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2214397.shtml"><img src="css/img/6.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2220132.shtml"><img src="css/img/7.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2223265.shtml"><img src="css/img/8.jpg"></a>
+			
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2219669.shtml"><img src="css/img/9.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2219680.shtml"><img src="css/img/10.jpg"></a>
+		</li>
+		
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2210146.shtml"><img src="css/img/11.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2220465.shtml"><img src="css/img/12.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2219624.shtml"><img src="css/img/13.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2219598.shtml"><img src="css/img/14.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2220041.shtml"><img src="css/img/15.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2219611.shtml"><img src="css/img/16.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2220292.shtml"><img src="css/img/17.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2212027.shtml"><img src="css/img/18.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2220608.shtml"><img src="css/img/19.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2220684.shtml"><img src="css/img/20.jpg"></a>
+		</li>
+		
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2222711.shtml"><img src="css/img/11.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2207916.shtml"><img src="css/img/12.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2220467.shtml"><img src="css/img/13.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2220509.shtml"><img src="css/img/14.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2208626.shtml"><img src="css/img/15.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2214397.shtml"><img src="css/img/16.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2223265.shtml"><img src="css/img/17.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2220132.shtml"><img src="css/img/18.jpg"></a>
+		</li>
+		<li>
+			<a href="http://photo.qianlong.com/2017/1204/2219669.shtml"><img src="css/img/19.jpg"></a>
+			<a href="http://photo.qianlong.com/2017/1204/2219680.shtml"><img src="css/img/20.jpg"></a>
+		</li>
+	</ul>
+	</div><!--end panelTank-->
+	<h1>"最北京"实体书店</h1>
+	<a href="http://photo.qianlong.com/2017/1204/2211954.shtml" class="linkTop10">被翻得最多的书TOP10>></a>
+	<img class="logo" src="css/img/logo.png">
+</div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.waitforimages.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/jweixin-1.0.0.js"></script>
+
+
+<script>
+
+	//设置pc端容器大小
+    var vh=$(window).height();
+    var vw=$(window).width();
+    var imgRatio=750/1334;
+	var screenRatio=vw/vh;
+	var canClickLink=true;
+	var tlMark=new TimelineMax();
+	tlMark.staggerFrom($('.tankMap a'), 1, {opacity:0,y:"+=50",scale:0}, 0.2);
+	var tmPanel;
+	
+	if(vw>480){
+		$('.wrap').width('414px');
+		$('.tankMap').height(414/imgRatio);
+	}else{
+		$('.wrap').width('100%');
+		var hImg=vw/imgRatio;
+		$('.tankMap').height(vw/imgRatio);
+	}
+    
+    $('.tankMap a').click(function(){
+		if(canClickLink){
+			var panelTankH=$('.tankMap').height()*0.6;
+			var idx=$(this).index()-1;
+			$('.panelLink li').eq(idx).show().siblings().hide();
+			tmPanel=TweenMax.to($('.panelTank'),0.5,{width:"90%",height:panelTankH,opacity:1,top:"15%",left:"5%"});
+			canClickLink=false;
+			return false;
+		}
+		return false;
+	})
+	$('a.btnClose').click(function(){
+		tmPanel.reverse();
+		canClickLink=true;
+	})
+	
+	$('.panelLink img').waitForImages({
+		finished: function() {
+			$('.textLoading').hide();
+			$('.wrap').show();
+		},
+		each: function() {
+			//console.log("each");
+		},
+		waitForAll: true
+	});
+
+	//微信分享缩略图
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			//console.log(json);
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: '“最北京”实体书店',
+					link: "http://partner.qianlong.com/h5/shudian/index.html",
+					imgUrl: "http://partner.qianlong.com/h5/shudian/share.jpg",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: '书店承载着深沉的文化自信，是每一位阅读者蓄积力量，获取精神食粮的美好场所'
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		
+	});
+	
+</script>
+</body>
+</html>

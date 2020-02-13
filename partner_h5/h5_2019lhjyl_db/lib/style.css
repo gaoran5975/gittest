@@ -1,0 +1,182 @@
+@charset "utf-8";
+html,
+body {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	background: #fff;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 62.5%;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.swiper-slide img {
+	position: absolute;
+}
+
+.arrow {
+	position: absolute;
+	bottom: 10px;
+	z-index: 10;
+	left: 46%;
+	width: 5.5em;
+}
+
+.loading {
+	position: absolute;
+	top: 20%;
+	text-align: center;
+	z-index: 11;
+	width: 100%;
+}
+
+.swiper-pagination {
+	display: none;
+}
+.bgd{position:absolute;width:100%;}
+.bgd img{
+	position:absolute;
+	top:100%;
+	left:0;
+	width:100%;
+}
+
+.bgd0 {
+	left: 0;
+	top:0;
+	width:100%;
+	height:100%;
+	position: absolute;
+}
+		
+/*第一页动画样式*/
+.itemAni0_1 {
+	position: absolute;
+	width: 100%;
+	top: 56%;
+	z-index: 1;
+}
+
+.itemAni0_2 {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0%;
+	z-index: 2;
+}
+
+.itemAni0_3 {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 15%;
+	z-index: 3;
+}
+
+.itemAni0_4 {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0%;
+	z-index: 4;
+}
+
+.itemAni0_5 {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	z-index: 5;
+}
+
+img.commBgd {
+	width: 100%;
+	height: 100%;
+}
+
+.commTitle {
+	width: 100%;
+	bottom: 0;
+}
+
+.mainvideo {
+	object-fit:cover;
+	position: absolute;
+	width: 90%;
+	top: 15%;
+	height: 51%;
+}
+
+.btnDetail {
+	width: 23%;
+	left: 3%;
+	top: 48%;
+}
+
+.logo {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0%;
+	z-index: 4;
+}
+
+.arrow {
+	display: none;
+}
+
+img.backCoverBgd {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+img.backCoverTxt {
+	width: 100%;
+	bottom: 2%;
+	left: 0;
+}
+
+img.backCoverBtn {
+	width: 100%;
+	top: 53%;
+	left: 0;
+	z-index: 5;
+}
+
+.backCoverBuilding {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 10%;
+	z-index: 1;
+}

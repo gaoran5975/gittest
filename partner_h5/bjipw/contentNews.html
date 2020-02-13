@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京国际摄影周2018线上新闻中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+
+
+    <!-- Demo styles -->
+    <style>
+		*{margin:0;padding:0;}
+        html, body {
+            position: relative;
+            height: 100%;
+			font-size:100px;
+        }
+        body {
+            background: #fff;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 62.5%;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+		.wrap{
+			margin:0 auto;
+			position:relative;
+
+		}
+		p{font-size: 0.3rem;}
+
+		p.navSet {
+			position: fixed;
+			width: 100%;
+			height: 7%;
+			bottom: 0;
+			left: 0;
+			background: #000;
+			z-index: 3;
+		}
+		.navSet a {
+			display: inline-block;
+			width: 32%;
+			height: 100%;
+			line-height: 0.8rem;
+			text-align: center;
+			font-size: 0.31rem;
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+			letter-spacing: 2px;
+		}
+		.navSet a:nth-child(1){
+			background: #bf0a07;
+		}
+		.newsPic {
+			position: relative;
+		}
+		
+		.newsPic img {
+			width: 100%;
+		}
+		.newsPic a.title {
+			display: block;
+			background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0 !important;
+			-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+			padding: 15px 4%;
+			width: 80%;
+			margin: 0 auto;
+			position: absolute;
+			top: 20%;
+			left: 6%;
+		}
+		.newsPic a.title span{
+			display:block;
+			border-top:solid 1px #999;
+			border-bottom:solid 1px #999;
+			padding:10px;
+			color:#ddd;
+			font-size:0.34rem;
+		}
+		.info,.mainContent{
+			width:94%;
+			margin:0 3%;
+		}
+		.mainContent{
+			padding-bottom:50px;
+			margin-top:30px;
+		}
+		.mainContent p{
+			line-height:1.8em;
+			font-size:0.34rem;
+			margin-top:10px;
+		}
+		.mainContent img{
+			width:100%;
+		}
+
+		@media screen and (min-width:320px){
+			html{font-size:42.6px;}
+		}
+		@media screen and (min-width:360px){
+			html{font-size:48px;}
+		}
+		@media screen and (min-width:375px){
+			html{font-size:50px;}
+		}
+		@media screen and (min-width:384px){
+			html{font-size:51.2px;}
+		}
+		@media screen and (min-width:400px){
+			html{font-size:53.3px;}
+		}
+		@media screen and (min-width:414px){
+			html{font-size:55.2px;}
+		}
+		@media screen and (min-width:424px){
+			html{font-size:56.5px;}
+		}
+		@media screen and (min-width:480px){
+			html{font-size:64px;}
+
+		}
+		@media screen and (min-width:540px){
+			html{font-size:72px;}
+		}
+		@media screen and (min-width:600px){
+			html{font-size:80px;}
+		}
+		@media screen and (min-width:720px){
+			html{font-size:96px;}
+		}
+		@media screen and (min-width:750px){
+			html{font-size:100px;}
+		}
+		@media screen and (min-width:800px){
+			html{font-size:107px;}
+		}
+		@media screen and (min-width:1024px){
+			html{font-size:136px;}
+		}
+    </style>
+</head>
+<body id="pageWonderful">
+	<div class="wrap" id="wrap">
+		<div class="newsPic">
+			<img class="topPic" src="#" id="topPic">
+			<a class="title"><span id="title"></span></a>
+		</div>
+		<p class="info">
+			<span class="source" id="source"></span>
+			<span class="date" id="date"></span>
+		</p>
+		
+		<div class="mainContent" id="mainContent">
+		</div>
+		
+		<p class="navSet">
+			<a href="/h5/bjipw/index.html">&lt;&lt;返回</a>
+			<a href="/h5/bjipw/wonderful.html">精彩推荐</a>
+			<a href="http://vphotos.cn/7Heh">官方图库</a>
+		</p>
+	</div>
+
+
+
+
+<script src="/h5/bjipw/lib/jquery-1.8.3.min.js"></script>
+<script src="/h5/bjipw/lib/TweenMax.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+
+<script>
+	
+	//微信分享缩略图
+		
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "北京国际摄影周2018线上新闻中心",
+					link: "http://partner.qianlong.com/h5/bjipw/",
+					imgUrl: "http://partner.qianlong.com/h5/bjipw/images/thumbShare.png",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "北京国际摄影周2018联合千龙网-中国首都网出品"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		//alert(res.errMsg);
+	});
+
+	function GetRequest() {
+	   var url = location.search; //获取url中"?"符后的字串
+	   var theRequest = new Object();
+	   if (url.indexOf("?") != -1) {
+	      var str = url.substr(1);
+	      strs = str.split("&");
+	      for(var i = 0; i < strs.length; i ++) {
+	         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+	      }
+	   }
+	   return theRequest;
+	}
+
+	var Request = new Object();
+	Request = GetRequest();
+
+
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "/bjipw/api/get_news_data?newsid=" + Request['newsid'] ,
+		dataType: "json",
+		success: function(json){
+			var d = eval("(" + json + ")");
+			
+			$("#title").html(d.title);
+			$("#topPic").attr("src", 'http://yueduji2018.yytimes.com/' + d.thumb);
+			$("#source").html(d.source);
+			$("#date").html(d.date);
+			$("#mainContent").html(d.content);
+
+			$('.newsPic .title').css('top',($('.newsPic').height()-$('.newsPic .title').height())/2-10);
+			console.log(d);
+		},
+		error: function(){
+		}
+	});
+
+	
+</script>
+</body>
+</html>

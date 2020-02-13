@@ -1,0 +1,23 @@
+#shwoimg ul li{float: left;position: absolute;}
+#shwoimg ul{display: block;}
+.imgfade1{animation: imgfade 1s 3s infinite;}
+@-webkit-keyframes imgfade1{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+@keyframes imgfade1{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+.imgfade2{animation: imgfade 1s 4s infinite;}
+@-webkit-keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+@keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+.imgfade3{animation: imgfade 1s 5s infinite;}
+@-webkit-keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+@keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}

@@ -1,0 +1,266 @@
+﻿<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="http://img.qianlong.com/templates/qianlong/common/ico/favicon.ico">
+		<title>北京外事微信矩阵</title>
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1;">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<script src="https://hm.baidu.com/hm.js?923c284ee4ffe45f08cd3e841f6c8224"></script>
+		<script type="text/javascript" src="lib/jquery-1.8.3.min.js"></script>			
+		<style type="text/css">
+			*{ padding: 0; margin: 0; border: 0;}
+			html,body{min-height: 100%;}
+			body{ background: #FFF;  font-size: 16px; font-family: Hlvetica; line-height: 1.5;}
+			a:link,a:visited{ color: #000; text-decoration: none;}
+			.top_link{ width:100%;}
+			.top-img{ width:100%;}
+			.clearfix{*zoom:1;}
+			.clearfix:after{display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:".";}
+			.navBar{ padding:10px 0 0 1%; }
+			.navBar span{ float: left; height:32px;display: inline-block; position: relative;  text-align: center; font-size: 14px; font-weight: 700; line-height: 2.5;}
+			.navBar span:nth-child(1){ z-index: 4;}
+			.navBar span:nth-child(2){ z-index: 3;}
+			.navBar span:nth-child(3){ z-index: 2;}
+			.navBar span:nth-child(4){ z-index: 1;}
+			.navBar span.cur{ z-index: 5; color: #fff;}
+			.tabCon{ padding:5% 3% 0 3%; width: 94%;}
+			.tablist{ float: left; display: inline; width: 30.3%; height: 112px;margin:4.5% 1.5%; overflow: hidden; text-align: center; font-size: 15px; }
+			.tablist .icon{ width: 60%; margin: 0 20%; overflow: hidden;}
+			.tablist .icon img{ width: 100%;display: block;}
+			.tablist p{ padding:6px 0; font-size:0.8em;height:32px;}
+			@media (min-width: 360px){
+				.tablist{ font-size: 16px;}
+			}
+			.notice{ width:100%;height:30px;margin-top:5px;}
+			.notice img{margin: 4px 10px; height: 22px;float: left;}
+			.notice span{ color: red; float: left;line-height: 30px;font-size: 1em; width:85%;}
+			
+			.headrow{ 
+			    height: 32px;
+			    background: url(../images/nav_bg.png) repeat-x 0 bottom;
+			    clear: both;
+			    margin-bottom: 10px;
+			    font-size: 0.9em;
+			    line-height: 2em;
+			}
+			.copyright_box{
+			     width:100%;
+			     position: fixed;
+			     left: 0;
+			     bottom: -170px;
+			     background-color: rgba(84, 83, 83, 0.84);
+			}
+			.copyright_box .copyright{
+			    width: 100%;
+			    height: 20px;
+			    font-size: 12px;
+			    text-align: center;
+			    color: white;
+			    border-bottom:1px solid #d1d1d1;
+			}
+			.copyright_box .copyright_txt{
+			    width:100%;
+			    height:160px;
+			    text-align: center;
+			}
+			.copyright_box .copyright_txt h3{
+			    margin-top:10px;
+			    font-size: 18px;
+			    color:white;
+			}
+			.copyright_box .copyright_txt p{
+			    font-size: 12px;
+			    color:white;
+			    margin-top:8px;
+			}
+			.copyright_box2{
+			     width:100%;
+			     position: fixed;
+			     left: 0;
+			     bottom: 0px;
+			     background-color: rgba(84, 83, 83, 0.84);
+			}
+			.copyright_box2 .copyright{
+			    width: 100%;
+			    height: 20px;
+			    font-size: 12px;
+			    text-align: center;
+			    color: white;
+			}
+			/*body {
+				background: url(/Public/Uploads/) no-repeat left bottom;
+				background-size: 100%;
+			}*/
+			
+			.navBar span {
+				background: url(http://www.wbangdan.com//Theme/app/Public/images/nav_bg0.png) no-repeat bottom;
+				background-size: 100% 100%;
+			}
+			
+			.navBar span.cur {
+				background: url(http://www.wbangdan.com//Theme/app/Public/images/navcur_bg0.png) no-repeat bottom;
+				background-size: 100% 100%;
+			}
+			
+			.navBar {
+				border-bottom: 1px solid #44a737;
+			}
+			
+			.navBar span {
+				width: 100%;
+			}
+			
+			.bottom_height {
+				width: 100%;
+				height: 0;
+			}
+			
+			#apply_add .icon {
+				border-radius: 0%;
+				box-shadow: 0px 0px 0px #222;
+			}
+			
+			#apply_add .icon img {
+				border-radius: 1%;
+			}
+			
+			#apply_add a {
+				color: orange;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="hidden" id="animate_status" value="0">
+		<input type="hidden" id="animate" value="">
+		<input type="hidden" id="overtime" value="0">
+		<div class="tabBox">
+			<div class="tabCon clearfix tabCon1578" style="display:block;">
+				<div class="clearfix">
+					<div class="tablist">
+						<div class="icon">
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI1NzEwNTE4MA==&amp;scene=126&amp;bizpsid=1549856677&amp;sessionid=1549856677&amp;subscene=0#wechat_redirect"><img src="img/1.jpg"></a>
+						</div>
+						<p>
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI1NzEwNTE4MA==&amp;scene=126&amp;bizpsid=1549856677&amp;sessionid=1549856677&amp;subscene=0#wechat_redirect">西城外事</a>
+						</p>
+					</div>
+					<div class="tablist">
+						<div class="icon">
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzU5ODU1MTkzOA==&amp;scene=126&amp;bizpsid=1549856909&amp;sessionid=1549856909&amp;subscene=0#wechat_redirect"><img src="img/2.jpg"></a>
+						</div>
+						<p>
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzU5ODU1MTkzOA==&amp;scene=126&amp;bizpsid=1549856909&amp;sessionid=1549856909&amp;subscene=0#wechat_redirect">海淀外事</a>
+						</p>
+					</div>
+					<div class="tablist">
+						<div class="icon">
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzAwNjA1MzE5MA==&amp;scene=126&amp;bizpsid=1549856954&amp;sessionid=1549856954&amp;subscene=0#wechat_redirect"><img src="img/3.jpg"></a>
+						</div>
+						<p>
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzAwNjA1MzE5MA==&amp;scene=126&amp;bizpsid=1549856954&amp;sessionid=1549856954&amp;subscene=0#wechat_redirect">顺义外事</a>
+						</p>
+					</div>
+					<div class="tablist">
+						<div class="icon">
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzA4OTIxNDY4Nw==&amp;scene=126&amp;bizpsid=0&amp;subscene=0#wechat_redirect"><img src="img/4.jpg"></a>
+						</div>
+						<p>
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzA4OTIxNDY4Nw==&amp;scene=126&amp;bizpsid=0&amp;subscene=0#wechat_redirect">北京友协 京促会</a>
+						</p>
+					</div>
+					<div class="tablist">
+						<div class="icon">
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzA3MzQ4NTAxNQ==&amp;scene=126&amp;bizpsid=0#wechat_redirect"><img src="img/5.jpg"></a>
+						</div>
+						<p>
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzA3MzQ4NTAxNQ==&amp;scene=126&amp;bizpsid=0#wechat_redirect">北京市外事<br/>综合服务大厅</a>
+						</p>
+					</div>
+					<div class="tablist">
+						<div class="icon">
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzIxNTI2NzY1Nw==&amp;scene=126&amp;bizpsid=0#wechat_redirect"><img src="img/6.jpg"></a>
+						</div>
+						<p>
+							<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzIxNTI2NzY1Nw==&amp;scene=126&amp;bizpsid=0#wechat_redirect">北京外服<br/>认证中心</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom_height">&nbsp;</div>		
+		<div style="display: none;">
+			<script>
+				var _hmt = _hmt || [];
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "https://hm.baidu.com/hm.js?923c284ee4ffe45f08cd3e841f6c8224";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+				})();
+			</script>
+		</div>
+
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="lib/popups.js"></script>
+		<script type="text/javascript">   
+		  $.ajax({
+		    type: "get",
+		    async: true,
+		    url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		    dataType: "jsonp",
+		    data: {
+		      "weburl": location.href.split("#")[0]
+		    },
+		    success: function(json){
+		      //console.log(json);
+		      wx.config({
+		        debug: false,
+		        appId: json.appId,
+		        timestamp: json.timestamp,
+		        nonceStr: json.nonceStr,
+		        signature: json.signature,
+		        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+		      });
+		    },
+		    error: function(){
+		      console.log("share error");
+		    }
+		  });
+		  wx.ready(function(){
+		    console.log("ready to share");
+		    var obj_co = {
+		          title: "北京外事微信矩阵",
+		          link: "",
+		          imgUrl: "http://partner.qianlong.com/h5/wxjz/img/6.jpg",
+		          success: function(){
+		          },
+		          cancel: function(){}
+		        },
+		        obj_co_desc = {
+		          desc: ""
+		        },
+		        obj_timeline = $.extend({}, obj_co),
+		        obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+		        obj_qq = $.extend({}, obj_co_desc, obj_co),
+		        obj_wb = $.extend({}, obj_co_desc, obj_co),
+		        obj_qzone = $.extend({}, obj_co_desc, obj_co);
+		
+		    wx.onMenuShareTimeline(obj_timeline);
+		    wx.onMenuShareAppMessage(obj_appmsg);
+		    wx.onMenuShareQQ(obj_qq);
+		    wx.onMenuShareWeibo(obj_wb);
+		    wx.onMenuShareQZone(obj_qzone);
+		  });
+		  wx.error(function (res) {
+		    console.log(res.errMsg);
+		    //alert(res.errMsg);
+		  });
+		</script>
+	</body>
+
+</html>

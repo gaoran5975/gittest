@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7页面测试</title>
+<meta name="keywords" content=""/>
+<meta name="description" content="">
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="fullpage">
+   <div id="loadpage">
+        <ul>
+           <li><a href='#page1' onclick="changeLoc('#page1');">第一页</a></li>
+           <li><a href='#page2' onclick="changeLoc('#page2');">第二页</a></li>
+           <li><a href='#page3' onclick="changeLoc('#page3');">第三页</a></li>
+           <li><a href='#page4' onclick="changeLoc('#page4');">第四页</a></li>
+           <li><a href='#page5' onclick="changeLoc('#page5');">第五页</a></li>           
+        </ul>
+   </div>
+   <div id="page1" class="secpage">
+        我是第一页
+        <div class="" style="margin-top: 30px;"><a href='#loadpage' >返回首页</a></div>
+   </div>
+    <div id="page2" class="secpage">
+        我是第二页
+        <div class="" style="margin-top: 30px;"><a href='#loadpage' >返回首页</a></div>
+   </div>
+    <div id="page3" class="secpage">
+        我是第三页
+        <div class="" style="margin-top: 30px;"><a href='#loadpage'>返回首页</a></div>
+   </div>
+    <div id="page4" class="secpage">
+        我是第四页
+        <div class="" style="margin-top: 30px;"><a href='#loadpage' >返回首页</a></div>
+   </div>
+    <div id="page5" class="secpage">
+        我是第五页
+        <div class="" style="margin-top: 30px;"><a href='#loadpage' >返回首页</a></div>
+   </div>
+</div>
+
+
+<script src="http://img.qianlong.com/templates/qianlong/common/lib/jquery/1.8.3/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+  if(window.innerWidth>750){
+      var wh=window.innerHeight;
+      var ww = window.innerWidth;
+      wx=parseInt(wh*750/1206);
+      $('html,body').css({
+        'width':wx+'px',
+        'margin':'0 auto',
+        'height':wh+'px'
+      })
+      $("#audioPlay").css({
+           'width':'55px'
+      });
+      $('.secpage').css({
+          'width':wx+'px'
+      })
+      $('#loadpage img').css({
+          'width':wx+'px',
+          'margin':'0 auto'
+      })
+      $('#loadpage').css({
+          'width':wx+'px',
+          'left':(ww-wx)/(2*ww)*100 +'%'
+      })
+     }
+
+  function getHeight(p){
+     var h1=$(p).css('height');
+     console.log(h1)
+  }         
+
+var w=$(window).width();
+neww=w/750*1521;
+
+
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">  
+var originLoc,newLoc,newNum,newtitle;
+    // newLoc = 1;
+  var arrpage = ['一','二','三','四','五'];
+ function changeLoc(ahash){
+     newLoc = "http://partner.qianlong.com/h5/page7ceshi/"+ahash;
+     newNum = parseInt(ahash.substr(ahash.length-1,1));
+     newtitle = arrpage[newNum-1<0?0:newNum-1];
+     console.log(newLoc,newtitle)
+     // document.title = newtitle;
+ }
+  $.ajax({
+    type: "get",
+    async: true,
+    url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+    dataType: "jsonp",
+    data: {
+      "weburl": location.href.split("#")[0]
+    },
+    success: function(json){
+      // console.log(json);
+      wx.config({
+        debug: false,
+        appId: json.appId,
+        timestamp: json.timestamp,
+        nonceStr: json.nonceStr,
+        signature: json.signature,
+        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+      });
+    },
+    error: function(){
+      console.log("share error");
+    }
+  });
+  
+  wx.ready(function(){
+    console.log("ready to share");
+    var obj_co = {
+          title: newtitle,
+          link: newLoc,
+          imgUrl: "http://partner.qianlong.com/h5/2018bjjfdt/css/img/sut2.jpg",
+          success: function(){
+          },
+          cancel: function(){}
+        },
+        obj_co_desc = {
+          desc: "严守禁放新规，别忘了五环外这些地儿~"
+        },
+        obj_timeline = $.extend({}, obj_co),
+        obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+        obj_qq = $.extend({}, obj_co_desc, obj_co),
+        obj_wb = $.extend({}, obj_co_desc, obj_co),
+        obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+    wx.onMenuShareTimeline(obj_timeline);
+    wx.onMenuShareAppMessage(obj_appmsg);
+    wx.onMenuShareQQ(obj_qq);
+    wx.onMenuShareWeibo(obj_wb);
+    wx.onMenuShareQZone(obj_qzone);
+  });
+  wx.error(function (res) {
+    console.log(res.errMsg);
+    //alert(res.errMsg);
+  });
+</script>
+</body>
+</html>
+ 

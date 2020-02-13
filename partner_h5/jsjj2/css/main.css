@@ -1,0 +1,79 @@
+* {margin: 0; padding: 0; }
+body {margin: 0; padding: 0; }
+html {margin: 0; padding: 0; }
+ul {margin: 0;padding: 0; }
+li {margin: 0;padding: 0;list-style: none; }
+p, h1, h2, h3 {margin: 0;padding: 0; }
+form {margin: 0; padding: 0; }
+html, body {position: relative; height: 100%;}
+.swiper-container {width: 100%; height: 100%;}
+.anim {
+   transition: all .5s ease-in-out;
+   -webkit-transition: all .5s ease-in-out;
+   -ms-transition: all .5s ease-in-out;
+   -moz-transition: all .5s ease-in-out;
+   -o-transition: all .5s ease-in-out;
+}
+
+.zindex {  position: absolute;  width: 100%;  height: 100%;  background-color: white;  z-index: 999;}
+.zindex .index {  width: 100%;  height: auto;  overflow: hidden;  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -50%);  -webkit-transform: translate(-50%, -50%);  text-align: center;}
+.zindex .index .logo {  width: 100%;}
+.zindex .index .logo img {  width: 50%;}
+.zindex .index .loadimg {  width: 100%;  height: 100%;  position: absolute;  left: 0;  top: 0;  z-index: 1;}
+.zindex .index .loading {  text-align: center;  line-height: 158px;  width: 100%;  height: 100%;  color: black;  font-weight: bold;  position: absolute;  left: 0;  top: 0;  z-index: 2;}
+.zindex .index .load {  width: 158px;  height: 158px;  margin: 0 auto; /* margin-top: 30px;*/  position: relative;}
+
+
+
+
+.question {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  overflow: hidden; 
+}
+
+.swiper-slide{ position: relative; background: url(../images/bg.jpg) no-repeat; background-size: cover;}
+
+.swiper-slide img{ width: 100%; }
+
+.start{ margin-top: 40px; }
+
+.question img{ margin-bottom: 20px; }
+
+#question4{ position: relative; }
+.four img:not(:first-child){  width: 50%;}
+.four img:not(:first-child):nth-child(odd){ float: right; }
+
+
+#scorePage{ position: relative; }
+.score{ 
+  position: absolute; 
+  /*left: 43%;*/ top: 50%; 
+  display: block;
+  text-align: center;
+  /*margin-top: -210px;*/
+  width: 100%;
+  font-family: 'MicroSoft Yahei';
+  font-size: 45px;
+  color: #4289cf;
+}
+
+#msgPage{ position: relative; }
+.submit{ position: absolute; bottom: 15%; }
+.msgBox{
+  width: 80%;
+  background: white;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 30px 10px;
+  color: #4289cf;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.msgBox input{ margin-bottom: 30px; height: 25px; padding-left: 10px; font-size: 16px;}

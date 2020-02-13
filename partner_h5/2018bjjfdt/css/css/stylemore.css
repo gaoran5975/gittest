@@ -1,0 +1,21 @@
+#turn{font-size: 40px;background: #d5b8e8;padding: 5px;width: 60px;height: 40px;}
+@-webkit-keyframes imgfade1{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+@keyframes imgfade1{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+.imgfade2{animation: imgfade 1s 4s infinite;}
+@-webkit-keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+@keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+.imgfade3{animation: imgfade 1s 5s infinite;}
+@-webkit-keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}
+@keyframes imgfade2{
+	0%{opacity: 0;}100%{opacity: 1;}
+}

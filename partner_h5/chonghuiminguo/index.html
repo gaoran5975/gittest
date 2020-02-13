@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>重回民国，你会遇见谁？</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="lib/swiper-3.4.2.min.css">
+
+    <!-- Demo styles -->
+    <style>
+		*{
+			margin:0;
+			padding:0;
+			
+		}
+		html{
+			font-size:100px;
+		}
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #fff;
+            font-family: "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";
+            color:#000;
+            margin: 0;
+            padding: 0;
+			font-size:0.3rem;
+			line-height:1.6em;
+        }
+		a{
+			outline: none;
+			-webkit-tap-highlight-color: transparent;
+			-webkit-appearance: none;
+		}
+		/*---------------------swiper--------------------*/
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+			background:#eee;
+        }
+        .swiper-slide {
+            text-align: center;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+			overflow: hidden;
+        }
+        .swiper-container-f .swiper-wrapper{
+            animation-duration:2000ms;
+            -webkit-animation-duration:2000ms;
+        }
+        .swiper-slide img {
+			display:block;
+			position:absolute;
+        }
+		.swiper-slide p{padding:0.25rem;}
+        .swiper-pagination{display: none;}
+		
+		.swiper-container-h .swiper-slide{
+			width:100%;
+			display:block;
+			text-align:left;
+		}
+		.swiper-container-h{
+			background:none;
+		}
+		
+		/*---------------各帧静态位置------------------*/
+		
+		img{
+			position:absolute;
+		}
+		.p1Bgd{
+			position:relative;
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+		.p1_1{
+			width:54.4%;
+			left:22.8%;
+			top:17.9%;
+		}
+		.p1_2{
+			width: 100%;
+			left: -45%;
+			top: -32%;
+		}
+		.p1_3{
+			width: 5.6%;
+			right: 5%;
+			top: 3%;
+		}
+		.p1_4{
+			width: 5.07%;
+			left: 47.47%;
+			bottom: 0;
+		}
+		.p1_5{
+			width: 100%;
+			right: -54%;
+			bottom: -35%;
+			transform: scaleX(-1);
+		}
+		
+		
+		.p2Bgd{
+			position:relative;
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+		.p2_1{
+			width:30.3%;
+			left:34.9%;
+			top:6.9%;
+		}
+		.p2_2{
+			width:94.9%;
+			left:2.55%;
+			bottom:2%
+		}
+		.p2_2a{
+			width:94.9%;
+			left:2.55%;
+			bottom:2%;
+			opacity: 0;
+		}
+		.p2_2b{
+			width:94.9%;
+			left:2.55%;
+			bottom:2%;
+			opacity: 0;
+		}
+		.p2_3{
+			width:11.7%;
+			right:18.4%;
+			bottom:60%;
+		}
+		.p2_4{
+			width:11.7%;
+			left:18.4%;
+			bottom:60%;
+		}
+		.p2_5{
+			width: 5.07%;
+			left: 47.47%;
+			bottom: 0;
+			opacity:0;
+		}
+		a.btnF{
+			display: block;
+			position: absolute;
+			z-index: 3;
+			bottom: 4%;
+			width: 31.2%;
+			left: 10%;
+			height: 50%;
+		}
+		a.btnM{
+			display: block;
+			position: absolute;
+			z-index: 3;
+			bottom: 4%;
+			width: 31.2%;
+			right: 10%;
+			height: 52%;
+		}
+		
+		
+		
+		.questionTank {
+			width: 70%;
+			position: relative;
+			height: 100%;
+			padding:5%;
+			line-height: 2em;
+		}
+		
+		.questionTank h3{
+			margin-top:46%;
+			color:#9b6421;
+		}
+		.questionList {
+			margin-top: 10%;
+			color:#9b6421;
+		}
+		input[type="radio"] {
+			margin-bottom: 20px;
+		}
+		
+		.p3Bgd{
+			position:relative;
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+		.p3_1{
+			width:15.4%;
+			left:15.7%;
+			top:9.1%;
+		}
+		
+		.p3_2{
+			width:27.9%;
+			right:13.7%;
+			bottom:10.9%;
+			z-index:2;
+		}
+		.p3_3{
+			width:27.9%;
+			right:13.7%;
+			bottom:10.9%;
+			z-index:3;
+			visibility:hidden;
+		}
+		.resultM img,.resultF img{
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+		
+		
+		.pageLoading{
+			position: absolute;
+			width:100%;
+			height:100%;
+			z-index: 300;
+			background: #2b2d30;
+			color:#fff;
+		}
+		.pageLoading img {
+			width: 100%;
+			position: relative;
+		}
+		.pageLoading p {
+			position: absolute;
+			height: 20px;
+			text-align: center;
+			margin-top: 30%;
+			width:100%;
+			font-size:20px;
+			line-height:2em;
+			font-size:14px;
+		}
+		a.btnSound{
+			display: block;
+			width:32px;
+			height:32px;
+			position: absolute;
+			z-index: 2;
+			top:5%;
+			left:5%;
+			overflow:hidden;
+			background:#fff;
+			border:solid 2px #ccc;
+			border-radius: 10px;
+			opacity: 0.8;
+			padding:6px;
+		}
+		a.btnSound img{
+			width:100%;
+		}
+		img.toPlay{
+			display: none;
+		}
+		.pageLoading p span{
+			display:block;
+		}
+		a.btnEnter{
+			display:inline-block;
+			color:#fff;
+			height: 20px;
+			text-align: center;
+			margin-top: 30px;
+			width: 50px;
+			border:solid 1px #ccc;
+			font-size: 14px;
+			line-height: 20px;
+			font-size: 14px;
+			padding:2px 5px;
+			display:none;
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*---------------------杂项--------------------*/
+		.btnMusic {
+			position: absolute;
+			right: 0.05rem;
+			top: 0.05rem;
+			display: block;
+			width: 0.5rem;
+			z-index:100;
+		}
+		.arrow{
+			position: absolute;
+			bottom:-1rem;
+			left:3.56rem;
+			z-index: 10;
+			width:0.42rem;
+			
+		}
+		
+		
+		
+		@media screen and (min-width:320px){
+		 html{font-size:42.6px;}
+		}
+		@media screen and (min-width:360px){
+		 html{font-size:48px;}
+		}
+		@media screen and (min-width:375px){
+		 html{font-size:50px;}
+		}
+		@media screen and (min-width:384px){
+		 html{font-size:51.2px;}
+		}
+		@media screen and (min-width:400px){
+		 html{font-size:53.3px;}
+		}
+		@media screen and (min-width:414px){
+		 html{font-size:55.2px;}
+		}
+		@media screen and (min-width:424px){
+		 html{font-size:56.5px;}
+		}
+		@media screen and (min-width:480px){
+		 html{font-size:64px;}
+		}
+		@media screen and (min-width:540px){
+		 html{font-size:72px;}
+		}
+		@media screen and (min-width:600px){
+		 html{font-size:80px;}
+		}
+		@media screen and (min-width:720px){
+		 html{font-size:96px;}
+		}
+		@media screen and (min-width:750px){
+		 html{font-size:100px;}
+		}
+		@media screen and (min-width:800px){
+		 html{font-size:107px;}
+		}
+		@media screen and (min-width:1024px){
+		 html{font-size:136px;}
+		}
+    </style>
+</head>
+<body>
+<div class="pageLoading">
+    <p><img src="images/loading3.gif" alt=""/> <span class="txtLoading">全力加载中...</span><span>打开声音效果更好！</span><span><a class="btnEnter">进入</a></span></p>
+	
+</div>
+<!-- Swiper -->
+<div class="swiper-container swiper-container-v">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+			<img class="p1Bgd" src="images/p1Bgd.jpg" alt=""/>
+			<img class="p1_1" src="images/p1_1.png" alt=""/>
+			<img class="p1_2" src="images/p1_2.png" alt=""/>
+			<img class="p1_3" src="images/p1_3.png" alt=""/>
+			<img class="p1_4" src="images/p1_4.png" alt=""/>
+			<img class="p1_5" src="images/p1_2.png" alt=""/>
+		</div>                               
+        <div class="swiper-slide">    
+            <img class="p2Bgd" src="images/p2Bgd.jpg" alt=""/>
+			<img class="p2_1" src="images/p2_1.png" alt=""/>
+			<img class="p2_2" src="images/p2_2.png" alt=""/>
+			<img class="p2_2a" src="images/p2_2a.png" alt=""/>
+			<img class="p2_2b" src="images/p2_2b.png" alt=""/>
+			<img class="p2_3" src="images/p2_3.png" alt=""/>
+			<img class="p2_4" src="images/p2_4.png" alt=""/>
+			<img class="p2_5" src="images/p1_4.png" alt=""/>
+			<a href="#" class="btnF"></a>
+			<a href="#" class="btnM"></a>
+        </div>                               
+        <div class="swiper-slide">  
+			<img class="p3Bgd" src="images/p3Bgd.jpg" alt=""/>
+			<img class="p3_1" src="images/p3_1.png" alt=""/>
+			<img class="p3_2" src="images/p3_2.png" alt="下一题"/>
+			<img class="p3_3" src="images/p3_3.png" alt="看看结果"/>
+            <div class="questionTank">
+				<div class="swiper-container swiper-container-h">
+					<div class="swiper-wrapper">
+						 <div class="swiper-slide">
+							<h3>1.民国时期婚姻遵循父母之命、媒妁之言，你会？</h3>
+							<div class="questionList">
+								<input type="radio" name="q1" value="0" checked>A:接受，符合社会风气，又门当户对
+								<br>
+								<input type="radio" name="q1" value="1">B:不接受，爱情自由
+							</div>
+						</div>  
+						
+						<div class="swiper-slide">
+							<h3>2.如果你遇见了灵魂伴侣，TA身上吸引你的特质会是？</h3>
+							<div class="questionList">
+								<input type="radio" name="q2" value="0" checked>A:颜值或者才华
+								<br>
+								<input type="radio" name="q2" value="1">B:共同理想目标
+								<br>
+								<input type="radio" name="q2" value="2">C:一生平凡相守
+							</div>
+						</div> 
+						
+						
+						<div class="swiper-slide">
+							<h3>3.是否会为了爱情不顾传统的眼光？</h3>
+							<div class="questionList">
+								<input type="radio" name="q3" value="0" checked>A:会，真爱胜过一切
+								<br>
+								<input type="radio" name="q3" value="1">B:不会，不该发生的爱情就趁早结束吧
+							</div>
+						</div> 
+						
+						<div class="swiper-slide">
+							<h3>4.更倾向于充当照顾人的一方还是被照顾的一方？</h3>
+							<div class="questionList">
+								<input type="radio" name="q4" value="0" checked>A:经常是被人照顾
+								<br>
+								<input type="radio" name="q4" value="1">B:更多是照顾对方
+							</div>
+						</div> 
+						
+						<div class="swiper-slide">
+							<h3>5.更倾向哪一类型的相处方式？</h3>
+							<div class="questionList">
+								<input type="radio" name="q5" value="0" checked>A:浪漫诗意
+								<br>
+								<input type="radio" name="q5" value="1">B:平凡朴素
+								<br>
+								<input type="radio" name="q5" value="2">C:舒服自由
+								<br>
+								<input type="radio" name="q5" value="3">D:互相欣赏
+								<br>
+								<input type="radio" name="q5" value="4">E:浓烈炽热
+							</div>
+						</div> 
+						
+						
+						
+						
+				
+					</div>
+				</div>
+			</div><!--end question tank-->
+			
+        </div>      
+		
+		<div class="swiper-slide result"> 
+			<div class="resultM">
+				<img class="p4_1" src="images/p4_1.jpg" alt=""/>
+				<img class="p4_2" src="images/p4_2.jpg" alt=""/>
+				<img class="p4_3" src="images/p4_3.jpg" alt=""/>
+				<img class="p4_4" src="images/p4_4.jpg" alt=""/>
+				<img class="p4_5" src="images/p4_4.jpg" alt=""/>
+			</div>
+			<div class="resultF">
+				<img class="p4f_1" src="images/p4f_1.jpg" alt=""/>
+				<img class="p4f_2" src="images/p4f_2.jpg" alt=""/>
+				<img class="p4f_3" src="images/p4f_3.jpg" alt=""/>
+				<img class="p4f_4" src="images/p4f_4.jpg" alt=""/>
+				<img class="p4f_5" src="images/p4f_5.jpg" alt=""/>
+			</div>
+        </div>   
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-v"></div>
+	<img class="btnMusic" src="images/music.png">
+<!-- 	<img class="arrow" src="images/y_arrow.png" /> -->
+</div>
+
+<!-- Swiper JS -->
+<script src="lib/jquery-1.8.3.min.js"></script>
+<script src="lib/swiper-3.4.2.jquery.min.js"></script>
+<script src="lib/TweenMax.min.js"></script>
+<script src="lib/howler.min.js"></script>
+<script src="lib/jquery.waitforimages.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+
+	//设置pc端容器大小
+    var vh=$(window).height();
+    var vw=$(window).width();
+    var imgRatio=750/1206;
+    if(vw>vh){
+		var curW=vh*imgRatio;
+        $('.swiper-container').height(vh);
+        $('.swiper-container').width(curW);
+		$('html').css("font-size",curW/7.5);
+    }
+	
+	//音乐按钮
+	var aniMusic;
+    var sndBgd=new Howl({
+        src: ['bgd.mp3'],
+        autoplay: false,
+        loop: true,
+        volume: 0.4,
+        onload: function() {
+        }
+    })
+	$('.btnMusic').click(function(){
+		if(sndBgd.playing()){
+			aniMusic.pause();
+			sndBgd.pause();
+		}else{
+			aniMusic.resume();
+			sndBgd.play();
+		}
+		
+	})
+	
+	function enterCover(){
+		$('.pageLoading').hide();
+		tl0.restart();
+	}
+    $('a.btnEnter').click(function(){
+		aniMusic=TweenMax.to($('.btnMusic'), 7.2, {rotation:360, delay:0,ease:'Linear.easeNone',repeat:99})
+		sndBgd.play();
+		TweenMax.to($('.pageLoading'), 3, {opacity:0,ease:'Power2.easeNone',onComplete:enterCover});
+	})
+    $('img').waitForImages({
+        finished: function() {
+			console.log("imgs loaded");
+			$('.pageLoading p img').css("visibility","hidden");
+			$('.txtLoading').text('加载完毕！');
+			$('a.btnEnter').show();
+			$('a.btnEnter').css('display','inline-block');
+        },
+        each: function() {
+
+        },
+        waitForAll: true
+    });
+    
+	
+
+	var tl0=new TimelineMax();
+	tl0.from($('.p1_1'), 1.8, {scale:0,opacity:0,ease:Power0.easeNone})
+		.from($('.p1_2'), 1, {opacity:0, scale:0,rotation:90,ease: Power2.easeOut})
+		.from($('.p1_5'), 1, {opacity:0, rotation:120,ease: Power2.easeOut})
+		.from($('.p1_3'), 0.5, {opacity:0, x:"100%",ease: Power2.easeOut,delay:0.5})
+		.from($('.p1_4'), 0.5, {opacity:0, y:"200%",ease: Power2.easeOut})
+		.pause();
+	var tl1=new TimelineMax();
+	tl1.from($('.p2_2'), 1.8, {scale:0,opacity:0,ease:Power0.easeNone})
+		.from($('.p2_1'), 1, {opacity:0, y:'-100%',ease: Power2.easeOut,delay:0.5})
+		.from($('.p2_4'), 0.8, {opacity:0, x:'-100%',ease: Power4.easeInOut})
+		.from($('.p2_3'), 0.8, {opacity:0, x:"100%",ease: Power4.easeInOut})
+		.pause();
+
+
+
+
+
+	
+	var curIdx=0;
+	var targIdx=0;
+	var questionIdx=0;
+	var sex=0;//女
+	
+    var swiperV = new Swiper('.swiper-container-v', {
+        pagination: '.swiper-pagination-v',
+        paginationClickable: true,
+        direction: 'vertical',
+        spaceBetween: 0,
+		mousewheelControl : true,
+		onSlideChangeStart: function(swiper){
+			targIdx=swiper.activeIndex;
+          },
+        onSlideChangeEnd: function(swiper){
+			if(targIdx==1){
+				tl1.restart();
+			}
+			swiperV.lockSwipes();
+         }
+    });
+	
+	
+	var swiperH = new Swiper('.swiper-container-h', {
+        pagination: '.swiper-pagination-h',
+        paginationClickable: true,
+        direction: 'horizontal',
+        spaceBetween: 0,
+		mousewheelControl : true,
+		onSlideChangeStart: function(swiper){
+			questionIdx=swiper.activeIndex;
+			if(questionIdx==4){
+				$('.p3_3').css('visibility','visible');
+			}
+          },
+        onSlideChangeEnd: function(swiper){
+           
+        }
+    });
+
+
+
+	
+	$('.p2_4,.btnF').click(function(){//女
+		TweenMax.to($('.p2_2a'), 0.5, {opacity:1,ease:'Power3.easeInOut',onComplete:showQuestion});
+		TweenMax.to($('.p2_2b'), 0.5, {opacity:0,ease:'Power3.easeInOut',onComplete:showQuestion});
+		sex=1;
+		return false;
+	})
+	$('.p2_3,.btnM').click(function(){//男
+		TweenMax.to($('.p2_2b'), 0.5, {opacity:1,ease:'Power3.easeInOut',onComplete:showQuestion});
+		TweenMax.to($('.p2_2a'), 0.5, {opacity:0,ease:'Power3.easeInOut',onComplete:showQuestion});
+		sex=0;
+		return false;
+	})
+	function showQuestion(){
+		TweenMax.to($('.p2_5'), 1, {opacity:1,ease:'Power0.easeInOut'});
+		swiperV.unlockSwipes();
+		swiperV.lockSwipeToPrev();
+		console.log("sex="+sex);
+	}
+	
+	$('.p3_2').click(function(){
+		swiperH.slideNext();
+	})
+	
+	$('.p3_3').click(function(){
+		calc();
+		swiperV.unlockSwipes();
+		swiperV.slideNext();
+	})
+	
+	var arrayScoreM=[0,0,0,0,0];
+	var arrayAnswerM1=[];
+	var arrayAnswerM2=[];
+	var arrayAnswerM3=[];
+	var arrayAnswerM4=[];
+	var arrayAnswerM5=[];
+	var arrayTableLetter=['A','B','C','D','E'];
+	var arrayManName=['徐志摩','梁思成','林语堂','梁实秋','鲁迅']
+	
+	var arrayScoreF=[0,0,0,0,0];
+	var arrayAnswerF1=[];
+	var arrayAnswerF2=[];
+	var arrayAnswerF3=[];
+	var arrayAnswerF4=[];
+	var arrayAnswerF5=[];
+	var arrayTableLetter=['A','B','C','D','E'];
+	var arrayFName=['林徽因','杨绛','萧红','许广平','陆小曼']
+	
+	arrayAnswerM1[0]=[0,0.33,0.33,0.33,0];//每项对应一个男性人物的得分
+	arrayAnswerM1[1]=[0.5,0,0,0,0.5];
+	
+	arrayAnswerM2[0]=[0.5,0,0,0.5,0];
+	arrayAnswerM2[1]=[0,0,0,0,1];
+	arrayAnswerM2[2]=[0,0.5,0.5,0,0];
+
+	arrayAnswerM3[0]=[0.25,0.25,0,0.25,0.25];
+	arrayAnswerM3[1]=[0,0,1,0,0];
+
+	arrayAnswerM4[0]=[0.5,0.5,0,0,0];
+	arrayAnswerM4[1]=[0,0,0.33,0.33,0.33];
+	
+	arrayAnswerM5[0]=[1,0,0,0,0];
+	arrayAnswerM5[1]=[0,0,1,0,0];
+	arrayAnswerM5[2]=[0,1,0,0,0];
+	arrayAnswerM5[3]=[0,0,0,0,1];
+	arrayAnswerM5[4]=[0,0,0,1,0];
+	
+	
+	
+	arrayAnswerF1[0]=[0.33,0.33,0,0,0.33];//第一道选A的得分
+	arrayAnswerF1[1]=[0,0,0.5,0.5,0];//第一道选B的得分
+	
+	arrayAnswerF2[0]=[0.5,0,0,0,0.5];
+	arrayAnswerF2[1]=[0,0,0.5,0.5,0];
+	arrayAnswerF2[2]=[0,1,0,0,0];
+
+	arrayAnswerF3[0]=[0,0,0.33,0.33,0.33];
+	arrayAnswerF3[1]=[0.5,0.5,0,0,0];
+
+	arrayAnswerF4[0]=[0,0.5,0,0.5,0];
+	arrayAnswerF4[1]=[0.33,0,0.33,0,0.33];
+	
+	arrayAnswerF5[0]=[0.5,0,0,0,0.5];
+	arrayAnswerF5[1]=[0,1,0,0,0];
+	arrayAnswerF5[2]=[0,0,0,1,0];
+	arrayAnswerF5[3]=[0,0,1,0,0];
+	arrayAnswerF5[4]=[0,0,0,0,0];
+	
+	
+	
+	function calc(){
+		//5道题的选择
+		idx1=$( "input[name=q1]:checked" ).val();
+		idx2=$( "input[name=q2]:checked" ).val();
+		idx3=$( "input[name=q3]:checked" ).val();
+		idx4=$( "input[name=q4]:checked" ).val();
+		idx5=$( "input[name=q5]:checked" ).val();
+		
+		arrayScoreM=[0,0,0,0,0];
+		arrayScoreF=[0,0,0,0,0];
+		
+		if(sex==1){
+			for(var i=0;i<arrayScoreM.length;i++){
+				arrayScoreM[i]+=Math.round(parseFloat(arrayAnswerM1[idx1][i])*100)/100;
+				arrayScoreM[i]+=Math.round(parseFloat(arrayAnswerM2[idx2][i])*100)/100;
+				arrayScoreM[i]+=Math.round(parseFloat(arrayAnswerM3[idx3][i])*100)/100;
+				arrayScoreM[i]+=Math.round(parseFloat(arrayAnswerM4[idx4][i])*100)/100;
+				arrayScoreM[i]+=Math.round(parseFloat(arrayAnswerM5[idx5][i])*100)/100;
+			}
+			for(var i=0;i<arrayScoreM.length;i++){
+				console.log(arrayManName[i]+arrayScoreM[i]+"&nbsp;&nbsp;");
+			}
+	
+			$('.result img').hide();
+			$('.resultM img').eq(indexOfMax(arrayScoreM)).show();
+			
+		}else{
+			for(var i=0;i<arrayScoreF.length;i++){
+				arrayScoreF[i]+=Math.round(parseFloat(arrayAnswerF1[idx1][i])*100)/100;
+				arrayScoreF[i]+=Math.round(parseFloat(arrayAnswerF2[idx2][i])*100)/100;
+				arrayScoreF[i]+=Math.round(parseFloat(arrayAnswerF3[idx3][i])*100)/100;
+				arrayScoreF[i]+=Math.round(parseFloat(arrayAnswerF4[idx4][i])*100)/100;
+				arrayScoreF[i]+=Math.round(parseFloat(arrayAnswerF5[idx5][i])*100)/100;
+			}
+			for(var i=0;i<arrayScoreF.length;i++){
+				console.log(arrayFName[i]+arrayScoreF[i]+"&nbsp;&nbsp;");
+			}
+
+			$('.result img').hide();
+			$('.resultF img').eq(indexOfMax(arrayScoreF)).show();
+		}
+	}
+	
+	function indexOfMax(arr) {
+		if (arr.length === 0) {
+			return -1;
+		}
+
+		var max = arr[0];
+		var maxIndex = 0;
+
+		for (var i = 1; i < arr.length; i++) {
+			if (arr[i] > max) {
+				maxIndex = i;
+				max = arr[i];
+			}
+		}
+
+		return maxIndex;
+	}
+	
+
+//微信分享缩略图
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			//console.log(json);
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "重回民国，你会遇见谁？",
+					link: "http://partner.qianlong.com/h5/chonghuiminguo/",
+					imgUrl: "http://partner.qianlong.com/h5/chonghuiminguo/images/thumbShare.jpg",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "七夕节穿越到民国，10种结局你会来到谁身边？"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		
+	});
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>谢谢你的坚守 送上我的祝福</title>
+<meta name="keywords" content="谢谢你的坚守 送上我的祝福"/>
+<meta name="description" content="谢谢你的坚守 送上我的祝福">
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'/>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="fullpage">
+   <div id="loadpage">
+        <img src="css/img/p0_7.png" style="z-index: 2;width: 100%"  alt="/">    
+        <img src="css/img/p0_0.jpg" style="height: 100%;width: 100%"  alt="/"> 
+        <img src="css/img/p0_10.png" style="bottom: 22%;width: 100%"  alt="/"> 
+        <a href='#page1' onclick="changeLoc('#page1');"><img src="css/img/p0_1.png" class='ys' style="" alt="/"></a>
+        <a href='#page2'><img src="css/img/p0_2.png" class='jc' style=""  alt="/"></a>
+        <a href='#page3'><img src="css/img/p0_3.png" class='hc' style=""  alt="/"></a>
+        <a href='#page4'><img src="css/img/p0_4.png" class='hw' style=""  alt="/"></a>
+        <a href='#page5'><img src="css/img/p0_5.png" class='gj' style=""  alt="/"></a>
+        <a href='#page6'><img src="css/img/p0_6.png" class='bf' style=""  alt="/"></a> 
+        <img src="css/img/p0_8.png" style="bottom: 5%;width: 100%"  alt="/"> 
+        <img src="css/img/p0_9.png" style="bottom: 0%;width: 100%"  alt="/">      
+   </div>
+   <div id="page1" class="secpage">        
+        <img src="css/img/p1_1.jpg" class="bg">
+        <img src="css/img/p1_2.png" class="swiperdiv">
+        <img src="css/img/p1_4.png" class="fx">
+        <a href='#loadpage' onclick='showloadP()'><img src="css/img/p1_3.png" class="fh"></a>
+   </div>
+    <div id="page2" class="secpage">
+       <img src="css/img/p2_1.jpg" class="bg">
+       <img src="css/img/p2_2.png" class="swiperdiv">
+       <img src="css/img/p1_4.png" class="fx">
+       <a href='#loadpage' onclick='showloadP()'><img src="css/img/p1_3.png" class="fh"></a>
+   </div>
+    <div id="page3" class="secpage">
+         <img src="css/img/p3_1.jpg" class="bg">
+        <img src="css/img/p3_2.png" class="swiperdiv">
+        <img src="css/img/p1_4.png" class="fx">
+        <a href='#loadpage' onclick='showloadP()'><img src="css/img/p1_3.png" class="fh"></a>
+   </div>
+    <div id="page4" class="secpage">
+        <img src="css/img/p4_1.jpg" class="bg">
+       <img src="css/img/p4_2.png" class="swiperdiv">
+       <img src="css/img/p1_4.png" class="fx">
+       <a href='#loadpage' onclick='showloadP()'><img src="css/img/p1_3.png" class="fh"></a>
+   </div>
+    <div id="page5" class="secpage">
+       <img src="css/img/p5_1.jpg" class="bg">
+       <img src="css/img/p5_2.png" class="swiperdiv">
+       <img src="css/img/p1_4.png" class="fx">
+       <a href='#loadpage' onclick='showloadP()'><img src="css/img/p1_3.png" class="fh"></a>
+   </div>
+    <div id="page6" class="secpage">
+       <img src="css/img/p6_1.jpg" class="bg">
+       <img src="css/img/p6_2.png" class="swiperdiv">
+       <img src="css/img/p1_4.png" class="fx">
+       <a href='#loadpage' onclick='showloadP()'><img src="css/img/p1_3.png" class="fh"></a>
+   </div>
+</div>
+
+
+<script src="http://img.qianlong.com/templates/qianlong/common/lib/jquery/1.8.3/jquery-1.8.3.min.js"></script>
+<script src="js/index.js"></script>
+<script type="text/javascript">
+  if(window.innerWidth>750){
+      var wh=window.innerHeight;
+      var ww = window.innerWidth;
+      wx=parseInt(wh*750/1206);
+      $('html,body').css({
+        'width':wx+'px',
+        'margin':'0 auto',
+        'height':wh+'px'
+      })
+      $("#audioPlay").css({
+           'width':'55px'
+      });
+      $('.secpage').css({
+          'width':wx+'px'
+      })
+     }
+
+  function getHeight(p){
+     var h1=$(p).css('height');
+     console.log(h1)
+  }         
+
+var w=$(window).width();
+neww=w/750*1521;
+
+
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">  
+
+  $.ajax({
+    type: "get",
+    async: true,
+    url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+    dataType: "jsonp",
+    data: {
+      "weburl": location.href.split("#")[0]
+    },
+    success: function(json){
+      // console.log(json);
+      wx.config({
+        debug: false,
+        appId: json.appId,
+        timestamp: json.timestamp,
+        nonceStr: json.nonceStr,
+        signature: json.signature,
+        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+      });
+    },
+    error: function(){
+      console.log("share error");
+    }
+  });
+  
+  wx.ready(function(){
+    console.log("ready to share");
+    var obj_co = {
+          title: newtitle,
+          link: newLoc,
+          imgUrl: "http://partner.qianlong.com/h5/xxndjs_ceshi/css/img/tu.jpg",
+          success: function(){
+          },
+          cancel: function(){}
+        },
+        obj_co_desc = {
+          desc: "让我们为每个坚守在工作岗位上的人，送上真挚的祝福!"
+        },
+        obj_timeline = $.extend({}, obj_co),
+        obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+        obj_qq = $.extend({}, obj_co_desc, obj_co),
+        obj_wb = $.extend({}, obj_co_desc, obj_co),
+        obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+    wx.onMenuShareTimeline(obj_timeline);
+    wx.onMenuShareAppMessage(obj_appmsg);
+    wx.onMenuShareQQ(obj_qq);
+    wx.onMenuShareWeibo(obj_wb);
+    wx.onMenuShareQZone(obj_qzone);
+  });
+  wx.error(function (res) {
+    console.log(res.errMsg);
+    //alert(res.errMsg);
+  });
+</script>
+</body>
+</html>
+ 

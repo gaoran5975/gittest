@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>唱响十九大-千龙网·中国首都网</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0 />
+  <link rel="stylesheet" type="text/css" href="styles/css/bootstrap.css" />
+
+  <link rel="stylesheet" href="styles/css/css.css">
+  <script src="styles/js/jquery.min.js"></script>
+  <script src="styles/js/bootstrap.min.js"></script>
+  <script src="styles/js/plugin.js"></script>
+  <script src="http://t.qianlong.com/chuntongji.js" type="text/javascript"></script>
+  <style type="text/css">
+  	a{ color: #fffcab; text-decoration: none;}
+  	#videoPage{ display: none;  }
+  	#video{ width: 100%; }
+  	#wz{ overflow: hidden;}
+    .box{
+      background: url(./styles/img/list_bg.jpg);
+      background-size: 100%;
+      z-index: 999;
+      /*position: relative;*/
+    }
+    #wz3{ overflow: hidden; }
+    #wz3 img{
+      display: inline-block;
+    }
+    .search{ width: 50%; }
+    #refresh{ width: 42% !important; }
+    .return{ margin-top: 15px; }
+    .return img{
+      width: 35%;
+    }
+    .shareIcon{
+      display: inline-block;
+      background: url('./styles/img/share_icon.png');
+      background-size: 100%;
+      height: 53px;
+      width: 63px;
+      position: absolute;
+      right: 8%;
+      top:5%;
+      z-index: 99999;
+    }
+
+    .searchBg{
+       height: 100%;
+       width: 100%;
+       position: absolute;
+       top: 0;
+       left: 0;
+       z-index: 9999;
+       background: rgba(255, 255, 255, .6);
+       display: none;
+    }
+
+    .searchBox{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+    }
+    .searchContent{
+      position: relative;
+    }
+    .searchContent input{
+      width: 350px;
+      height: 50px;
+      border: 1px solid red;
+      border-right: none;
+      vertical-align: top;
+      font-size: 40px;
+      padding-left: 30px;
+      color: red;
+      border-left: none;
+    }
+    .search_icon{
+      width: 14.5%;
+      margin-left: -30px;
+    }
+    
+    .searchList{
+      margin-left: 70px;
+      background: white;
+      border:1px solid red;
+      width: 65%;
+      margin-top: -10px;
+      height: 300px;
+      overflow: auto;
+      padding-left: 10px;
+    }
+    .searchList li{
+      list-style: none;
+      margin-top: 20px;
+      font-size: 28px;
+    }
+    .searchList a{
+      color:#959595;
+    }
+    .circle{
+      position: absolute;
+      left: 8%;
+      display: inline-block;
+      width: 54px;
+      height: 54px;
+      border-radius:50% ;
+      background: white;
+      border-left:1px solid red;
+      z-index: -1;
+
+    }
+  </style>
+</head>
+<body style="font-size:14px;background-color:#620001">
+  <div class="container-fluid box" id="listPage">
+    <div class="row-fluid">
+      <div style="width:100%;height:100%;overflow:auto;">
+        <div style="position:absolute;left:0px;top:0px;z-index:1;"  class="box">
+          <!-- <span class="shareIcon"></span> -->
+          <img src="styles/img/list_bg.jpg" style="width:100%;"/>
+          <img src="styles/img/share.png" alt="" class="share">
+          <div class="searchBg">
+            <div class="searchBox">
+              <form action="">
+                <div class="searchContent">
+                  <div class="circle"></div>
+                  <input type="text" class="search_text">
+                  <img src="styles/img/search_icon.png" class="search_icon">
+                </div>
+              </form>
+              <ul class="searchList">
+                <!-- <li>1111111</li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="width:100%;height:auto;overflow:hidden;position:absolute;left:0px;top:0px;z-index:9;">
+          <div>
+            <div id="wz" style="margin:auto;margin-top:17.5rem;width:34rem;overflow:hidden">
+              <style>
+              td{line-height:2.5rem;color:#fffcab;font-size:1.4rem;}
+              </style>
+              <table id="lists"></table>
+            </div>
+            <div id="wz3" style="margin:auto;margin-top:2rem;width:32rem;text-align:center">
+              <img src="styles/img/search.png" id="search" class="search">
+              <img src="styles/img/change.png" style="width:12rem;"/ id="refresh">
+              <a href="/h5/19davideo/index.html" class="return"><img src="styles/img/return2.png" alt=""></a>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('.share').hide();
+    $('.shareIcon').click(function(){
+      // alert('message?: DOMString')
+      $('.share').show();
+    }); 
+
+    $('.share').click(function(){
+      $('.share').hide();
+    }); 
+
+
+    var search_icon = $('.search_icon');
+    var searchList = $('.searchList');
+
+    if(searchList.find('li').length == 0){
+      searchList.hide();
+    }else{
+      searchList.show();
+    }
+
+    search_icon.on('click',function(){
+      var search_text = $('.search_text').val();
+      searchList.html('');
+      $.ajax({
+        url: 'http://partner.qianlong.com/weixin/media19da/search',
+        type: 'get',
+        data: {key: search_text},
+      })
+      .done(function(data) {
+        data = eval('('+data+')');
+        console.log(data);
+        searchList.show();
+        $.each(data,function(index, el) {
+          var li = document.createElement('li');
+          var _a = document.createElement('a');
+          var url = this.filename;
+
+            if(url.indexOf("Zt/") == -1 ){
+
+              idx2 = url.lastIndexOf(".");
+              url = url.substr(0,idx2);
+              url = "http://bbs.qianlong.com/Zt/2017shijiuda/page3/" + url + ".html";
+            }
+                
+            else{
+              idx = url.lastIndexOf("/");
+              idx2 = url.lastIndexOf(".");
+              url = url.substr(idx+1,idx2-idx-1);
+              url = "http://bbs.qianlong.com/Zt/2017shijiuda/page3/" + url + ".html";
+            }
+          _a.setAttribute('href', url);
+
+          _a.innerHTML = data[index].office;
+
+          li.append(_a);
+          searchList.append(li);
+        });
+        
+
+      })
+      .fail(function() {
+        console.log("error");
+      });
+    });
+    
+    
+    
+
+
+
+    // search
+    $('#search').click(function(){
+      $('.searchBg').show();
+      $('#wz3').css({opacity: '.5'});
+    });
+
+  	showVideoPage();
+    getdata();
+    $("#refresh").click(function(){
+      getdata();
+    });
+  });
+
+  function getQueryStringByName(name){
+       var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+       if(result == null || result.length < 1){
+           return "";
+       }
+       return result[1];
+  }
+
+  
+  function showVideoPage(){
+  	$('#lists a').on('click', function(){
+  		$('#videoPage').show();
+  		$('#listPage').hide();
+  		var videoURL = $(this).attr('videoURL');
+  		var videoName = $(this).attr('videoName');
+  		var videoOffice = $(this).attr('videoOffice');
+  		$('#video').attr('src', videoURL);
+  		$('#videoName').html(videoName);
+  		$('#videoOffice').html(videoOffice);
+  	})
+  }
+
+  function getdata(){
+    vid = getQueryStringByName('vid');
+    if(vid == '') vid = 0;
+
+    $.ajax({
+            type: "get",
+            url: 'http://partner.qianlong.com/weixin/media19da/getlist',
+            data: {vid: vid},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {    
+                var obj = eval("("+data+")");
+                var _table = $("#lists");
+                _table.html("");
+                $.each(obj, function(){
+                	//var url = 't.qianlong.com/';
+                  var url = this.filename;
+                  // if(url.indexOf("Zt/") == -1 )
+                  //     url = "http://t.qianlong.com/Zt/2017shijiuda/video/" + url;
+                  // else
+                  //     url = "http://t.qianlong.com/" + url;
+
+                  if(url.indexOf("Zt/") == -1 ){
+
+                    idx2 = url.lastIndexOf(".");
+                    url = url.substr(0,idx2);
+                    url = "http://bbs.qianlong.com/Zt/2017shijiuda/page3/" + url + ".html";
+                  }
+                      
+                  else{
+                    idx = url.lastIndexOf("/");
+                    idx2 = url.lastIndexOf(".");
+                    url = url.substr(idx+1,idx2-idx-1);
+                    url = "http://bbs.qianlong.com/Zt/2017shijiuda/page3/" + url + ".html";
+                  }
+
+                  _table.append('<tr><td>* </td><td style="width:32rem;"><a href="'+url+'">' + this.office + this.username + '</a></td></tr>');
+                });
+                // showVideoPage();
+            }
+        });   
+  }
+</script>
+</body>
+</html>

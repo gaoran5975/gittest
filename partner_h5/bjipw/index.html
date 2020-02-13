@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京国际摄影周2018线上新闻中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="/h5/bjipw/lib/swiper-3.4.2.min.css">
+
+    <!-- Demo styles -->
+    <style>
+		*{margin:0;padding:0;}
+        html, body{position: relative; height: 100%; font-size:100px;}
+        body{background: #fff; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 62.5%; color:#000; margin: 0; padding: 0;}
+		.wrap{margin:0 auto; position:relative;}
+		p{font-size: 0.3rem;}
+		.fullH{height:100%;}
+		.page2{background: #ccc; position:relative;}
+		.page3{padding-top:30px;}
+		.p1Bgd{width:100%;height:100%;}
+		.p2Title{width:100%;}
+		.sliderTank{width: 100%; height: 80%; overflow: hidden;}
+		ul.sliderList {width: 90%; height:90%; margin: 0 auto;	list-style: none; position: relative; overflow: hidden;}
+		.sliderList li{position: absolute; width:100%; height: 50%; overflow: hidden;}
+		.sliderList li:nth-child(2n-1){top:0; left:0;}
+		.sliderList li:nth-child(2n){bottom:0; left:0;}
+		.sliderList li:nth-child(2n-1) a{position: absolute; width:90%; left:0; top:0;}
+		.sliderList li:nth-child(2n-1) .title{position: absolute; width:40%; right:0; bottom:0; background: #bf0a07; color: #fff; padding: 10px; height: 1.2rem;}
+		.sliderList li:nth-child(2n) a{position: absolute; width:90%; right:0; bottom:0;}
+		.sliderList li:nth-child(2n) .title{position: absolute;	width:40%; left:0; top:0; background: #000; color: #fff; padding: 10px; height: 1.2rem;}
+		.sliderList li a img{width:100%; height:auto;}
+		.picIntroSet{position: relative; overflow: hidden;	width: 100%; height: 100%;}
+		p.navSet{position: absolute; width: 100%; height: 7%; bottom: 0; left: 0; background: #000;}
+		.navSet a{display: inline-block; width: 32%; height: 100%; line-height: 0.8rem;	text-align: center;	font-size: 0.31rem;	color: #fff; text-decoration: none; font-weight: bold; letter-spacing: 2px;}
+		.navSet a:nth-child(1){background: #bf0a07;}
+		.p3Main{width:100%;}
+		img.btnArrow{width: 10.4%; left: 44.8%; position: absolute; bottom: 10%;}
+		.newsGif{width:100%; position: absolute; z-index: 2; top:0; left:0;}
+
+		@media screen and (min-width:320px){
+			html{font-size:42.6px;}
+		}
+		@media screen and (min-width:360px){
+			html{font-size:48px;}
+		}
+		@media screen and (min-width:375px){
+			html{font-size:50px;}
+		}
+		@media screen and (min-width:384px){
+			html{font-size:51.2px;}
+		}
+		@media screen and (min-width:400px){
+			html{font-size:53.3px;}
+		}
+		@media screen and (min-width:414px){
+			html{font-size:55.2px;}
+		}
+		@media screen and (min-width:424px){
+			html{font-size:56.5px;}
+		}
+		@media screen and (min-width:480px){
+			html{font-size:64px;}
+		}
+		@media screen and (min-width:540px){
+			html{font-size:72px;}
+		}
+		@media screen and (min-width:600px){
+			html{font-size:80px;}
+		}
+		@media screen and (min-width:720px){
+			html{font-size:96px;}
+		}
+		@media screen and (min-width:750px){
+			html{font-size:100px;}
+		}
+		@media screen and (min-width:800px){
+			html{font-size:107px;}
+		}
+		@media screen and (min-width:1024px){
+			html{font-size:136px;}
+		}
+    </style>
+</head>
+<body>
+	<div class="wrap" id="wrap">
+		<div id="swipeTank">
+			<div id="page1" class="fullH page1">
+				<img class="p1Bgd" src="/h5/bjipw/images/news_p1Bgd.png" alt=""/>
+				<img src="/h5/bjipw/images/news.gif" alt="" class="newsGif"/>
+			</div>
+
+			<div class="fullH page2">
+				<img class="p2Title" src="/h5/bjipw/images/news_p2Title.png" alt=""/>
+				<div class="sliderTank">
+					<ul class="sliderList">
+						
+						<li class="item1">
+							<div class="picIntroSet">
+								<a class="pic" href="#" id="link1"><img src="#" alt="" id="img1"/></a>
+								<p class="title" id="title1">正在加载</p>
+							</div>
+
+						</li>
+						<li class="item2">
+							<div class="picIntroSet">
+								<a class="pic" href="#" id="link2"><img src="#" alt="" id="img2"/></a>
+								<p class="title" id="title2">正在加载</p>
+							</div>
+						</li>
+						<li class="item3">
+							<div class="picIntroSet">
+								<a class="pic" href="#" id="link3"><img src="#" alt="" id="img3"/></a>
+								<p class="title" id="title3">正在加载</p>
+							</div>
+						</li>
+						<li class="item4">
+							<div class="picIntroSet">
+								<a class="pic" href="#" id="link4"><img src="#" alt="" id="img4"/></a>
+								<p class="title" id="title4">正在加载</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<img class="btnArrow" src="/h5/bjipw/images/news_arrow.png">
+				<p class="navSet">
+					<a href="#">新闻中心</a>
+					<a href="/h5/bjipw/wonderful.html">精彩推荐</a>
+					<a href="http://vphotos.cn/7Heh">官方图库</a>
+				</p>
+			</div>
+		</div>
+
+			<div class="page3">
+				<img class="p3Main" src="/h5/bjipw/images/news_p3Main.png" alt=""/>
+			</div>
+	</div>
+
+<!-- Swiper JS -->
+<script src="/h5/bjipw/lib/jquery-1.8.3.min.js"></script>
+<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+<script src="/h5/bjipw/lib/TweenMax.min.js"></script>
+<script src="/h5/bjipw/lib/howler.min.js"></script>
+<script src="/h5/bjipw/lib/jquery.waitforimages.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+	//微信分享缩略图
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "北京国际摄影周2018线上新闻中心",
+					link: "http://partner.qianlong.com/h5/bjipw/",
+					imgUrl: "http://partner.qianlong.com/h5/bjipw/images/thumbShare.png",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "北京国际摄影周2018联合千龙网-中国首都网出品"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+	});
+
+	wx.error(function(res){
+		console.log(res.errMsg);
+		//alert(res.errMsg);
+	});
+	
+
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "/bjipw/api/get_index_data",
+		dataType: "json",
+		success: function(json){
+			var d = eval("(" + json + ")");
+			
+			$("#title1").html(d[0].title);
+			$("#title2").html(d[1].title);
+			$("#title3").html(d[2].title);
+			$("#title4").html(d[3].title);
+			$("#link1").attr("href", '/h5/bjipw/contentNews.html?newsid=' + d[0].newsid);
+			$("#img1").attr("src", 'http://yueduji2018.yytimes.com/' + d[0].thumb);
+			$("#link2").attr("href", '/h5/bjipw/contentNews.html?newsid=' + d[1].newsid);
+			$("#img2").attr("src", 'http://yueduji2018.yytimes.com/' + d[1].thumb);
+			$("#link3").attr("href", '/h5/bjipw/contentNews.html?newsid=' + d[2].newsid);
+			$("#img3").attr("src", 'http://yueduji2018.yytimes.com/' + d[2].thumb);
+			$("#link4").attr("href", '/h5/bjipw/contentNews.html?newsid=' + d[3].newsid);
+			$("#img4").attr("src", 'http://yueduji2018.yytimes.com/' + d[3].thumb);
+
+
+		    var vh=$(window).height();
+		    var vw=$(window).width();
+		    var imgRatio=750/1206;
+			var curPage=0;
+			//console.log(vh);
+
+			/*$('.sliderList li').each(function(){
+				$(this).css('z-index',100-$(this).index());
+			})*/
+
+			var theTopSlider=0;
+			function moveSlider(){
+				var $picIntroSet1=$('.sliderList li').eq(0).find('.picIntroSet');
+				var $picIntroSet2=$('.sliderList li').eq(1).find('.picIntroSet');
+				var $picIntroSet3=$('.sliderList li').eq(2).find('.picIntroSet');
+				var $picIntroSet4=$('.sliderList li').eq(3).find('.picIntroSet');
+				var ani1=TweenMax.to($picIntroSet1,1,{top:'100%'});
+				var ani2=TweenMax.to($picIntroSet2,1,{top:'-100%'});
+				var ani3=TweenMax.from($picIntroSet3,1,{top:'100%'});
+				var ani4=TweenMax.from($picIntroSet4,1,{top:'-100%',onComplete:updateTheTopSlider});
+			}
+			
+			function updateTheTopSlider(){
+
+				for(var i=0;i<=1;i++){
+					$('.sliderList li:first').appendTo($('.sliderList'));
+					console.log(hightestIndex);
+					$('.sliderList li:last').css('z-index',hightestIndex);
+					hightestIndex-=1;
+					TweenMax.set($('.sliderList li:last').find('.picIntroSet'),{top:'0'});
+				}
+			}
+
+			var iv;
+			function autoPlaySlider(){
+				if(curPage==1 && iv==undefined){
+					iv=setInterval(moveSlider,5000);
+				}
+			}
+			
+			
+			$('.fullH').height(vh);
+			if(vw>vh){
+				$('.swiper-container').height(vh);
+				$('.swiper-container').width(vh*imgRatio);
+			}
+
+			$('.wrap').css('top',0);
+
+			var eSwipeTank = document.getElementById('swipeTank');
+			var mcSwipeTank = new Hammer(eSwipeTank);
+
+			mcSwipeTank.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+			mcSwipeTank.on("swipeup swipedown", function(ev) {
+				if(ev.type=="swipeup" && curPage<2){//上划
+					swipe("up");
+				}
+				if(ev.type=="swipedown" && curPage>0){
+					swipe("down");
+				}
+			});
+
+			function swipe(dir){
+				if(dir=="up"){
+					var step="-="+vh;
+					TweenMax.to('.wrap',0.5,{top:step,onComplete:function(){curPage+=1;autoPlaySlider()}});
+				}else if(dir=="down"){
+					var step="+="+vh;
+					TweenMax.to('.wrap',0.5,{top:step,onComplete:function(){curPage-=1;autoPlaySlider()}});
+				}
+			}
+
+			posOrig=0;
+			$(window).scroll(function(){
+				if($(window).scrollTop()>=0){
+					console.log("orig:"+posOrig+"--->cur:"+$(window).scrollTop());
+					var posCur=$(window).scrollTop();
+					if((posCur<=posOrig)  && posCur<=20){
+						TweenMax.to('.wrap',0.5,{top:-vh,onComplete:function(){curPage=1;console.log("curPage="+curPage)}});
+					}
+					posOrig=posCur;
+				}
+			})
+
+			var hightestIndex=1000;
+			for(var i=0;i<$('.sliderList li').size();i++){
+				$('.sliderList li').eq(i).css('z-index',hightestIndex);
+				hightestIndex-=1;
+			}
+
+			console.log(d);
+		},
+		error: function(){
+		}
+	});
+	
+	
+</script>
+</body>
+</html>

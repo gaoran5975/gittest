@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width,user-scalable=no" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <title>喜迎十九大百题大竞赛</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+
+    <div class="zindex" id="zindex">
+      <div class="index" id="index"></div>
+    </div>
+    
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+
+
+
+    <!-- 首页 -->
+    <div class="swiper-slide swiper-no-swiping homePage">
+      <img src="images/home.jpg" alt="">
+      <img src="images/start.png" id="start">
+    </div>
+    
+    <!-- 答题页 -->
+    <div class="swiper-slide swiper-no-swiping questionPage">
+      <div class="Qbox">
+        <div class="Qcontainer">
+          <div>
+            <p class="num" id="num"></p>
+            <p class="Q" id="qus"></p>
+          </div>
+          <form action="" id="Qform">
+            <div><input type="radio" id="A" name="radio" value="A"><label for="A" id="ans1"></label></div>
+            <div><input type="radio" id="B" name="radio" value="B"><label for="B" id="ans2"></label></div>
+            <div><input type="radio" id="C" name="radio" value="C"><label for="C" id="ans3"></label></div>
+            <div><input type="radio" id="D" name="radio" value="D"><label for="D" id="ans4"></label></div>
+          </form>
+        </div>
+        <span class="prevQ" id="prevQ"><<&nbsp;上一题</span>
+        <span class="nextQ" id="nextQ">下一题&nbsp;>></span>
+      </div>
+    </div>
+    
+    <!-- 分数页 -->
+    <div class="swiper-slide  scorePage">
+      <img src="" id="scoreBg">
+      <span id="score"></span>
+      <div class="toLastPage">
+        <span id="submit2">提交信息&nbsp;>></span>
+      </div>
+    </div>
+
+    <!-- 提交信息 -->
+    <div class="swiper-slide swiper-no-swiping" id="msgPage">
+      <form action="">
+        <div class="nameBox box">
+          <label for="name">姓名：</label>
+          <input type="text" id="username" name="username">
+        </div>
+        <div class="dwBox box">
+          <label for="dw">单位：</label>
+          <!-- <input type="text" id="dw"> -->
+          <select name="office" id="office">
+            <option value="0">选择单位</option>
+            <option value="qlw">千龙网</option>
+            <option value="xjj">宣讲家网</option>
+            <option value="xlw">西陆网</option>
+          </select>
+        </div>
+        <div class="bmBox box">
+          <label for="bm">部门：</label>
+          <select name="department" id="department">
+          </select>          
+        </div>
+
+        <div class="bmBox box">
+          <label for="name">电话：</label>
+          <input type="text" id="phone" name="phone">
+        </div>
+
+        <div class="score">
+          <span>本人分数：<b id="score2"></b></span>
+        </div>
+
+        <input type="button" value="提交" id="submit">
+      </form>
+
+      
+    </div>
+
+    
+	</div>
+	
+
+</div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jweixin-1.0.0.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

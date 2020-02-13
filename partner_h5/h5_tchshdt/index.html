@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>团城湖手绘地图</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body {
+				background-color: #DBDC52;
+				overflow: hidden;
+			}
+			#load {
+				color: #fff;
+				font-size: 30px;
+				font-weight: bolder;
+				position: absolute;
+				left: 46%;
+				top: 48%;
+			}
+			.page{ position: relative;}
+			.hide {
+				display: none;
+			}
+			.pinch-zoom,.pinch-zoom img{
+				width: 100%;
+				-webkit-user-drag: none;
+				-moz-user-drag: none;
+				-ms-user-drag: none;
+				user-drag: none;
+			}
+			.click{
+				display: block;
+				width: 60px;
+				height: 25px;
+				position: absolute;
+				cursor: pointer;
+			}
+			.clickone{
+				top: 70%;
+				left: 38%;
+			}
+			.clicktwo{
+				top: 60.5%;
+				left: 55%;
+			}
+			.clickthree{
+				top: 18%;
+				left: 67%;
+			}
+			.clickfour{
+				top: 74%;
+				left:56.5%;
+			}
+			.clickfive{
+				top: 73%;
+				left: 64%;
+			}
+			.clicksix{
+				top: 57%;
+				left: 68%;
+			}
+			.viewerimg1,.viewerimg2,.viewerimg3,.viewerimg4,.viewerimg5,.viewerimg6{
+				width: 1.5%!important;
+				position: absolute;
+				
+			}
+			.viewerimg1{
+				top: 75%;
+    			left: 42.5%;
+			}
+			.viewerimg2{
+				top: 66%;
+    			left: 59%;
+			}
+			.viewerimg3{
+				top: 23%;
+   				left: 73%;
+			}
+			.viewerimg4{
+				top: 79%;
+    			left: 61%;
+			}
+			.viewerimg5{
+				top: 77%;
+    			left: 72%;
+			}
+			.viewerimg6{
+				top: 60%;
+    			left: 72%;
+			}
+			.top{
+				width: 100%;
+				position: absolute;
+				text-align: center;
+				margin-top: -8px;
+			}
+			.xz{width: 80px;}
+			body::-webkit-scrollbar:{display:none; width:0; height: 0;}
+			/*
+			 * 强制横屏显示：通过竖屏时旋转解决横屏问题
+			 * 
+			 */
+			@media screen and  (orientation:  portrait){
+				body::-webkit-scrollbar:{display:none; width:0; height: 0;}
+			    .page {
+			        -webkit-transform:rotate(90deg);
+			        -webkit-transform-origin:0% 0%;/*1.重置旋转中心*/
+			        
+			        -moz-transform: rotate(90deg);
+			        -moz-transform-origin:0% 0%;
+			        
+			        -ms-transform: rotate(90deg);
+			        -ms-transform-origin:0% 0%;
+			        
+			        transform: rotate(90deg);
+			        transform-origin:0% 0%;
+			        
+			        width: 100vh;/*2.利用 vh 重置 ‘宽度’ */
+			        height: 100vw;/* 3.利用 vw 重置 ‘高度’ */
+			        
+			        top:15px;
+			        left: 100vw;/* 4.旋转后页面超出屏幕，重置页面定位位置 */
+			        text-align: center;
+			        
+			      
+			    }
+			}
+			
+			 /*弹框样式3*/
+			.cd-popup3{
+			    position: fixed;
+			    left: -16px;
+			    top: 0px;
+			    height: 100%;
+			    width: 100%;
+			    background-color: rgba(0, 0, 0, 0.5);
+			    opacity: 0;
+			    visibility: hidden;
+			    -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+			    -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+			    transition: opacity 0.3s 0s, visibility 0s 0.3s;
+			    z-index:9999;
+			}
+			.cd-popup3.is-visible3 {
+			    opacity: 1;
+			    visibility: visible;
+			    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+			    -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+			    transition: opacity 0.3s 0s, visibility 0s 0s;
+			}
+			.cd-popup-container3 {
+			    position: relative;
+			   /* width:80vh;*/
+			    /*margin:5% auto;*/
+			   /* height:80vw;*/
+			    /*background: #FFF;*/
+			    border-radius: .4rem .4rem .4rem .4rem;
+			    text-align: center;
+			   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);*/
+			  -webkit-transform:scale(0.8);
+			  -moz-transform:scale(0.8);
+			  -ms-transform:scale(0.8); 
+			  -o-transform:scale(0.8);
+			  transform:scale(0.8);
+			    -webkit-backface-visibility: hidden;
+			    -webkit-transition-property: -webkit-transform;
+			    -moz-transition-property: -moz-transform;
+			    transition-property: transform;
+			    -webkit-transition-duration: 0.3s;
+			    -moz-transition-duration: 0.3s;
+			    -ms-transition-duration: 0.3s;
+			    -o-transition-duration: 0.3s;
+			    transition-duration: 0.3s;
+			}
+			.cd-popup-close{ position: absolute;right:10px;top:10px; z-index: 10;width:auto;height:1.25rem; display: block;font-size:14px;color:#fff}
+			.is-visible3 .cd-popup-container3 {
+			  -webkit-transform:scale(1);
+			  -moz-transform:scale(1);
+			  -ms-transform:scale(1);
+			  -o-transform:scale(1);
+			  transform:scale(1);
+			  }
+			  .cd-popup-container3 img{
+				 height: 100vw;
+			    
+			  }
+			  .cd-buttons{
+			  	    width: 100vh;
+			    height: 100vw;
+			    text-align: center;
+	
+			  }
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<div id="load">
+				<div class="text">0%</div>
+			</div>
+			<div class="top"><img src="img/timg4.gif" class="xz hide"/></div>
+			<div class="page">
+				<div class="cd-popup3">
+				    <div class="cd-popup-container3">
+				        <div class="cd-buttons">
+				        	<img src="img/dsth.jpg"/>
+				        </div>
+				        <a href="#0" class="cd-popup-close">关闭</a>
+				    </div>
+				</div>
+		        <div class="pinch-zoom">
+		            <img src="img/shdt.png" id="imgView"  class="viewerimg hide" />
+		            <img src="img/click.gif" alt="" class="viewerimg1 hide" />
+		            <img src="img/click.gif" alt="" class="viewerimg2 hide" />
+		            <img src="img/click.gif" alt="" class="viewerimg3 hide" />
+		            <img src="img/click.gif" alt="" class="viewerimg4 hide" />
+		            <img src="img/click.gif" alt="" class="viewerimg5 hide" />
+		            <!--<img src="img/click.gif" alt="" class="viewerimg6 hide" />-->
+		            <a class="click clickone" href="http://www.upvr.net/index.php/Product/Index/index/id/21810"></a>
+					<a class="click clicktwo" href="http://www.upvr.net/index.php/Product/Index/index/id/30825"></a>
+					<a class="click clickthree" href="http://www.upvr.net/index.php/Product/Index/index/id/31323"></a>
+					<a class="click clickfour" href="http://www.upvr.net/index.php/Product/Index/index/id/30903"></a>
+					<a class="click clickfive" href="http://www.upvr.net/index.php/Product/Index/index/id/31017"></a>
+					<a class="click clicksix" href="javascript:void(0)"></a>
+		        </div>
+		    </div>
+
+		</div>
+		<script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/loading.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/pinchzoom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//开始加载进度条
+				load.Start();
+				//图片缩放
+				$('div.pinch-zoom').each(function() {
+					new RTP.PinchZoom($(this), {});
+				});
+				$('div.cd-buttons').each(function() {
+					new RTP.PinchZoom($(this), {});
+				});
+				setRem();
+				var vh = $(window).height();
+				var vw = $(window).width();
+				var imgRatio = 750 / 1334;
+				console.log(vw / vh + "   " + imgRatio);
+				$('.viewerimg').css('height', vw);
+				$('.viewerimg').css('width', "auto");
+				/*设置宽高适配
+				if(vw > vh) {
+					$('.viewerimg').height(vw);
+					$('.viewerimg').width(vh * imgRatio);
+				}*/
+				/*设置弹框*/
+				//打开窗口
+		        /*$('.clicksix').on('click', function(event){
+		            event.preventDefault();
+		            $('.cd-popup3').addClass('is-visible3');
+		            //$(".dialog-addquxiao").hide()
+		        });*/
+		        //关闭窗口
+		        $('.cd-popup3').on('click', function(event){
+		            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup3') ) {
+		                event.preventDefault();
+		                $(this).removeClass('is-visible3');
+		            }
+		        });
+		        //ESC关闭
+		        $(document).keyup(function(event){
+		            if(event.which=='27'){
+		                $('.cd-popup3').removeClass('is-visible3');
+		            }
+		        });
+			});
+			
+			/**
+			 * 预加载
+			 * @type {Load}
+			 */
+			var load = new Load(function(p) {
+				var text = $("#load .text");
+				text.html(parseInt(p * 100) + "%");
+				if($(".text").text() == "100%") {
+					$("#load").addClass("hide");
+					$(".viewerimg").removeClass("hide");
+					$(".xz").removeClass("hide");
+					$(".viewerimg1").removeClass("hide");
+					$(".viewerimg2").removeClass("hide");
+					$(".viewerimg3").removeClass("hide");
+					$(".viewerimg4").removeClass("hide");
+					$(".viewerimg5").removeClass("hide");
+					$(".viewerimg6").removeClass("hide");
+					/*$("body").attr("style", "background: none");*/
+					return false;
+				}
+			}, loadComplete, [
+				"img/shdt.png"
+
+			], 16);
+			function loadComplete() {
+
+			}
+			
+			
+	        window.addEventListener("onorientationchange" in window ? "orientationchange":"resize",function(){
+	            setRem();
+	        });
+	        function setRem(){
+	            var html = document.querySelector("html");
+	            var width = html.getBoundingClientRect().width;
+	            var height = html.getBoundingClientRect().height;
+	            //判断横屏
+	            if(width < height){
+	                //竖屏
+	                html.style.fontSize = height/16 +"px";
+	            };
+	            if(width > height){
+	                //横屏
+	                html.style.fontSize = width/16 +"px";
+	            }
+	            
+	        }
+
+			//微信分享缩略图
+			$.ajax({
+				type: "get",
+				async: true,
+				url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+				dataType: "jsonp",
+				data: {
+					"weburl": location.href.split("#")[0]
+				},
+				success: function(json) {
+console.log(json);
+					wx.config({
+						debug: false,
+						appId: json.appId,
+						timestamp: json.timestamp,
+						nonceStr: json.nonceStr,
+						signature: json.signature,
+						jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+					});
+				},
+				error: function() {
+					console.log("share error");
+				}
+			});
+
+			wx.ready(function() {
+				console.log("ready to share");
+				var obj_co = {
+						title: "团城湖手绘地图",
+						link: "http://partner.qianlong.com/h5/h5_tchshdt",
+						imgUrl: "http://partner.qianlong.com/h5/h5_tchshdt/img/thumb.jpg",
+						success: function() {},
+						cancel: function() {}
+					},
+					obj_co_desc = {
+						desc: ""
+					},
+					obj_timeline = $.extend({}, obj_co),
+					obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+					obj_qq = $.extend({}, obj_co_desc, obj_co),
+					obj_wb = $.extend({}, obj_co_desc, obj_co),
+					obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+				wx.onMenuShareTimeline(obj_timeline);
+				wx.onMenuShareAppMessage(obj_appmsg);
+				wx.onMenuShareQQ(obj_qq);
+				wx.onMenuShareWeibo(obj_wb);
+				wx.onMenuShareQZone(obj_qzone);
+
+			});
+
+			wx.error(function(res) {
+				console.log(res.errMsg);
+				//alert(res.errMsg);
+			});
+		</script>
+	</body>
+
+</html>

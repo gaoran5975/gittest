@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>穿越北京40年来体会你</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="lib/swiper-3.4.2.min.css">
+
+    <!-- Demo styles -->
+    <style>
+		*{margin:0;padding:0;}
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #2b2d30;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 62.5%;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+		.wrap{
+			margin:0 auto;
+			position:relative;
+		}
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+			background:#fff;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+			overflow: hidden;
+
+        }
+        .swiper-container-f .swiper-wrapper{
+            animation-duration:2000ms;
+            -webkit-animation-duration:2000ms;
+        }
+		
+		.pageLoading{
+			position: absolute;
+			width:100%;
+			height:100%;
+			z-index: 300;
+			background: #2b2d30;
+			color:#fff;
+		}
+		.pageLoading img {
+			width: 100%;
+			position: relative;
+		}
+		.pageLoading p {
+			position: absolute;
+			height: 20px;
+			text-align: center;
+			margin-top: 30%;
+			width:100%;
+			font-size:20px;
+			line-height:2em;
+			font-size:14px;
+			height:100%;
+		}
+		a.btnSound{
+			display: block;
+			width:32px;
+			height:32px;
+			position: absolute;
+			z-index: 2;
+			top:5%;
+			left:5%;
+			overflow:hidden;
+			background:#fff;
+			border:solid 2px #ccc;
+			border-radius: 10px;
+			opacity: 0.8;
+			padding:6px;
+		}
+		a.btnSound img{
+			width:100%;
+		}
+		img.toPlay{
+			display: none;
+		}
+		.pageLoading p span{
+			display:block;
+		}
+		a.btnEnter{
+			display:inline-block;
+			color:#fff;
+			height: 20px;
+			text-align: center;
+			margin-top: 30px;
+			width: 50px;
+			border:solid 1px #ccc;
+			font-size: 14px;
+			line-height: 20px;
+			font-size: 14px;
+			padding:2px 5px;
+			display:none;
+
+		}
+		img.btnMusic {
+			position: absolute;
+			right: 6px;
+			top: 6px;
+			display: block;
+			width: 10%;
+			z-index:100;
+		}
+		
+
+        .loading{position: absolute;top:20%;text-align: center;z-index: 11;width:100%;}
+        .swiper-pagination{display: none;}
+
+		.questionSet{
+			height:100%;
+			width:100%;
+		}
+		.questionSet li {
+			list-style: none;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			position: relative;
+			
+		}
+		.questionSet .bgd {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.questionSet .build {
+			position: absolute;
+			top: 5.8%;
+			left: 13.9%;
+			width: 72.3%;
+			border-radius:10px;
+			z-index:3;
+			box-shadow: 0px 0px 20px 0px #888;
+		}
+		.questionSet .qBoard{
+			position:absolute;
+			width:89.3%;
+			left:5.3%;
+			top:18.4%;
+			background: url(images/whiteBgd.png) repeat;
+			border-radius:10px;
+			padding-top:10%;
+			padding-top: 25%;
+			text-align: left;
+			padding-bottom: 5%;
+			box-shadow: 0px 0px 20px 0px #888;
+		}
+		.questionSet .qBoard .txt{
+			width: 85%;
+			margin:0 auto;
+			line-height: 2em;
+			font-weight:bold;
+			font-family: simsun;
+		}
+		.questionSet .btnSet a {
+			display: block;
+			width: 78.4%;
+			background: #fff;
+			margin: 4% auto;
+			text-align: center;
+			font-size: 20px;
+			color: #000;
+			text-decoration: none;
+			border-radius: 10px;
+			padding: 2% 0;
+			font-size: 16px;
+		}
+		.panelWrong{
+			width:100%;
+			height:100%;
+			display:none;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:3;
+		}
+		.panelWrong img{
+			width:100%;
+			height:100%;
+		}
+		.panelWrong  .wrongTip {
+			position: absolute;
+			z-index: 2;
+			top: 45%;
+			left: 10%;
+			color: #f6f8c4;
+			font-size: 35px;
+			text-align: center;
+			width: 80%;
+		}
+		.panelWrong .wrongTip .key {
+			font-size: 45px;
+		}
+		.panelWrong .wrongTxt {
+			position: absolute;
+			z-index: 2;
+			top: 55%;
+			left: 10%;
+			color: #f6f8c4;
+			font-size: 18px;
+			text-align: center;
+			width: 80%;
+		}
+		.panelRight{
+			width:100%;
+			height:100%;
+			display:none;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:3;
+			overflow:hidden;
+		}
+		.rightBgd{
+			position:absolute;
+			opacity:0;
+		}
+		
+		
+		img.backCoverBgd {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+		img.info1 {
+			position: absolute;
+			width: 46%;
+			top: 18.4%;
+		}
+		p.info2 {
+			position: absolute;
+			top: 34%;
+			font-size: 18px;
+			font-weight: bold;
+			font-family: simsun;
+		}
+		span.numRight {
+			color: #f00;
+			font-size: 45px;
+		}
+		.info3 {
+			position: absolute;
+			top: 50%;
+			line-height: 2em;
+			font-weight: bold;
+			font-family: simsun;
+			width: 90%;
+			font-size: 16px;
+		}
+		p.btns {
+			position: absolute;
+			top: 60%;
+			text-align: center;
+			width: 54%;
+			left: 23%;
+		}
+		.btns img {
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		.maskShare{
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+			display:block;
+			display:none;
+			z-index:10;
+		}
+		
+		.layer1 {
+			width: 266%;
+			position: absolute;
+			bottom: 0;
+			z-index: 5;
+			left: -145%;
+		}
+		.layer2 {
+			width: 200%;
+			position: absolute;
+			bottom: 8%;
+			z-index: 4;
+			left: -130%;
+		}
+		.layer3,.layer4,.layer5{
+			position:absolute;
+		}
+		.layer3 {
+			width: 220%;
+			z-index: 3;
+			bottom: 0;
+		}
+		.layer4 {
+			height: 50%;
+			z-index: 2;
+			top:0;
+			left: -100%;
+		}
+		.layer5 {
+			height: 50%;
+			z-index: 1;
+			top: 40%;
+			left: -100%;
+		}
+		.coverTitle {
+			width: 81.7%;
+			z-index: 6;
+			top: 9.6%;
+			position: absolute;
+			left: 9%;
+		}
+		
+		.p2Bgd{
+			position:absolute;
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+		.p2Txt{
+			position:absolute;
+			width:52.5%;
+			top:26.5%;
+			left:23.75%;
+			opacity:0;
+		}
+		.p3Bgd{
+			position:absolute;
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+		.p3Ready{
+			position:absolute;
+			width:52%;
+			top:41.6%;
+			left:24%;
+		}
+		.p3Go{
+			position:absolute;
+			width:34.9%;
+			top:40%;
+			left:33%;
+			opacity:0;
+		}
+		.p3Go1{
+			position:absolute;
+			width:56.3%;
+			top:40%;
+			left:21.9%;
+			opacity:0;
+		} 
+
+		p.btnEnter {
+			position: absolute;
+			bottom: 10px;
+			color: #7294c7;
+			display:none;
+		}
+		p.btnEnter span {
+			font-family: cursive;
+			font-weight: bold;
+		}
+
+		@media (max-width: 360px) {
+			.qBoard p.txt{font-size:14px;}
+		}
+		
+		
+    </style>
+</head>
+<body>
+<!-- Swiper -->
+<div class="wrap">
+<div class="pageLoading">
+    <p><img src="images/loading3.gif" alt=""/> <span class="txtLoading">全力加载中...</span><span>打开声音效果更好！</span><span><a class="btnEnter">进入</a></span></p>
+</div>
+
+<div class="swiper-container swiper-container-h">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide cover">
+			<p class="btnEnter">点击屏幕开始答题&nbsp;<span>-&gt;</span></p>
+			<img class="layer1" src="images/layer1.png">
+			<img class="layer2" src="images/layer2.png">
+			<img class="layer3" src="images/cover_water.png">
+			<img class="layer4" src="images/cover_sky.png">
+			<img class="layer5" src="images/cover_hill.png">
+			<img class="coverTitle" src="images/cover_title.png">
+		</div>  
+		
+        <!-- <div class="swiper-slide page2">           
+            <img class="p2Bgd" src="images/p2Bgd.jpg">
+			<img class="p2Txt" src="images/p2Txt.png">
+        </div>  
+		<div class="swiper-slide page3">   
+			<img class="p3Bgd" src="images/p3Bgd.jpg">
+            <img class="p3Ready" src="images/p3Ready.png">
+			<img class="p3Go" src="images/p3Go.png">
+			<img class="p3Go1" src="images/p3Go1.png">
+        </div>   -->
+        <div class="swiper-slide page4">           
+			<ul class="questionSet">
+				<li>
+					<img class="bgd" src="images/q1_bgd.jpg"/>
+					<img class="build" src="images/q1_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">今年是首都机场60岁生日。____年，首都机场T1航站楼及停机坪、楼前停车场等配套工程建成并正式投入使用。</p>
+						<div class="btnSet" data_key="3">
+							<a href="#">A.1958</a>
+							<a href="#">B.1965</a>
+							<a href="#">C.1980</a>
+							<a href="#">D.1982</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q2_bgd.jpg"/>
+					<img class="build" src="images/q2_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">中日友好医院于___年10月23日开院。它是我国在改革开放后利用外资的首批国外无偿援助项目，是当时中国最富于国际色彩、设施最为先进的现代化医院。</p>
+						<div class="btnSet" data_key="3">
+							<a href="#">A.1980</a>
+							<a href="#">B.1982</a>
+							<a href="#">C.1984</a>
+							<a href="#">D.1986</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q3_bgd.jpg"/>
+					<img class="build" src="images/q3_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">中国剧院始建于1984年，是中国第一座现代化的大型歌舞剧院，是为迎接国庆35周年，演出大型音乐舞蹈史诗___而兴建的。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.《中国革命之歌》</a>
+							<a href="#">B.《东方红》</a>
+							<a href="#">C.《复兴之路》</a>
+							<a href="#">D.《井冈山》</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q4_bgd.jpg"/>
+					<img class="build" src="images/q4_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年，中国国际展览中心一期工程竣工，截止1993年，是中国规模最大的现代化展览馆。</p>
+						<div class="btnSet" data_key="4">
+							<a href="#">A.1982</a>
+							<a href="#">B.1983</a>
+							<a href="#">C.1984</a>
+							<a href="#">D.1985</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q5_bgd.jpg"/>
+					<img class="build" src="images/q5_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年，北京音乐厅竣工，是我国第一座现代模式的、专为演奏音乐而设计建造的演出场所，享有“中国的音乐圣殿”之称。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.1986</a>
+							<a href="#">B.1987</a>
+							<a href="#">C.1988</a>
+							<a href="#">D.1989</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q6_bgd.jpg"/>
+					<img class="build" src="images/q6_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">1987年，位于___的中国人民抗日战争纪念馆落成，截至2014年，是全国唯一一座全面反映中国人民抗日战争历史的大型综合性专题纪念馆。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.丰台</a>
+							<a href="#">B.石景山</a>
+							<a href="#">C.海淀</a>
+							<a href="#">D.门头沟</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q7_bgd.jpg"/>
+					<img class="build" src="images/q7_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年，北京图书馆新馆落成，后更名为国家图书馆，是我国、也是目前亚洲地区最大、藏书最多的图书馆。</p>
+						<div class="btnSet" data_key="4">
+							<a href="#">A.1982</a>
+							<a href="#">B.1984</a>
+							<a href="#">C.1986</a>
+							<a href="#">D.1987</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q8_bgd.jpg"/>
+					<img class="build" src="images/q8_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">国家奥林匹克体育中心始建于1986年，于1990年___前建成并正式投入使用，是集竞赛训练、全民健身、休闲娱乐为一体的体育基地、体育公园。</p>
+						<div class="btnSet" data_key="4">
+							<a href="#">A.中国女足世界杯</a>
+							<a href="#">B.第七届全运会</a>
+							<a href="#">C.第二十一届世界大学生运动会</a>
+							<a href="#">D.第十一届亚洲运动会</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q9_bgd.jpg"/>
+					<img class="build" src="images/q9_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">北京经济技术开发区于1991年开始筹建，1992年正式建设并对外招商。自此____开始快速发展。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.亦庄</a>
+							<a href="#">B.中关村</a>
+							<a href="#">C.CBD</a>
+							<a href="#">D.空港</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q10_bgd.jpg"/>
+					<img class="build" src="images/q10_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">中央广播电视塔于___年建成，是集广播电视发射和旅游观光、餐饮娱乐为一体的多功能现代化的标志性建筑。</p>
+						<div class="btnSet" data_key="3">
+							<a href="#">A.1990</a>
+							<a href="#">B.1992</a>
+							<a href="#">C.1994</a>
+							<a href="#">D.1996</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q11_bgd.jpg"/>
+					<img class="build" src="images/q11_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">北京西站于1996年1月21日开通运营，是___铁路的“龙头”工程，在开通运营时曾是亚洲规模最大的现代化铁道客运站之一。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.京九</a>
+							<a href="#">B.京承</a>
+							<a href="#">C.京哈</a>
+							<a href="#">D.京沪</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q12_bgd.jpg"/>
+					<img class="build" src="images/q12_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">中华世纪坛_____年竣工，为迎接21世纪新千年而兴建。它是一座日晷型的纪念性建筑，是中国第一座世界艺术博物馆。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.1998</a>
+							<a href="#">B.1999</a>
+							<a href="#">C.2000</a>
+							<a href="#">D.2001</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q13_bgd.jpg"/>
+					<img class="build" src="images/q13_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">_____年，首都博物馆新馆正式开馆。其原馆址位于北京孔庙，是北京地区集收藏、展览、研究、考古、公共教育、文化交流于一体的博物馆。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.2006</a>
+							<a href="#">B.2007</a>
+							<a href="#">C.2008</a>
+							<a href="#">D.2009</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q14_bgd.jpg"/>
+					<img class="build" src="images/q14_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年，国家大剧院建成开业。作为新北京十六景之一的地标性建筑，是国家兴建的重要文化设施，中国国家表演艺术的最高殿堂，中外文化交流的最大平台，中国文化创意产业的重要基地。</p>
+						<div class="btnSet" data_key="2">
+							<a href="#">A.2006</a>
+							<a href="#">B.2007</a>
+							<a href="#">C.2008</a>
+							<a href="#">D.2009</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q15_bgd.jpg"/>
+					<img class="build" src="images/q15_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">地处CBD核心区中央电视台总部大楼，外形前卫造型独特，被美国《时代》评选为_____年世界十大建筑奇迹。</p>
+						<div class="btnSet" data_key="3">
+							<a href="#">A.2005</a>
+							<a href="#">B.2006</a>
+							<a href="#">C.2007</a>
+							<a href="#">D.2008</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q16_bgd.jpg"/>
+					<img class="build" src="images/q16_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年1月28日，国家游泳中心正式竣工，是北京为2008年夏季奥运会修建的主游泳馆。赛后成为具有国际先进水平的、集游泳、运动、健身、休闲于一体的中心。</p>
+						<div class="btnSet" data_key="4">
+							<a href="#">A.2005</a>
+							<a href="#">B.2006</a>
+							<a href="#">C.2007</a>
+							<a href="#">D.2008</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q17_bgd.jpg"/>
+					<img class="build" src="images/q17_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">北京首都国际机场3号航站楼是 奥运重点工程之一，2008年2月试运行，建筑面积90多万平方米，是当时世界第___大单体航站楼。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.一</a>
+							<a href="#">B.二</a>
+							<a href="#">C.三</a>
+							<a href="#">D.四</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q18_bgd.jpg"/>
+					<img class="build" src="images/q18_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">国家体育场于___年3月建设完工，是北京奥运会的主体育场。奥运会后成为北京市民参与体育活动及享受体育娱乐的大型专业场所，并成为地标性的体育建筑和奥运遗产。</p>
+						<div class="btnSet" data_key="4">
+							<a href="#">A.2005</a>
+							<a href="#">B.2006</a>
+							<a href="#">C.2007</a>
+							<a href="#">D.2008</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q19_bgd.jpg"/>
+					<img class="build" src="images/q19_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年北京南站正式重新启用。是北京面积最大、接发车次最多的火车站，也是中国首座高标准现代化的大型综合交通枢纽。</p>
+						<div class="btnSet" data_key="3">
+							<a href="#">A.2004</a>
+							<a href="#">B.2006</a>
+							<a href="#">C.2008</a>
+							<a href="#">D.2010</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q20_bgd.jpg"/>
+					<img class="build" src="images/q20_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">2010年8月国贸三期A阶段工程建成并投入运营，其中国贸大厦楼高___。</p>
+						<div class="btnSet" data_key="1">
+							<a href="#">A.330米</a>
+							<a href="#">B.350米</a>
+							<a href="#">C.360米</a>
+							<a href="#">D.380米</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q21_bgd.jpg"/>
+					<img class="build" src="images/q21_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年，北京园博园为第九届中国国际园林博览会的举办地，是国内首座融多种科技手段于一体的中国园林博物馆。
+			</p>
+						<div class="btnSet" data_key="4">
+							<a href="#">A.2010</a>
+							<a href="#">B.2011</a>
+							<a href="#">C.2012</a>
+							<a href="#">D.2013</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q22_bgd.jpg"/>
+					<img class="build" src="images/q22_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年，北京怀柔雁栖湖国际会展中心建成。APEC领导人峰会和“一带一路”国际合作高峰论坛都在此举行。</p>
+						<div class="btnSet" data_key="2">
+							<a href="#">A.2013</a>
+							<a href="#">B.2014</a>
+							<a href="#">C.2015</a>
+							<a href="#">D.2016</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q23_bgd.jpg"/>
+					<img class="build" src="images/q23_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt">___年，北京地铁S1线开通，又称北京磁浮线，是北京首条中低速磁浮线路。</p>
+						<div class="btnSet" data_key="3">
+							<a href="#">A.2015</a>
+							<a href="#">B.2016</a>
+							<a href="#">C.2017</a>
+							<a href="#">D.2018</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img class="bgd" src="images/q24_bgd.jpg"/>
+					<img class="build" src="images/q24_build.jpg"/>
+					<div class="qBoard">
+						<p class="txt" style="font-size:14px;">___年7月6日，《北京新机场建设与运营筹备总进度综合管控计划》正式发布，明确北京新机场将于2019年9月30日投入运营，建成后将成为世界最大空港。被英国《卫报》评选为即将竣工的“新世界七大奇迹”。</p>
+						<div class="btnSet" data_key="4">
+							<a href="#">A.2015</a>
+							<a href="#">B.2016</a>
+							<a href="#">C.2017</a>
+							<a href="#">D.2018</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+			
+			<div class="panelWrong">
+				<img class="wrongBgd" src="images/wrongBgd.png">
+				<p class="wrongTip">正确答案：<span class="key"></span></p>
+				<p class="wrongTxt">屏幕都被你戳碎了！</p>
+			</div>
+			<div class="panelRight">
+				<img class="rightBgd" src="images/rightBgd.jpg">
+			</div>
+        </div> 
+
+		<div class="swiper-slide page5">
+			<img class="backCoverBgd" src="images/backCoverBgd.jpg"/>
+			<img class="info1" src="#">
+			<p class="info2">答对<span class="numRight"></span>道题</p>
+			<div class="info3">
+				<p class="txt1"></p>
+				<p class="txt2"></p>
+				<p class="txt3"></p>
+			</div>
+			<p class="btns">
+				<img class="btnReturn" src="images/btnReturn.png">
+				<img class="btnShare" src="images/btnShare.png">
+			</p>
+			
+			<img class="maskShare" src="images/maskShare.png">
+		</div> 
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-h"></div>
+</div>
+<img class="btnMusic" src="images/music.png">
+</div><!--end wrap-->
+<!-- Swiper JS -->
+<script src="lib/jquery-1.8.3.min.js"></script>
+<script src="lib/swiper-3.4.2.jquery.min.js"></script>
+<script src="lib/TweenMax.min.js"></script>
+<script src="lib/howler.min.js"></script>
+<script src="lib/jquery.waitforimages.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var vh=$(window).height();
+    var vw=$(window).width();
+    var imgRatio=750/1206;
+	
+	var xiebian=Math.sqrt(vh/2*vh/2+vw/2*vw/2);
+	var rightBgdW=parseInt(xiebian)*2;
+	$('.rightBgd').width(rightBgdW);
+	$('.rightBgd').height(rightBgdW);
+	$('.rightBgd').css('left',(vw-rightBgdW)/2);
+	$('.rightBgd').css('top',(vh-rightBgdW)/2);
+	
+	
+	
+	
+	
+	
+	$('.swiper-container,.questionSet,.wrap').height(vh);
+    if(vw>vh){
+        $('.swiper-container,.questionSet,.wrap').width(vh*imgRatio);
+    }
+	
+	var arrayInfo1=['年龄过40并不可怕，岁月留给你的全是财富','人送外号“人肉硬盘”','很明显，过目不忘说的就是你了','沧桑划过你的脸颊，你一定是“看着”北京“长大”的','真skr厉害的别人家小孩'];
+	var arrayInfo2=['北京还等着你来认识它，给你个双击继续努力','你离成功只差一步之遥','少吃鸡多努力，就差一点真可惜','脑洞很大，现实却很残酷'];
+	var arrayInfo3=['漫漫长路，你还在起点徘徊~','体重太强，时光机都带不动','年轻人，你对北京发展的力量一无所知','失败是成功之母，再试试吧'];
+	var arrayLetter=['A','B','C','D'];
+	var numQuestion=8;
+	var curQuestion=0;
+	var score=0;
+	var aniRight;
+	//生成随机数
+	var arrayQuestionIdx=[];
+	var numStart=0;
+	var questionLn=24;
+	function makeRanNum(start,end){
+		return Math.floor(Math.random()*(end-start+1)+start);
+		
+	}
+	for(var i=0;i<numQuestion;i++){
+		var curNum=makeRanNum(i*3,i*3+2);
+		arrayQuestionIdx.push(curNum);
+	}
+	console.log(arrayQuestionIdx.toString());
+	
+	//出题
+	function makeQuestion(){
+		var idxCur=arrayQuestionIdx[curQuestion];
+		console.log("idxCur="+idxCur);
+		$('.questionSet li').eq(idxCur).show().siblings().hide();
+	}
+	
+	$('.btnSet a').click(function(){
+		var sel=$(this).index()+1;
+		var dataKey=$(this).parent().attr('data_key');
+		if(sel==dataKey){
+			//showPanelRight();
+			score+=1;
+			showNext();
+		}else{
+			showPanelWrong(dataKey);
+		}
+		
+		return false;
+	})
+	function showPanelWrong(dataKey){
+		$('.panelWrong .key').text(arrayLetter[(dataKey-1)]);
+		$('.panelWrong').show();
+	}
+	function showPanelRight(){
+		score+=1;
+		$('.panelRight').fadeIn();
+		aniRight=TweenMax.to('.rightBgd',1,{rotation:360,opacity:1,ease:Power1.easeOut,onComplete:showNext});
+	}
+	$('.panelWrong').click(function(){
+		$(this).fadeOut();
+		
+		curQuestion+=1;
+		console.log("curQ="+curQuestion+"numQ="+numQuestion);
+		if(curQuestion<numQuestion){
+			makeQuestion();
+		}else{
+			gotoBackCover();
+		}
+		
+	})
+
+	function showNext(){
+	/*
+		$('.panelRight').fadeOut(function(){
+			aniRight.pause(0);
+		});
+		*/
+		curQuestion+=1;
+		console.log("curQ="+curQuestion+"numQ="+numQuestion);
+		if(curQuestion<numQuestion){
+			makeQuestion();
+		}else{
+			gotoBackCover();
+		}
+		
+	}
+	function gotoBackCover(){
+		console.log("score="+score);
+		swiperH.unlockSwipeToNext();
+		if(score==numQuestion){
+			$('.info3 .txt1').text(arrayInfo1[Math.floor(Math.random()*5)]);
+			$('.info3 .txt1').show().siblings().hide();
+			$('.info1').attr('src','images/resultInfo1a.png');
+			$('.btnShare').attr('src','images/btnShare1.png');
+		}else if(score<4){
+			$('.info3 .txt3').text(arrayInfo3[Math.floor(Math.random()*4)]);
+			$('.info3 .txt3').show().siblings().hide();
+			$('.info1').attr('src','images/resultInfo1b.png');
+		}else{
+			$('.info3 .txt2').text(arrayInfo2[Math.floor(Math.random()*4)]);
+			$('.info3 .txt2').show().siblings().hide();
+			$('.info1').attr('src','images/resultInfo1b.png');
+		}
+		$('.numRight').text(score);
+		swiperH.slideNext();
+		
+	}
+	$('.btnShare').click(function(){
+		$('.maskShare').fadeIn('fast');
+	})
+	$('.maskShare').click(function(){
+		$(this).fadeOut('slow');
+	})
+	
+	$('.btnReturn').click(function(){
+		location.reload(); 
+	})
+	
+	
+	var aniLayer1,aniLayer2,aniLayer3,aniLayer4,aniLayer5,aniLayer6,aniP2;
+	function aniCover(){
+		aniLayer1=TweenMax.from('.layer1',3,{left:'90%',ease:Linear.easeNone});
+		aniLayer2=TweenMax.from('.layer2',3,{left:'20%',ease:Linear.easeNone});
+		//aniLayer3=TweenMax.from('.layer3',15,{left:0});
+		aniLayer4=TweenMax.from('.layer4',40,{left:'-20%',ease:Linear.easeNone});
+		aniLayer5=TweenMax.from('.layer5',20,{left:'-50%',ease:Linear.easeNone});
+		aniTitle=TweenMax.from('.coverTitle',0.8,{top:'-100%',ease:Bounce.easeOut,delay:3,onComplete:function(){$('.btnEnter').show();}});
+	}
+	aniCover();
+	
+	
+	
+	$('.cover,.page2').click(function(){
+		
+		nextPage();
+	})
+	
+	function nextPage(){
+		console.log("nextPage func");
+		swiperH.unlockSwipeToNext();
+		swiperH.slideNext();
+	}
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//音乐按钮
+	var aniMusic;
+    var sndBgd=new Howl({
+        src: ['bgd.mp3'],
+        autoplay: false,
+        loop: true,
+        volume: 0.4,
+        onload: function() {
+        }
+    })
+	$('.btnMusic').click(function(){
+		console.log(sndBgd.playing());
+		if(sndBgd.playing()){
+			pauseMusic();
+			pauseMusic();
+		}else{
+			resumeMusic();
+		}
+		
+	})
+	function pauseMusic(){
+		console.log("func pause");
+			aniMusic.pause();
+			sndBgd.pause();
+	}
+	function resumeMusic(){
+			aniMusic.resume();
+			sndBgd.play();
+	}
+	function enterCover(){
+		aniMusic=TweenMax.to($('.btnMusic'), 7.2, {rotation:360, delay:0,ease:'Linear.easeNone',repeat:99})
+		sndBgd.play();
+		TweenMax.to($('.pageLoading'), 2, {opacity:0,ease:'Power2.easeNone'});
+		$('.pageLoading').hide();
+	}
+	
+  
+    $('img').waitForImages({
+        finished: function() {
+			console.log("imgs loaded");
+			$('.pageLoading p img').css("visibility","hidden");
+			//$('.txtLoading').text('加载完毕！');
+			//$('a.btnEnter').show();
+			//$('a.btnEnter').css('display','inline-block');
+			enterCover();
+			
+			
+			
+        },
+        each: function() {
+
+        },
+        waitForAll: true
+    });
+
+    
+		
+	var curIdx=0;
+	var targIdx=0;
+	//var canMoveBgd=true;
+	
+    var swiperH = new Swiper('.swiper-container-h', {
+        pagination: '.swiper-pagination-h',
+        paginationClickable: true,
+        direction: 'horizontal',
+        spaceBetween: 0,
+		mousewheelControl : true,
+		allowSwipeToNext : false,
+		onSlideChangeStart: function(swiper){
+			var targIdx=swiper.activeIndex;
+			
+			console.log("targIdx="+targIdx);
+			if(targIdx==1){
+				makeQuestion();
+			}
+			/*
+			if(targIdx==2){
+				console.log("==2");
+				aniP3a=TweenMax.from('.p3Ready',0.6,{left:'110%',ease:Power1.easeIn,yoyo:true,repeat:1,repeatDelay:2});
+				aniP3a=TweenMax.to('.p3Go',0.5,{opacity:1,ease:Power1.easeIn,delay:3,yoyo:true,repeat:1,repeatDelay:1});
+				aniP3c=TweenMax.to('.p3Go1',0.5,{opacity:1,left:'120%',ease:Power1.easeOut,delay:4.5,onComplete:nextPage});
+			}
+			*/
+			/*
+				if(targIdx>curIdx){
+					TweenMax.to($('.bgd img'), 1, {y:'-=2.6%'});
+				}else{
+					TweenMax.to($('.bgd img'), 1, {y:'+=2.6%'});
+				}
+				*/
+		
+          },
+        onSlideChangeEnd: function(swiper){
+		/*
+			arrayTl[curIdx].seek(0.1).reverse();
+			arrayTl[targIdx].restart();
+			curIdx=targIdx;
+         */  
+		 /*
+			var targIdx=swiper.activeIndex;
+			console.log("targidx==="+targIdx);
+			if(targIdx==1){
+				console.log("==1");
+				var aniP2=TweenMax.to('.p2Txt',2,{opacity:1,ease:Power1.easeIn});
+			}
+			swiperH.lockSwipes();
+			*/
+        }
+    });
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	//微信分享缩略图
+	
+	
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "穿越北京40年来体会你",
+					link: "http://partner.qianlong.com/h5/cybj40/",
+					imgUrl: "http://partner.qianlong.com/h5/cybj40/images/thumbShare.png",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "据说100个人里只有1人成功，敢挑战吗？"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		//alert(res.errMsg);
+	});
+	
+	
+	
+</script>
+</body>
+</html>

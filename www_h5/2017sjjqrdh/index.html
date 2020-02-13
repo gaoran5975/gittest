@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html style="overflow-y:scroll !important;">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>2017世界机器人大会</title>
+
+	<link rel="stylesheet" href="./css/reset.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.6/jquery.fullPage.min.css">
+	<link rel="stylesheet" href="./css/index-mini.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/animateself-mini.css">
+<style>
+
+</style>
+</head>
+<body>
+
+<!--<audio loop="loop" autoplay="autoplay" src="mp3.mp3"></audio>-->
+<div id="fullpage">
+	<!-- 首页 -->
+	<div class="section cover">
+		<img src="img/logo.png" class="  zoomIn" style="opacity: 0;width:60%; top:2%;left:20%;"/>
+		  <img src="img/section1_up.png"  class="  fadeInUp"  style="opacity: 0;width:100%; top:-5%;left:0;"/>
+		<img src="img/section1_down.png"  class="   fadeInDown"  style="opacity: 0;width:100%; top:-5%;left:0;"/>
+		<img src="img/section1_text.png"  class="   fadeIn"  style="opacity: 0;width:80%; bottom:26%;left:10%;"/>
+		<img src="img/header.png"  class="  fadeIn"  style="opacity: 0;width:100%; bottom:0%;left:0;" />
+
+	</div>
+	<!-- 第二屏 -->
+	<div class="section second">
+		<img src="img/2_1.png" class="tit zoomIn" style="opacity: 0;width:80%; top:2%;left:10%; "/>
+		<img src="img/2_2.png"  class="sec2_text pulse "  style="opacity: 0;width:80%; top:23%;left:10%;animation-delay: 1s;"/>
+		<img src="img/2_3.png"  class="jqr_1 pulse"  style="opacity: 0;width:35%; bottom:1%;left:10%;animation-delay: 2s;"/>
+	</div>
+	<!-- 第三屏 -->
+	<div class="section third">
+		<img src="img/3_1.png" class="tit zoomIn" style="opacity: 0;width:80%; top:2%;left:10%; "/>
+		<img src="img/3_2.png"  class="sec2_text pulse "  style="opacity: 0;width:80%; top:23%;left:10%;animation-delay: 1s;"/>
+		<img src="img/3_3.png"  class="jqr_1 pulse"  style="opacity: 0;width:100%; bottom:0%;left:0%;animation-delay: 2s;"/>
+
+	</div>
+	<!-- 第四屏 -->
+	<div class="section fourth">
+		<img src="img/4_1.png" class="tit fadeIn" style="opacity: 0;width:80%; top:3%;left:10%; "/>
+		<img src="img/4_3.png"  class="sec2_text fadeIn "  style="opacity: 0;width:80%; top:12%;left:10%;animation-delay: 1s;"/>
+	</div>
+	<!-- 第五屏 -->
+	<div class="section fifth">
+		<img src="img/5_1.png" class="tit zoomIn" style="opacity: 0;width:80%; top:5%;left:10%; "/>
+		<img src="img/5_2.png"  class="sec2_text pulse "  style="opacity: 0;width:70%; top:20%;left:15%;animation-delay: 1s;"/>
+		<img src="img/5_3.png"  class="jqr_1 zoomIn"  style="opacity: 0;width:80%; bottom:20%;left:10%;animation-delay: 2s;"/>
+	</div>
+	<!-- 第六屏 新-->
+	<div class="section sixth">
+		<img src="img/6_1.png" class="tit zoomIn" style="opacity: 0;width:80%; top:5%;left:10%; "/>
+		<img src="img/6_2.png"  class="sec2_text pulse "  style="opacity: 0;width:80%; top:14%;left:10%;animation-delay: 1s;"/>
+		<img src="img/6_3.png"  class="jqr_1 fadeInRight "  style="opacity: 0;width:95%; bottom:0%;right:0%;animation-delay: 2s;"/>
+	</div>
+	<!-- 第七屏 新-->
+	<div class="section seventh">
+		<img src="img/7_1.png" class="tit zoomIn" style="opacity: 0;width:80%; top:5%;left:10%; "/>
+		<img src="img/7_2.png"  class="sec2_text pulse "  style="opacity: 0;width:80%; bottom:2%;left:10%;animation-delay: 1s;"/>
+
+	</div>
+	<!-- 第八屏 新-->
+	<div class="section eighth">
+		<img src="img/9_1.png" class="tit zoomIn" style="opacity: 0;width:80%; top:23%;left:10%; "/>
+		<a href="http://tech.qianlong.com/zt/wrc2017/index.shtml" target="_blank"><img src="img/9_2.png"  class="sec2_text pulse "  style="opacity: 0;width:50%; top:43%;left:25%;animation-delay: 1s;"/></a>
+	</div>
+
+	<!-- 第j九屏 新-->
+	<div class="section eighth">
+		<img src="img/8_1.png" class="tit zoomIn" style="opacity: 0;width:80%; top:10%;left:10%; "/>
+		<img src="img/8_3.png"  class="sec2_text pulse "  style="opacity: 0;width:50%; top:43%;left:25%;animation-delay: 1s;"/>
+	</div>
+
+
+
+
+
+
+
+
+</div>
+
+<!--音乐按钮-->
+<img class="_music _Animate" id="audio_btn" src="img/music.png">
+<!-- 弹框 -->
+
+ <!--箭头-->
+<img class="_downImg" src="img/down.png">
+
+<script type="text/javascript">
+	(function () {
+		function o() {
+			document.documentElement.style.fontSize = (document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth) / 15 + "px"
+		}
+		var e = null;
+		window.addEventListener("resize", function () {
+			clearTimeout(e), e = setTimeout(o, 300)
+		}, !1), o()
+	})(window);
+</script>
+<script	src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.6/jquery.fullPage.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="./js/base.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/easyscroll.js"></script>
+<script src="./js/mousewheel.js"></script>
+<script src="http://img.qianlong.com/templates/qianlong/common/lib/howler.min.js"  ></script>
+<script type="text/javascript">
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			//console.log(json);
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "2017世界机器人大会即将到来",
+					link: "http://www.qianlong.com/h5/2017sjjqrdh/",
+					imgUrl: "http://www.qianlong.com/h5/2017sjjqrdh/img/sut.jpg",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "8月23日，令人期盼的2017年世界机器人大会就要召开啦！"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		//alert(res.errMsg);
+	});
+
+		var sndBgd = new Howl({
+			src: ['mp3.mp3'],
+			autoplay: true,
+			loop: true,
+			volume: 0.4,
+			onload: function () {
+
+
+
+			}
+		})
+
+	var index=0;
+	var audio = function(){
+		if ( index == 0) {
+			sndBgd.pause();
+
+			index = 1;
+			$("#audio_btn").removeClass('_Animate');
+		}else{
+			sndBgd.play();
+			index = 0;
+			$("#audio_btn").addClass('_Animate');
+		};
+	};
+	$('#audio_btn').on('click',function(){
+		audio();
+	});
+
+
+
+
+
+	scaleW=window.innerWidth/750;
+	scaleH=window.innerHeight/1200;
+	function viewport() {
+		var e = window, a = 'inner';
+		if (!('innerWidth' in window )) {
+			a = 'client';
+			e = document.documentElement || document.body;
+		}
+		return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+	}
+	if (viewport().width >= 767) {
+		scaleW=document.body.offsetWidth/750;
+	}
+//	if (viewport().width >= 320) {
+//		$(".third .py").attr("style","style='left: 370px;top:230px;width:229px;height:479px; position: absolute;'")
+//	}
+	var resizes = document.querySelectorAll('.resize');
+	var resizes1 = document.querySelectorAll('.resize1');
+
+
+	var arrbl=[],arrbh=[],originImgWidth=[],scalImgW=[],nowImgW=[];
+	for (var j=0; j<resizes.length; j++) {
+		arrbh[j]=parseInt(resizes[j].style.height)/parseInt(resizes[j].style.width); //原始高宽比例
+		arrbl[j]=parseInt(resizes[j].style.width)/parseInt(resizes[j].style.height);//原始宽高比例
+		originImgWidth[j]=parseInt(resizes[j].style.width)*scaleW+'px';//变化后的宽度
+		resizes[j].style.height=parseInt(resizes[j].style.height)*scaleH+'px'; //
+		resizes[j].style.width=parseInt(resizes[j].style.height)*arrbl[j]+'px';
+		resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
+		scalImgW[j]=(parseInt(originImgWidth[j])-parseInt(resizes[j].style.width))/2;
+		nowImgW[j]=parseInt(resizes[j].style.left)*scaleW-scalImgW[j];
+		if(nowImgW[j]<=0||(window.innerWidth-parseInt(resizes[j].style.left)-scalImgW[j]<=0)){
+			resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px';
+		}
+		else{
+			resizes[j].style.left=nowImgW[j]+'px';
+		}
+	}
+	var arrbl1=[];
+	for (var j=0; j<resizes1.length; j++) {
+
+		arrbl1[j]=parseInt(resizes1[j].style.height)/parseInt(resizes1[j].style.width);
+		resizes1[j].style.width=parseInt(resizes1[j].style.width)*scaleW+'px';
+		resizes1[j].style.height=parseInt(resizes1[j].style.width)*arrbl1[j]+'px';
+		resizes1[j].style.top=parseInt(resizes1[j].style.top)*scaleH+'px';
+		resizes1[j].style.marginTop=parseInt(resizes1[j].style.marginTop)*scaleH+'px';
+		resizes1[j].style.left=parseInt(resizes1[j].style.left)*scaleW+'px';
+	}
+
+
+
+
+</script>
+</body>
+</html>

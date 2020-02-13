@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>重温入党誓词</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <!-- Demo styles -->
+    <style>
+		*{margin:0;padding:0;}
+		html{
+			font-size:100px;
+		}
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #fff;
+            font-family: "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";
+            color:#000;
+            margin: 0;
+            padding: 0;
+			font-size:0.3rem;
+			line-height:1.6em;
+        }
+		
+		/*---------------------swiper--------------------*/
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+			background:#eee;
+        }
+        .swiper-slide,.textLoading{
+            text-align: center;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+			overflow: hidden;
+        }
+        .swiper-container-f .swiper-wrapper{
+            animation-duration:2000ms;
+            -webkit-animation-duration:2000ms;
+        }
+        .swiper-slide img {
+			display:block;
+			position:absolute;
+        }
+        .swiper-pagination{display: none;}
+		
+		
+		
+
+		/*---------------------杂项--------------------*/
+		
+		.swiper-slide img{
+			position:absolute;
+			height:auto;
+			display:block;
+		}
+		img.title{
+			width:84.3%;
+			top:26.12%;
+			left:7.85%;
+			z-index:2;
+			display:none;
+		}
+		img.btnEnter{
+			width:29.1%;
+			top:56%;
+			left:35.45%;
+			z-index:2;
+			display:none;
+		}
+		img.logo{
+			width:49.6%;
+			top:auto;
+			bottom:5.5%;
+			left:25.2%;
+			z-index:3;
+			display:none;
+		}
+		img.intro{
+			width:80.27%;
+			top:28.5%;
+			left:9.87%;
+			z-index:2;
+			display:none;
+		}
+		img.happy{
+			width:32.3%;
+			top:73%;
+			left:33.85%;
+			z-index:2;
+			display:none;
+		}
+		img.btnShare{
+			width:42%;
+			top:78.28%;
+			left:29%;
+			z-index:4;
+			display:none;
+		}
+		img.tipShare{
+			width:30%;
+			top:0%;
+			right:0;
+			left:auto;
+			z-index:2;
+			display:none;
+		}
+		p.tipSave{
+			position:absolute;
+			top:85.7%;
+			text-align:center;
+			width:100%;
+			color:#f3ab54;
+			display:none;
+		}
+		img.pic2Save {
+			opacity: 0;
+			width:100%;
+			top:0;
+			left:0;
+			z-index:3;
+			font-family: "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";
+			font-size:1rem;
+			color:#ff0;
+		}
+		
+		@media screen and (min-width:320px){
+		 html{font-size:42.6px;}
+		 h1{font-size:30px;}
+		}
+		@media screen and (min-width:360px){
+		 html{font-size:48px;}
+		}
+		@media screen and (min-width:375px){
+		 html{font-size:50px;}
+		}
+		@media screen and (min-width:384px){
+		 html{font-size:51.2px;}
+		}
+		@media screen and (min-width:400px){
+		 html{font-size:53.3px;}
+		}
+		@media screen and (min-width:414px){
+		 html{font-size:55.2px;}
+		}
+		@media screen and (min-width:424px){
+		 html{font-size:56.5px;}
+		}
+		@media screen and (min-width:480px){
+		 html{font-size:64px;}
+		}
+
+    </style>
+</head>
+<body>
+<!--
+	<p class="textLoading">加载中...</p>
+-->
+	<!-- Swiper -->
+	<div class="swiper-container swiper-container-v">
+		<div class="swiper-wrapper page1">
+			<div class="swiper-slide">
+				<img class="title" src="css/img/title.png">
+				<img class="btnEnter" src="css/img/btnEnter.png">
+				<img class="logo" src="css/img/logo.png">
+				<img class="pageBgd" id="coverBgd" src="css/img/cover.jpg">
+			</div>                               
+			<div class="swiper-slide page2">   
+				<img class="intro" src="css/img/intro.png">
+				<img class="happy" src="css/img/happy.png">
+				<img class="btnShare" src="css/img/btnShare.png">
+				<img class="pageBgd" src="css/img/p2Bgd.jpg">
+				<img class="tipShare" src="css/img/tipShare.png">
+				<p class="tipSave">长按保存图片</p>
+				<img class="pic2Save" src="css/img/pic2save.jpg">
+			</div>                               
+
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination swiper-pagination-v"></div>
+	</div>
+	
+	
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/swiper-3.4.2.jquery.min.js"></script>
+<script src="js/jquery.waitforimages.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/howler.js"></script>
+<script src="js/jweixin-1.0.0.js"></script>
+
+
+<script>
+	//设置pc端容器大小
+    
+	var origPicW=750;
+	var origPicH=1206
+	$('.pageBgd').each(function(){
+		adjustPageBgd($(this));
+	})
+	$('#coverBgd').css('left',0);
+	
+	
+	var t1=new TimelineMax({});
+	var t2=new TimelineMax({});
+	$('.title,.btnEnter,.logo').show();
+	t1.add(TweenLite.from($('.title'),1,{left:'150%'}));
+	t1.add(TweenLite.from($('.logo'),0.5,{bottom:'-50%'}));
+	t1.add(TweenLite.from($('.btnEnter'),0.5,{opacity:'0'}));
+	t2.add(TweenLite.from($('.intro'),1,{left:'150%'}));
+	t2.add(TweenLite.from($('.happy'),0.5,{left:'-200%'}));
+	t2.add(TweenLite.from($('.btnShare'),0.5,{opacity:'0'}));
+	t2.add(TweenLite.from($('.tipSave'),0.5,{opacity:'0'}));
+	t2.pause();
+	
+	var swiperV = new Swiper('.swiper-container-v', {
+        pagination: '.swiper-pagination-v',
+        paginationClickable: true,
+        direction: 'vertical',
+        spaceBetween: 0,
+		mousewheelControl : true,
+		onSlideChangeStart: function(swiper){
+		/*
+			targIdx=swiper.activeIndex;
+				//背景移动
+				if(targIdx>curIdx){
+					TweenMax.to($('.bgd img'), 1, {y:'-=4.8%'});
+				}else{
+					TweenMax.to($('.bgd img'), 1, {y:'+=4.8%'});
+				}
+				disableArrow();
+	*/		
+			if(swiper.activeIndex==0){
+				//t2.progress(0);
+				$('.tipShare').hide();
+				t2.progress(1);
+				
+			}
+          },
+        onSlideChangeEnd: function(swiper){
+			console.log(swiper.activeIndex);
+			if(swiper.activeIndex==1){
+				$('.intro,.happy,.btnShare,.tipSave').show();
+				t2.play();
+			}
+			/*
+			arrayTl[curIdx].seek(0.1).reverse();
+			arrayTl[targIdx].restart();
+			curIdx=targIdx;
+           */
+        }
+    });
+	
+	
+	function adjustPageBgd($img){
+		//var vw=viewport().width;
+		//var vh=viewport().height;
+		var vw=$(window).width();
+		var vh=$(window).height();
+		var ratioWin=vw/vh;
+		$('.page').height(vh);
+		var imgW=parseInt(origPicW);
+		var imgH=parseInt(origPicH);
+		var imgRatio=imgW/imgH;
+		
+		if(ratioWin>=imgRatio){//窗口比原图更细长
+			console.log("更细");
+			var newH=vw/imgRatio;
+			$img.css('width',vw);
+			$img.css('height',newH);
+			//$img.css('top',-1*(newH-vh)/2);
+			$img.css('top',0);
+			$img.css('left',0);
+		}else{//窗口比原图更方
+		console.log("更方")
+			var newW=vh*imgRatio;
+			console.log("newW="+newW);
+			$img.css('width',newW);
+			$img.css('height',vh);
+			$img.css('left',-1*(newW-vw)/2);
+			$img.css('top',0);
+		}
+		//$('.page1 .pageBgd').css('left',0);
+		$('.pageCover').show();
+	}
+	
+	$('.btnEnter').click(function(){
+		swiperV.slideNext();
+		return false;
+	})
+	$('.btnShare').click(function(){
+		$('.tipShare').fadeIn();
+		return false;
+	})
+
+	//微信分享缩略图
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			//console.log(json);
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: '重温入党誓词',
+					link: "http://partner.qianlong.com/h5/gcd97/index.html",
+					imgUrl: "http://partner.qianlong.com/h5/gcd97/css/img/thumb.jpg",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: '庆祝中国共产党成立97周年-重温入党誓词'
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		
+	});
+	
+</script>
+</body>
+</html>

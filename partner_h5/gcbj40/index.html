@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>馆藏北京40年在线影展</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta baidu-gxt-verify-token="d3d661269f92c5af2990bd8f3aba88a9">
+
+<style>
+	html,body{height:100%;overflow:hidden;}
+	*{padding:0;margin:0;}
+	a{text-decoration:none;}
+	.clearAll{clear:both;}
+	
+	.pageCover{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:100;
+		display:none;
+	}	
+	.pageCover img.title {
+		position: absolute;
+		width: 35%;
+		left: 32.5%;
+		top: 25%;
+	}
+	.pageCover p.intro {
+		position: absolute;
+		width: 40%;
+		left: 30%;
+		top: 55%;
+		border-top: solid 1px #D10000;
+		border-bottom: solid 1px #D10000;
+		padding: 20px 0;
+		color: #D10000;
+		line-height: 2em;
+		text-indent: 2em;
+	}
+	.pageCover img.logo {
+		position: absolute;
+		width: 12.6%;
+		left: 22%;
+		top: 5%;
+	}
+	.coverBgd{
+		position:relative;
+	}
+	.coverBgd img{
+		position:absolute;
+	}
+	.coverBgd .small{display:none;}
+	.btnMenu{display:none;}
+	
+	
+	.pageGallary{
+		background:url(css/img/bodyBgd.jpg) repeat;
+		visibility:hidden;
+	}
+	.sideBar{
+		width: 250px;
+		float: left;
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+	h2.title1 {
+		background: url(css/img/titleSys.png) no-repeat;
+		text-indent: -9999px;
+		border-bottom: solid 1px #000;
+		padding-bottom: 5px;
+		margin-top: 20px;
+	}
+	.authorNav {
+		margin-top: 10px;
+	}
+	.authorNav li {
+		list-style: none;
+		padding: 6px 0px;
+	}
+	.authorNav li a{
+		color:#000;
+	}
+	.authorNav li.cur a{
+		font-weight:bold;
+	}
+	.logoQl{
+		margin-top:100px;
+	}
+	.mainContent{
+		float:right;
+	}
+	.mainContent .authorName{
+		display:none;
+	}
+	.mainContent li.author {
+		list-style: none;
+	}
+	.itemPic {
+		width: 19.4%;
+		float: left;
+		margin-right: 0.3%;
+		border: solid 1px #fff;
+		border-radius: 10px;
+		position:relative;
+		overflow:hidden;
+		margin-bottom:10px;
+		margin-bottom: 5px;
+	}
+	.authorList li h4 {
+		position: absolute;
+		top: 40%;
+		width: 90%;
+		text-align: center;
+		color: #fff;
+		font-weight: normal;
+		z-index: 2;
+		border-top: solid 1px #fff;
+		border-bottom: solid 1px #fff;
+		padding: 10px 0;
+		left: 5%;
+		display:none;
+	}
+	.itemPic img{
+		position:absolute;
+		max-width:1000%;
+		max-height:1000%;
+	}
+	.pannelBlack {
+		position: absolute;
+		background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0 !important;
+		-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#bb000000,endColorstr=#bb000000);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#bb000000,endColorstr=#bb000000);
+		z-index: 1000;
+		top: 50%;
+		left: 50%;
+		opacity:0;
+		width: 0;
+		height:0;
+	}
+	.bigPic {
+		max-width: 100%;
+		overflow: hidden;
+	}
+	.bigPic img{
+		position:absolute;
+	}
+	.thumbListTank {
+		width: 90%;
+		height:100px;
+		margin:0 auto;
+		overflow: hidden;
+		position:relative;
+	}
+	.thumbList{
+		width:100000px;
+		position:absolute;
+		top:0;
+		left:0;
+		height:100px;
+	}
+	.pannelBlack .thumbList img{
+		width:100px;
+		height:100px;
+	}
+	.pannelBlack .itemPic{
+		/*width:7.5%;*/
+		width:80px;
+	}
+	.pannelBlack .itemPic img{
+		width:100px;
+		height:100px;
+	}
+	.thumbList .itemPic{
+		margin-right:10px;
+		border:none;
+	}
+	.pannelBlack a.btnClose{
+		position: absolute;
+		z-index: 2;
+		right: 10px;
+		top: 10px;
+		font-size: 30px;
+		font-weight: bold;
+		color: #fff;
+		display: block;
+		width: 30px;
+		text-decoration: none;
+		font-family: sans-serif;
+		
+	}
+a.btnPrev {
+/*
+    display: block;
+    font-size: 30px;
+    color: #f00;
+    position: absolute;
+    top: 15px;
+    font-weight: bold;
+	display:none;
+	*/
+	 display: block;
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    font-family: sans-serif;
+     background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0 !important;
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    line-height: 70px;
+    height: 80px;
+    font-weight: bold;
+	
+	
+	
+}
+a.btnNext {
+    display: block;
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    font-family: sans-serif;
+    background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0 !important;
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    line-height: 70px;
+    height: 80px;
+    font-weight: bold;
+}
+.itemPic .mask {
+    background: rgba(145, 93, 0, 0.4) none repeat scroll 0 0 !important;
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);background: #f00;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+	display:none;
+}			
+
+	
+.pannelBlack .bigPic h4 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+	padding:5px 0;
+    color: #fff;
+	    background: rgba(145, 93, 0, 0.7) none repeat scroll 0 0 !important;
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);background: #f00;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@media (min-width: 979px) and (max-width: 1199px) {
+		.itemPic {
+			width: 24.2%;
+			margin-right: 0.3%;
+			margin-bottom: 3px;
+		}
+}
+
+@media (min-width: 768px) and (max-width: 978px) {
+		.itemPic {
+			width: 32.5%;
+			margin-right: 0.3%;
+			margin-bottom: 3px;
+		}
+}
+ 
+
+@media (max-width: 767px) {
+	.itemPic {
+		width: 49%;
+		margin-right: 0.3%;
+		margin-bottom: 3px;
+	}   
+	.coverBgd .big{display:none;}
+	.coverBgd .small{display:block;}
+	.pageCover{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:100;
+	}	
+	.pageCover img.title {
+		position: absolute;
+		width: 70%;
+		left: 15%;
+		top: 25%;
+	}
+	.pageCover p.intro {
+		position: absolute;
+		width: 80%;
+		left: 10%;
+		top: 50%;
+		border-top: solid 1px #D10000;
+		border-bottom: solid 1px #D10000;
+		padding: 20px 0;
+		color: #D10000;
+		line-height: 2em;
+		text-indent: 2em;
+	}
+	.pageCover img.logo {
+		position: absolute;
+		width: 30%;
+		left: 5%;
+		top: 5%;
+	}
+	
+
+
+	
+	
+}
+ 
+
+@media (max-width: 480px) {
+	.sideBar{
+		width:100%;
+		float:none;
+		position:relative;
+		margin:0;
+		padding-top:20px;
+		padding-left:20px;
+		z-index: 2;
+		background: url(css/img/bodyBgd.jpg) repeat;
+	}
+	.mainContent{
+		width:100%;
+		float:none;
+		padding-top: 20px;
+	}
+	.navTank{
+		display:none;
+	}
+	.btnMenu{
+		display:block;
+		position:absolute;
+		right:30px;
+		top:20px;
+		width:70px;
+	}
+	.logoQl{
+		display:none;
+	}
+	
+	
+	
+	
+}
+</style>
+</head>
+<body>
+	<div class="pageCover">
+		<div class="coverBgd">
+			<img class="big" src="css/img/cover_bgd.jpg" width="1960" height="970"/>
+			<img class="small" src="css/img/cover_bgd_small.jpg" width="750" height="1334"/>
+		</div>
+		
+		<img class="logo" src="css/img/cover_2.png"/>
+		<img class="title" src="css/img/cover_1.png"/>
+		<p class="intro">
+		改革开放40年间，首都经济社会发生巨大变迁。北京市档案馆、千龙网发起“馆藏·北京40年”征集活动，从老照片中回首40年发展变化。214幅入围作品均来自网友收藏，从平凡视角记录下一个个家庭、一个个地点、一个个单位的当年样貌。经审定，入围作品成为北京市档案馆馆藏档案照片，并在线下展览。
+		</p>
+	</div><!--end pageCover-->
+	<div class="pageGallary">
+	<div class="sideBar">
+		<img src="css/img/logoZt.png" />
+		<img class="btnMenu" src="css/img/btnMenu.png" />
+		<div class="navTank">
+			<h2 class="title1">摄影师</h2>
+			<ul class="authorNav"></ul>
+		</div>
+		<img class="logoQl" src="css/img/logoQl.png" />
+	</div><!--end sideBar-->
+	<div class="mainContent">
+		<ul class="authorList">
+			<li class="author">
+				<h3 class="authorName">陈晓根</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>90年代的市民出行</h4>
+						<img src="images/1-1.jpg" width="1920" height="1344">
+					</li>
+					<li class="itemPic">
+						<h4>90年代的市民出行</h4>
+						<img src="images/1-2.jpg" width="1920" height="1344">
+					</li>
+					<li class="itemPic">
+						<h4>90年代的市民出行</h4>
+						<img src="images/1-3.jpg" width="1920" height="1344">
+					</li>
+					<li class="itemPic">
+						<h4>90年代的天安门游客照</h4>
+						<img src="images/1-4.jpg" width="560" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>90年代游客在天安门纳凉</h4>
+						<img src="images/1-5.jpg" width="1920" height="1344">
+					</li>
+					<li class="itemPic">
+						<h4>90年代的道路交通</h4>
+						<img src="images/1-6.jpg" width="560" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>90年代的冷饮摊</h4>
+						<img src="images/1-7.jpg" width="1920" height="1344">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">杜建坡</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>1991年11月 凉水河治理</h4>
+						<img src="images/2-1.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1992年 首钢4号锅炉大修改造</h4>
+						<img src="images/2-2.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1992年 首钢第三届生活管理文员会运动会</h4>
+						<img src="images/2-3.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1992年6月庆祝邓小平视察首钢，首钢艺术团在首钢电机厂为职工现场演出</h4>
+						<img src="images/2-4.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1993年8月 天安门</h4>
+						<img src="images/2-5.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1993年8月 天安门</h4>
+						<img src="images/2-6.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1993年10月 八大处公园</h4>
+						<img src="images/2-7.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1995年2月 香港回归倒计时</h4>
+						<img src="images/2-8.jpg" width="544" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1995年2月 手艺人在角楼下为外国人理发</h4>
+						<img src="images/2-9.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1996年8月 台湾薇薇新娘婚纱摄影入驻东单</h4>
+						<img src="images/2-10.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1996年8月 燕京前门商厦外景</h4>
+						<img src="images/2-15.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>2001年11月 大栅栏胡同</h4>
+						<img src="images/2-11.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>2001年11月 大栅栏胡同</h4>
+						<img src="images/2-12.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>2002年11月 什刹海冬储大白菜</h4>
+						<img src="images/2-13.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>2002年11月 什刹海冬储大白菜</h4>
+						<img src="images/2-14.jpg" width="1920" height="1306">
+					</li>
+					
+					<li class="itemPic">
+						<h4>2002年 北京后海</h4>
+						<img src="images/2-16.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>2011年9月 北京后海</h4>
+						<img src="images/2-17.jpg" width="1920" height="1440">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">方淑媛</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>1978年 北京钢铁学院</h4>
+						<img src="images/3-2.jpg" width="1920" height="1365">
+					</li>
+					<li class="itemPic">
+						<h4>1978年 景山公园（77届大学同学合影）</h4>
+						<img src="images/3-3.jpg" width="1920" height="2016">
+					</li>
+					<li class="itemPic">
+						<h4>1978年 天安门（77届大学同学合影）</h4>
+						<img src="images/3-4.jpg" width="1920" height="1996">
+					</li>
+					<li class="itemPic">
+						<h4>1978年 颐和园（77届大学同学颐和园 班级活动）</h4>
+						<img src="images/3-5.jpg" width="1920" height="1899">
+					</li>
+					<li class="itemPic">
+						<h4>1980年9月 天坛公园（77届大学同学在天坛粉末冶金厂实习合影）</h4>
+						<img src="images/3-6.jpg" width="1920" height="1938">
+					</li>
+					<li class="itemPic">
+						<h4>1981年 中南海新华门 参观游览照</h4>
+						<img src="images/3-7.jpg" width="1920" height="1910">
+					</li>
+					<li class="itemPic">
+						<h4>1982年 北京矿冶实验室</h4>
+						<img src="images/3-8.jpg" width="1920" height="1361">
+					</li>
+					<li class="itemPic">
+						<h4>1983年 八达岭长城 夫妻合影</h4>
+						<img src="images/3-9.jpg" width="569" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1983年 八达岭长城 好友合影</h4>
+						<img src="images/3-10.jpg" width="559" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1983年 北京复兴门立交桥</h4>
+						<img src="images/3-11.jpg" width="1920" height="1537">
+					</li>
+					<li class="itemPic">
+						<h4>1983年 北京站</h4>
+						<img src="images/3-12.jpg" width="1920" height="1878">
+					</li>
+					<li class="itemPic">
+						<h4>1983年 天安门</h4>
+						<img src="images/3-13.jpg" width="1920" height="1476">
+					</li>
+					<li class="itemPic">
+						<h4>1986年 北京家里（孩子第一次玩半导体）</h4>
+						<img src="images/3-14.jpg" width="1920" height="1531">
+					</li>
+					<li class="itemPic">
+						<h4>1986年 天安门 三口之家（父亲在北京工作 母亲带孩子探亲）</h4>
+						<img src="images/3-15.jpg" width="1920" height="1370">
+					</li>
+					<li class="itemPic">
+						<h4>1986年 天安门 孙子和奶奶第一来天安门并合影</h4>
+						<img src="images/3-16.jpg" width="1920" height="1379">
+					</li>
+					<li class="itemPic">
+						<h4>1986年 天安门</h4>
+						<img src="images/3-17.jpg" width="1920" height="1366">
+					</li>
+					<li class="itemPic">
+						<h4>1988年 北京室内（当时房子小，孩子只能在椅子上搭积木）</h4>
+						<img src="images/3-18.jpg" width="1920" height="1379">
+					</li>
+					<li class="itemPic">
+						<h4>1988年5月 天安门（孩子与外地来京的邻居小女孩合影）</h4>
+						<img src="images/3-19.jpg" width="568" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1988年8月 动物园（儿子许千帆4岁）</h4>
+						<img src="images/3-20.jpg" width="1920" height="1354">
+					</li>
+					<li class="itemPic">
+						<h4>1989年 八达岭长城 三口之家合影</h4>
+						<img src="images/3-1.jpg" width="1920" height="1374">
+					</li>
+					<li class="itemPic">
+						<h4>1990年 动物园（儿子许千帆和邻居小女孩合影）</h4>
+						<img src="images/3-21.jpg" width="578" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1991年 儿子许千帆<</h4>
+						<img src="images/3-22.jpg" width="1920" height="1301">
+					</li>
+					<li class="itemPic">
+						<h4>1992年 许千帆玩红白机游戏</h4>
+						<img src="images/3-23.jpg" width="1920" height="1283">
+					</li>
+					<li class="itemPic">
+						<h4>1997年国庆 天安门 一家三口合影</h4>
+						<img src="images/3-24.jpg" width="1920" height="1275">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">何林元</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>2015年 首都高速发展的轨道交通</h4>
+						<img src="images/4-1.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>2014年 五环塔上鸟瞰奥运场馆建筑</h4>
+						<img src="images/4-2.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>2016年 北辰西路亚投行工地</h4>
+						<img src="images/4-3.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>2007年 筑巢迎奥运</h4>
+						<img src="images/4-4.jpg" width="1920" height="1277">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">李　涛</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1978年</h4>
+						<img src="images/5-1.jpg" width="1920" height="1374">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1987年</h4>
+						<img src="images/5-2.jpg" width="1920" height="1309">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1988年</h4>
+						<img src="images/5-3.jpg" width="1920" height="1336">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1989年</h4>
+						<img src="images/5-4.jpg" width="1920" height="1368">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1990年</h4>
+						<img src="images/5-5.jpg" width="1920" height="1379">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1991年</h4>
+						<img src="images/5-6.jpg" width="1920" height="1374">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1992年</h4>
+						<img src="images/5-7.jpg" width="1920" height="1320">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1995年</h4>
+						<img src="images/5-8.jpg" width="1920" height="1314">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1996年</h4>
+						<img src="images/5-9.jpg" width="1920" height="1305">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1997年</h4>
+						<img src="images/5-10.jpg" width="1920" height="1347">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1998年</h4>
+						<img src="images/5-11.jpg" width="1920" height="1343">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—1999年</h4>
+						<img src="images/5-12.jpg" width="1920" height="1331">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2000年</h4>
+						<img src="images/5-13.jpg" width="1920" height="1319">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2001年</h4>
+						<img src="images/5-14.jpg" width="1920" height="1336">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2002年</h4>
+						<img src="images/5-15.jpg" width="1920" height="1284">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2003年</h4>
+						<img src="images/5-16.jpg" width="1920" height="1275">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2005年</h4>
+						<img src="images/5-17.jpg" width="1920" height="1283">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2006年</h4>
+						<img src="images/5-18.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2007年</h4>
+						<img src="images/5-19.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2008年</h4>
+						<img src="images/5-20.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2009年</h4>
+						<img src="images/5-21.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2010年</h4>
+						<img src="images/5-22.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2011年</h4>
+						<img src="images/5-23.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2012年</h4>
+						<img src="images/5-24.jpg" width="1920" height="1302">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2013年</h4>
+						<img src="images/5-25.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2014年</h4>
+						<img src="images/5-26.jpg" width="1920" height="1285">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2015年</h4>
+						<img src="images/5-27.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2016年</h4>
+						<img src="images/5-28.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2017年</h4>
+						<img src="images/5-29.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>《30年家庭合影》—2018年</h4>
+						<img src="images/5-30.jpg" width="1920" height="1280">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">刘宏声</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>80年代 机械（车床）女工</h4>
+						<img src="images/7-1.jpg" width="1920" height="1344">
+					</li>
+					<li class="itemPic">
+						<h4>90年左右 女儿与侄女合影</h4>
+						<img src="images/7-2.jpg" width="1920" height="1360">
+					</li>
+					<li class="itemPic">
+						<h4>1982年 第一通用机械厂压缩机厂</h4>
+						<img src="images/7-3.jpg" width="589" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1982年 第一通用机械厂压缩机厂</h4>
+						<img src="images/7-4.jpg" width="1920" height="1482">
+					</li>
+					<li class="itemPic">
+						<h4>1983年 结婚照</h4>
+						<img src="images/7-5.jpg" width="499" height="800">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">马志江</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>08年 鸟巢</h4>
+						<img src="images/8-1.jpg" width="1920" height="1258">
+					</li>
+					<li class="itemPic">
+						<h4>80年代初 白塔寺</h4>
+						<img src="images/8-2.jpg" width="1920" height="1294">
+					</li>
+					<li class="itemPic">
+						<h4>1984年 中日友好医院刚建成</h4>
+						<img src="images/8-3.jpg" width="1920" height="1310">
+					</li>
+					<li class="itemPic">
+						<h4>1990年 国家大剧院原址</h4>
+						<img src="images/8-4.jpg" width="1920" height="1354">
+					</li>
+					<li class="itemPic">
+						<h4>1990年 亚运村</h4>
+						<img src="images/8-5.jpg" width="1920" height="1325">
+					</li>
+					<li class="itemPic">
+						<h4>1992年 京广大厦（朝阳门外）使馆区</h4>
+						<img src="images/8-6.jpg" width="565" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1992年 天安门广场</h4>
+						<img src="images/8-7.jpg" width="1920" height="1299">
+					</li>
+					<li class="itemPic">
+						<h4>1993年 服装中心大厦</h4>
+						<img src="images/8-8.jpg" width="537" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1993年 国际大厦</h4>
+						<img src="images/8-9.jpg" width="548" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1993年 国际俱乐部</h4>
+						<img src="images/8-10.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1993年 海关（朝阳门外）</h4>
+						<img src="images/8-11.jpg" width="1920" height="1303">
+					</li>
+					<li class="itemPic">
+						<h4>1993年 外交公寓</h4>
+						<img src="images/8-12.jpg" width="1920" height="1332">
+					</li>
+					<li class="itemPic">
+						<h4>1993年 外交公寓</h4>
+						<img src="images/8-13.jpg" width="1920" height="1312">
+					</li>
+					<li class="itemPic">
+						<h4>1997年 香港回归前夕家人合影</h4>
+						<img src="images/8-14.jpg" width="1920" height="1277">
+					</li>
+					<li class="itemPic">
+						<h4>1999年 国庆前后的长安街</h4>
+						<img src="images/8-15.jpg" width="1920" height="1299">
+					</li>
+					<li class="itemPic">
+						<h4>菜市口改造中宣武区唯一的过街楼</h4>
+						<img src="images/8-16.jpg" width="542" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>1997年2月 邓小平逝世</h4>
+						<img src="images/8-17.jpg" width="1920" height="1285">
+					</li>
+					<li class="itemPic">
+						<h4>1997年2月 邓小平逝世</h4>
+						<img src="images/8-18.jpg" width="1920" height="1283">
+					</li>
+					<li class="itemPic">
+						<h4>1997年2月 邓小平逝世</h4>
+						<img src="images/8-19.jpg" width="1920" height="1290">
+					</li>
+					<li class="itemPic">
+						<h4>1997年2月 邓小平逝世</h4>
+						<img src="images/8-20.jpg" width="538" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>段祺瑞旧址</h4>
+						<img src="images/8-21.jpg" width="1920" height="1291">
+					</li>
+					<li class="itemPic">
+						<h4>平安道改造<</h4>
+						<img src="images/8-22.jpg" width="1920" height="1279">
+					</li>
+					<li class="itemPic">
+						<h4>1997年 香港回归家庭合影</h4>
+						<img src="images/8-23.jpg" width="1920" height="1292">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">王保生</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“促进非公有制经济健康发展”主题花车</h4>
+						<img src="images/9-1.jpg" width="1920" height="1292">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“推进农业现代化”主题花车</h4>
+						<img src="images/9-2.jpg" width="1920" height="1281">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“建设有中国特色的社会主义”主题花车</h4>
+						<img src="images/9-3.jpg" width="1920" height="1284">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“中国交通运输”主题花车</h4>
+						<img src="images/9-4.jpg" width="1920" height="1303">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“中国电信”主题花车</h4>
+						<img src="images/9-5.jpg" width="1920" height="1274">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“振兴汽车工业”主题花车</h4>
+						<img src="images/9-6.jpg" width="1920" height="1286">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“向钢铁强国奋进”主题花车</h4>
+						<img src="images/9-7.jpg" width="1920" height="1289">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“医疗”主题花车</h4>
+						<img src="images/9-8.jpg" width="1920" height="1296">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“中国人民解放军”主题花车</h4>
+						<img src="images/9-9.jpg" width="1920" height="1292">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“只有一个地球”主题花车</h4>
+						<img src="images/9-10.jpg" width="1920" height="1296">
+					</li>
+					<li class="itemPic">
+						<h4>11999年国庆50周年花车展-“绿色海南”主题花车</h4>
+						<img src="images/9-11.jpg" width="1920" height="1295">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“计划生育”主题花车</h4>
+						<img src="images/9-12.jpg" width="1920" height="1286">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“锦绣潇湘”主题花车</h4>
+						<img src="images/9-13.jpg" width="1920" height="1293">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“三峡放歌”主题花车</h4>
+						<img src="images/9-14.jpg" width="1920" height="1301">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“花开盛世”主题花车</h4>
+						<img src="images/9-15.jpg" width="1920" height="1297">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“奋进四川”主题花车</h4>
+						<img src="images/9-16.jpg" width="1920" height="1284">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“花开盛世”主题花车</h4>
+						<img src="images/9-17.jpg" width="1920" height="1290">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“凤舞楚天”主题花车</h4>
+						<img src="images/9-18.jpg" width="1920" height="1292">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“吉祥如意”主题花车</h4>
+						<img src="images/9-19.jpg" width="1920" height="1296">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“魅力山西”主题花车</h4>
+						<img src="images/9-20.jpg" width="1920" height="1285">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“腾飞上海”主题花车</h4>
+						<img src="images/9-21.jpg" width="1920" height="1289">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“腾飞上海”主题花车<</h4>
+						<img src="images/9-22.jpg" width="1920" height="1286">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“岱青海蓝”主题花车</h4>
+						<img src="images/9-23.jpg" width="1920" height="1286">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“精彩吉林”主题花车</h4>
+						<img src="images/9-24.jpg" width="1920" height="1282">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“西藏”主题花车</h4>
+						<img src="images/9-25.jpg" width="1920" height="1284">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“大美青海”主题花车</h4>
+						<img src="images/9-26.jpg" width="1920" height="1282">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“江淮和畅”主题花车</h4>
+						<img src="images/9-27.jpg" width="1920" height="1298">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“钱江明珠”主题花车</h4>
+						<img src="images/9-28.jpg" width="1920" height="1312">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“腾飞的西藏”主题花车</h4>
+						<img src="images/9-29.jpg" width="1920" height="1293">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“大美青海”主题花车</h4>
+						<img src="images/9-30.jpg" width="1920" height="1274">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“江淮和畅”主题花车</h4>
+						<img src="images/9-31.jpg" width="1920" height="1275">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“钱江明珠”主题花车</h4>
+						<img src="images/9-32.jpg" width="1920" height="1301">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“多彩贵州”主题花车</h4>
+						<img src="images/9-33.jpg" width="1920" height="1276">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“七彩云南”主题花车</h4>
+						<img src="images/9-34.jpg" width="1920" height="1284">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“振兴乐章”主题花车</h4>
+						<img src="images/9-35.jpg" width="1920" height="1281">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“龙腾盛世”主题花车</h4>
+						<img src="images/9-36.jpg" width="1920" height="1286">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“崛起江西”主题花车</h4>
+						<img src="images/9-37.jpg" width="1920" height="1289">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“扬帆海西”主题花车</h4>
+						<img src="images/9-38.jpg" width="1920" height="1297">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“领潮争先”主题花车</h4>
+						<img src="images/9-39.jpg" width="1920" height="1279">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“台湾”主题花车</h4>
+						<img src="images/9-40.jpg" width="1920" height="1281">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“澳门”主题花车</h4>
+						<img src="images/9-41.jpg" width="1920" height="1297">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“香港”主题花车</h4>
+						<img src="images/9-42.jpg" width="1920" height="1271">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“激情河北”主题花车</h4>
+						<img src="images/9-43.jpg" width="1920" height="1287">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“魅力山西”主题花车</h4>
+						<img src="images/9-44.jpg" width="1920" height="1274">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“广西”主题花车</h4>
+						<img src="images/9-45.jpg" width="1920" height="1277">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“内蒙古”主题花车</h4>
+						<img src="images/9-46.jpg" width="1920" height="1270">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“北京之歌”主题花车</h4>
+						<img src="images/9-47.jpg" width="1920" height="1281">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“渤海明珠”主题花车</h4>
+						<img src="images/9-48.jpg" width="1920" height="1299">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“新疆”主题花车</h4>
+						<img src="images/9-49.jpg" width="1920" height="1269">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“塞上江南”主题花车</h4>
+						<img src="images/9-50.jpg" width="1920" height="1272">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“航天”主题花车</h4>
+						<img src="images/9-51.jpg" width="1920" height="1288">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“兴修水利安民兴邦”主题花车</h4>
+						<img src="images/9-52.jpg" width="1920" height="1287">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“科学技术是第一生产力”主题花车</h4>
+						<img src="images/9-53.jpg" width="1920" height="1292">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“农业”主题花车</h4>
+						<img src="images/9-54.jpg" width="1920" height="1287">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“发展是硬道理”主题花车</h4>
+						<img src="images/9-55.jpg" width="1920" height="1300">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“体育”主题花车</h4>
+						<img src="images/9-56.jpg" width="1920" height="1306">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“盛世华章”主题花车</h4>
+						<img src="images/9-57.jpg" width="1920" height="1273">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“现代化小区”主题花车</h4>
+						<img src="images/9-58.jpg" width="1920" height="1281">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“抗洪精神”主题花车</h4>
+						<img src="images/9-59.jpg" width="1920" height="1286">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“转基因动植物”主题花车</h4>
+						<img src="images/9-60.jpg" width="1920" height="1286">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“教育”主题花车</h4>
+						<img src="images/9-61.jpg" width="1920" height="1289">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“激情河北”主题花车</h4>
+						<img src="images/9-62.jpg" width="1920" height="1290">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“航天”主题花车</h4>
+						<img src="images/9-63.jpg" width="1920" height="1284">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“中国航天”主题花车</h4>
+						<img src="images/9-64.jpg" width="1920" height="1300">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“北京之歌”主题花车</h4>
+						<img src="images/9-65.jpg" width="1920" height="1266">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“北京正负电子对撞机BEPC”主题花车</h4>
+						<img src="images/9-66.jpg" width="1920" height="1287">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“渤海明珠”主题花车</h4>
+						<img src="images/9-67.jpg" width="1920" height="1271">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展</h4>
+						<img src="images/9-68.jpg" width="1920" height="1299">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“盛世华章”主题花车</h4>
+						<img src="images/9-69.jpg" width="1920" height="1290">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“三秦新韵”主题花车</h4>
+						<img src="images/9-70.jpg" width="1920" height="1277">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“三秦新韵”主题花车</h4>
+						<img src="images/9-71.jpg" width="1920" height="1298">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“中国能源工业居世界前列”主题花车</h4>
+						<img src="images/9-72.jpg" width="1920" height="1289">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“高举邓小平理论伟大旗帜迈向新世纪”主题花车</h4>
+						<img src="images/9-73.jpg" width="1920" height="1284">
+					</li>
+					<li class="itemPic">
+						<h4>1999年国庆50周年花车展-“庆祝中华人民共和国成立50周年”主题花车</h4>
+						<img src="images/9-74.jpg" width="1920" height="1283">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">张　齐</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>2009年10月1日，北京举行盛大游行，庆祝建国60周年。图为参加游行后的人员在闹市口附近集结。</h4>
+						<img src="images/10-1.jpg" width="1920" height="1285">
+					</li>
+					<li class="itemPic">
+						<h4>2009年10月1日，北京举行盛大游行，庆祝建国60周年。图为中午13时载着游行结束人员的大客车经过长安街木樨地桥。</h4>
+						<img src="images/10-2.jpg" width="1920" height="1285">
+					</li>
+					<li class="itemPic">
+						<h4>2009年10月1日，北京举行盛大游行，庆祝建国60周年。图为参加游行后的人员在闹市口附近集结。</h4>
+						<img src="images/10-3.jpg" width="1920" height="1285">
+					</li>
+					<li class="itemPic">
+						<h4>2009年1月31日春节期间，世纪坛举办大型春节文化庙会。</h4>
+						<img src="images/10-4.jpg" width="1920" height="1285">
+					</li>
+					<li class="itemPic">
+						<h4>2009年10月1日，北京举行盛大游行，庆祝建国60周年。图为游行后的大客车经过长安街西单。</h4>
+						<img src="images/10-5.jpg" width="1920" height="1080">
+					</li>
+					<li class="itemPic">
+						<h4>2009年10月，蓝靛厂路上的北京公交车。</h4>
+						<img src="images/10-6.jpg" width="536" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>2009年10月1日当天，北京举行盛大游行，庆祝建国60周年。图为中午13时载着游行结束人员的大客车经过长安街木樨地桥军博一带。</h4>
+						<img src="images/10-7.jpg" width="1920" height="1224">
+					</li>
+					<li class="itemPic">
+						<h4>2008年9月26日，北京中关村大街与北四环交界的中关村一号桥，后为缓解交通拥堵，在此地修建了一座人行过街天桥。</h4>
+						<img src="images/10-8.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>2008年9月26日，北京中关村大街与北四环交界的中关村一号桥，后为缓解交通拥堵，在此地修建了一座人行过街天桥。</h4>
+						<img src="images/10-9.jpg" width="600" height="800">
+					</li>
+					<li class="itemPic">
+						<h4>2008年9月 水立方、鸟巢</h4>
+						<img src="images/10-10.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>1990年5月，国宾车队经过长安街西单路口西侧。</h4>
+						<img src="images/10-11.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>1990年9月，第十一届亚运会在北京举行。图为进行柔道比赛场地，月坛体育馆外景。</h4>
+						<img src="images/10-12.jpg" width="1920" height="1302">
+					</li>
+					<li class="itemPic">
+						<h4>1990年9月，第十一届亚运会在北京举行。图为进行体操比赛场地，首都体育馆外景。</h4>
+						<img src="images/10-13.jpg" width="1920" height="1305">
+					</li>
+					<li class="itemPic">
+						<h4>1990年5月，长安街长话大楼。</h4>
+						<img src="images/10-14.jpg" width="1920" height="1302">
+					</li>
+					<li class="itemPic">
+						<h4>1990年10月7日，第十一届亚运会在北京闭幕。图为当日下午北京工人体育场北门外情景。</h4>
+						<img src="images/10-15.jpg" width="1920" height="1367">
+					</li>
+					<li class="itemPic">
+						<h4>2007年6月16日，为迎接第29届奥运会在北京举行，鸟巢加紧建设，以及改造中北四环路。</h4>
+						<img src="images/10-16.jpg" width="1920" height="1206">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">赵　熔</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>2008年8月，王府井志愿者位外国来宾指路。</h4>
+						<img src="images/11-1.jpg" width="1920" height="1280">
+					</li>
+					<li class="itemPic">
+						<h4>2008年8月22日，什刹海一排奥运题材装饰的QQ车队和胡同游三轮车队巧遇。</h4>
+						<img src="images/11-2.jpg" width="1920" height="1450">
+					</li>
+					<li class="itemPic">
+						<h4>2009年10月2日，国庆60周年，木樨地大桥上路旗飘扬。</h4>
+						<img src="images/11-3.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>2009年3月7日，南锣鼓巷废弃自行车被用来充当指路牌。</h4>
+						<img src="images/11-4.jpg" width="1920" height="1451">
+					</li>
+					<li class="itemPic">
+						<h4>2009年5月12日，西单大悦城门前废弃手机做成的广告新颖别致。</h4>
+						<img src="images/11-5.jpg" width="1920" height="1447">
+					</li>
+					<li class="itemPic">
+						<h4>2012年1月19日，雾霾下的中关村大街。</h4>
+						<img src="images/11-6.jpg" width="1920" height="1280">
+					</li>
+				</ul>
+			</li>
+
+
+			<li class="author">
+				<h3 class="authorName">周　广</h3>
+				<ul class="picList">
+					<li class="itemPic">
+						<h4>2006年5月 烟袋斜街</h4>
+						<img src="images/12-1.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>2006年5月 烟袋斜街</h4>
+						<img src="images/12-2.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>2006年5月 烟袋斜街</h4>
+						<img src="images/12-3.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>2006年5月 烟袋斜街</h4>
+						<img src="images/12-4.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>1982年9月，原工厂“北京发电设备修造厂”第一次职工运动会，是建厂30周年纪念的一项主要活动。</h4>
+						<img src="images/12-5.jpg" width="1920" height="1443">
+					</li>
+					<li class="itemPic">
+						<h4>2006年5月 南锣鼓巷</h4>
+						<img src="images/12-6.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>2008年2月19日 前门大街 </h4>
+						<img src="images/12-7.jpg" width="1920" height="1440">
+					</li>
+					<li class="itemPic">
+						<h4>2006年5月29日 沙井副食店，是南锣鼓巷唯一存留最完整的一家老店。</h4>
+						<img src="images/12-8.jpg" width="1920" height="1440">
+					</li>
+				</ul>
+			</li>			
+		</ul><!--end gallary-->
+	</div><!--end mainContent-->
+	<div class="clearAll"></div>
+	<div class="pannelBlack">
+		<div class="bigPic">
+			
+		</div>
+		<div class="thumbListTank">
+			<ul class="thumbList"></ul>
+			<a class="btnPrev" href="#">&lt;</a>
+			<a class="btnNext" href="#">&gt;</a>
+		</div><!--end thumbListTank-->
+		
+		<a class="btnClose" href="#">X</a>
+	</div>
+</div><!--end pageGallary-->
+
+
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	var gap=25;//边栏与主内容间距
+	var animating=false;
+	var menuShowing=false;
+	
+	function initCover(){
+		if($(window).width()>768){
+			adjustCover($('.coverBgd .big'));
+		}else{
+			adjustCover($('.coverBgd .small'));
+		}
+		
+		var tl0=new TimelineMax({onComplete:function(){}});
+	tl0.from($('.title'), 1, {scale:0,opacity:0,ease:Power0.easeNone})
+		.from($('.intro'), 1, {opacity:0, scale:0,ease: Power2.easeOut})
+		.from($('.logo'), 1, {opacity:0, x:"100%",ease: Power2.easeOut});
+		
+		
+		
+		
+		
+		
+	}
+	initCover();
+	
+	$('.btnMenu').click(function(){
+		if(! menuShowing){
+			$('.navTank').slideDown(300);
+			menuShowing=true;
+		}else{
+			$('.navTank').slideUp(300);
+			menuShowing=false;
+		}
+		
+	})
+	
+	
+	function adjustCover($img){
+		//var vw=viewport().width;
+		//var vh=viewport().height;
+		var vw=$(window).width();
+		var vh=$(window).height();
+		var ratioWin=vw/vh;
+		$('.pageCover,.coverBgd').height(vh);
+		$('.pageGallary').css('min-height',vh);
+		var imgW=parseInt($img.attr('width'));
+		var imgH=parseInt($img.attr('height'));
+		var imgRatio=imgW/imgH;
+		
+		if(ratioWin>=imgRatio){//窗口比原图更细长
+			console.log("更细");
+			var newH=vw/imgRatio;
+			$img.css('width',vw);
+			$img.css('height',newH);
+			$img.css('top',-1*(newH-vh)/2);
+			$img.css('left',0);
+		}else{//窗口比原图更方
+		console.log("更方")
+			var newW=vh*imgRatio;
+			console.log("newW="+newW);
+			$img.css('width',newW);
+			$img.css('height',vh);
+			$img.css('left',-1*(newW-vw)/2);
+			$img.css('top',0);
+		}
+		$('.pageCover').show();
+	}
+	$('.pageCover').click(function(){
+		$('.pageGallary').css('visibility','visible');
+		$(this).slideUp(300);
+		
+		$('html,body').css('overflow','auto');
+	})
+	
+	function adjustPic($img){
+		var $theLiFirst=$img.parent().parent().find('li:first');
+		//console.log($theLiFirst);
+		var $theLi=$img.parent();
+		var picTankW=parseInt($theLiFirst.width());
+		$img.parent().attr('data_tankW',picTankW);
+		//console.log("picTankW="+picTankW);
+		var ratioWin=1;
+		$theLi.height(picTankW);
+		var imgW=parseInt($img.attr('width'));
+		var imgH=parseInt($img.attr('height'));
+		var imgRatio=imgW/imgH;
+		
+		if(ratioWin>=imgRatio){//容器比原图更细长
+			//console.log("更细");
+			var newH=picTankW/imgRatio;
+			$img.css('width',picTankW);
+			$img.css('height',newH);
+			$img.css('top',-1*(newH-picTankW)/2);
+			$img.css('left',0);
+		}else{//容器比原图更方
+			//console.log("更方")
+			var newW=picTankW*imgRatio;
+			//console.log(newW);
+			$img.css('width',newW);
+			$img.css('height',picTankW);
+			$img.css('left',-1*(newW-picTankW)/2);
+			$img.css('top',0);
+		}
+	}
+	
+	function showGallery(idx){
+		$('.authorNav li').eq(idx).addClass('cur').siblings().removeClass('cur');
+		$('.authorList>li.author').hide();
+		$('.authorList>li.author').eq(idx).show();
+	}
+	function render(){
+		var vw=$(window).width()-18;
+		var vh=$(window).height();
+		
+		if(vw>480){
+			var mcW=vw-parseInt($('.sideBar').css('width'))-gap;
+			$('.mainContent').width(mcW);
+		}
+		
+		$('.itemPic img').each(function(){
+			adjustPic($(this));
+		})
+		
+		
+	}
+	$('document').ready(function(){
+		makeAuthorNav();
+		render();
+		showGallery(0);
+	})
+	$(window).resize(function(){
+		initCover();
+		render();
+	})
+
+	$('.mainContent .itemPic').hover(function(){
+			$(this).parent().find('h4').fadeOut();
+			$(this).find('h4').fadeIn();
+			var $mask=$('<div class="mask"></div>');
+			$mask.appendTo($(this));
+			$mask.fadeIn();
+			return false;
+		},function(){
+			var $mask=$(this).find('.mask');
+			$(this).find('h4').fadeOut();
+			$mask.fadeOut();
+			$mask.remove();
+		})
+		
+	$('.mainContent .itemPic').click(function(){
+			showBig($(this).find('img'));
+			return false;
+		})
+	$('.pannelBlack .btnClose').click(function(){
+		$('.pannelBlack').animate({
+			width:0,
+			height:0,
+			top:'50%',
+			left:'50%',
+			opacity:0
+		},300,function(){
+			//console.log("closed")
+			$('.pannelBlack .bigPic').html("");
+			$('.pannelBlack .thumbList').html("");
+			$('.btnNext').hide();
+			$('.btnPrev').hide();
+			//console.log($('.pannelBlack .bigPic').html());
+			
+			
+		})
+		return false;
+	})
+	function makeAuthorNav(){
+		var authorLi="";
+		$('.authorList .authorName').each(function(){
+			authorLi+="<li><a href='#'>"+$(this).html()+"</a></li>";
+		})
+		$('.authorNav').html(authorLi);
+		//showGallery(0);
+		$('.authorNav li a').click(function(){
+			var idx=$(this).parent().index();
+			//console.log("idx="+idx);
+			showGallery(idx);
+			
+			if(menuShowing){
+				$('.navTank').slideUp(300);
+				menuShowing=false;
+			}
+			return false;
+		})
+		
+	}
+		
+	function renderBigPic($img){
+		var vw=$(window).width();
+		var vh=$(window).height();
+		var imgW=parseInt($img.attr('width'));
+		var imgV=parseInt($img.attr('height'));
+		var imgRatio=imgW/imgV;
+		
+		var areaW=$(window).width();
+		var areaH=$(window).height()-150;
+		var areaRatio=areaW/areaH;
+		
+		var $bigPic=$('.bigPic img');
+		
+		if(areaRatio>=imgRatio){//窗口比原图更细长
+			console.log("更细");
+			var newW=areaH*imgRatio;
+			$bigPic.css('height',areaH);
+			$bigPic.css('width',newW);
+			$bigPic.css('top',0);
+			$bigPic.css('left',(areaW-newW)/2);
+		}else{//窗口比原图更方
+			console.log("更方")
+			
+			var newH=areaW/imgRatio;
+			console.log("vh="+vh+"   newH="+newH);
+			$bigPic.css('width',areaW);
+			$bigPic.css('height',newH);
+			$bigPic.css('top',(vh-(newH+150))/2);
+			$bigPic.css('left',0);
+		}
+		var bigBottom=parseInt($bigPic.height())+parseInt($bigPic.css('top'));
+		var thumbTop=bigBottom+54;
+		
+		console.log("bigPicH top="+thumbTop);
+		$('.thumbListTank').css('top',thumbTop);
+		$('.pannelBlack .bigPic h4').css('top',bigBottom);
+		$('.bigPic').show();
+	}
+	
+	function showBig($img){
+		
+		//关灯
+		var vw=$(window).width();
+		var vh=$(window).height();
+		//$('.pannelBlack').height(vh);
+		$('.pannelBlack').animate({
+			width:"100%",
+			height:vh,
+			top:0,
+			left:0,
+			opacity:1
+		},300,function(){
+			//加载大图
+			$('.bigPic').css("visibility","hidden");
+			$img.clone().appendTo($('.bigPic'));
+			$img.parent().find('h4').clone().appendTo($('.bigPic'));
+			$('.bigPic img').attr('src',"");
+			var curUrl=$img.attr('src');
+			var arrayUrl=curUrl.split("/");
+			var newUrl=arrayUrl[0]+"/big/"+arrayUrl[1];
+			$('.bigPic img').attr('src',newUrl);
+			$('.bigPic').css("visibility","visible");
+			renderBigPic($img);
+			
+			
+			
+			
+			//加载缩略图
+			$img.parent().parent().find('li').clone().appendTo('.thumbList');
+			$('.thumbList').css('left',0);
+			$('.pannelBlack .itemPic img').each(function(){
+				adjustPic($(this));
+			})
+			
+			//初始化滚动按钮
+
+			if($('.thumbListTank').width()<$('.thumbList li').size()*90){
+				$('.btnNext').show();
+			}else{
+				$('.btnNext').hide();
+			}
+			$('.btnPrev').hide();
+			
+			$('.btnPrev').click(function(){
+				var step=$('.thumbListTank').width();
+				var strStep="+="+step;
+				if(! animating){
+					animating=true;
+				$('.thumbList').animate({
+					left:strStep
+				},300,function(){
+					console.log("left="+parseInt($(this).css('left')));
+					if(parseInt($(this).css('left'))>=0){
+						$('.btnPrev').hide();
+					}
+					$('.btnNext').show();
+					animating=false;
+				})
+				}
+				return false;
+			})
+			
+			$('.btnNext').click(function(){
+			
+				console.log(animating);
+				var step=$('.thumbListTank').width();
+				var strStep="-="+step;
+				
+				if(! animating){
+					animating=true;
+				$('.thumbList').animate({
+					left:strStep
+				},300,function(){
+				
+					console.log("animated");
+					var curLeft=Math.abs(parseInt($(this).css('left')));
+					var thumbListW=$('.thumbList li').size()*90;
+					if(Math.abs(parseInt($(this).css('left')))+step>thumbListW){
+						$('.btnNext').hide();
+					}
+					$('.btnPrev').show();
+					animating=false;
+				})
+				}
+				return false;
+			})
+				
+			
+			//缩略图点击
+			$('.pannelBlack .itemPic img').click(function(){
+				//当前缩略图加效果
+				$('.thumbList .mask').remove();
+				var $mask=$('<div class="mask"></div>');
+				$mask.appendTo($(this).parent());
+				$mask.show();
+				//更新标题
+				$('.bigPic h4').text($(this).parent().find('h4').text());
+				
+				var curUrl=$(this).attr('src');
+				var arrayUrl=curUrl.split("/");
+				var newUrl=arrayUrl[0]+"/big/"+arrayUrl[1];
+				$('.bigPic').hide();
+				$('.bigPic img').attr('src',newUrl);
+				renderBigPic($(this));
+				return false;
+			})
+			
+		})
+	}
+	
+	
+	//微信分享缩略图
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			//console.log(json);
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "馆藏北京40年在线影展",
+					link: "http://partner.qianlong.com/h5/gcbj40/index.html",
+					imgUrl: "http://partner.qianlong.com/h5/gcbj40/css/img/thumb.png",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "馆藏北京40年在线影展"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		
+	});
+</script>
+<!--百度流量统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b11cd5ab92cec77fc45294d9db6d5cd8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

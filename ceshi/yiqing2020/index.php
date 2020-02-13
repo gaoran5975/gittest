@@ -1,6 +1,6 @@
 <?php
 require_once "../php/jssdk.php";/* 这里的文件路径视`php`文件夹所在路径而定。不一定都要一样，个人建议扔到一个所有html文件夹都可以引用的目录*/
-$jssdk = new JSSDK("你的APPID", "你的APPSECRET");
+$jssdk = new JSSDK("wx9bcf324d828ede6c", "83b277c1d7238492fbcd26c5f988a877");
 $signPackage = $jssdk->GetSignPackage();
 ?>
 <!DOCTYPE html>

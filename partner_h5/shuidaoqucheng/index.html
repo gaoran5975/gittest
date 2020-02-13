@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>4200万人受益，看南水北调带来新变化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Demo styles -->
+    <style>
+		*{margin:0;padding:0;}
+		html{
+			font-size:100px;
+		}
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #fff;
+            font-family: "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";
+            color:#000;
+            margin: 0;
+            padding: 0;
+			font-size:0.3rem;
+			line-height:1.6em;
+        }
+		.wrap{
+			width:100%;
+			max-width:480px;
+			margin:0 auto;
+			overflow:hidden;
+			position: relative;
+		}
+		.cover{
+			overflow:hidden;
+			position:relative;
+		}
+		.cover img{
+			width:100%;
+		}
+		.cover img.btnEnter{
+			width:11%;
+			position:absolute;
+			left:44.5%;
+			bottom:5%;
+			display:block;
+		}
+		.map{
+			position:absolute;
+			z-index:2;
+			display:none;
+		}
+		.map img{
+			width:100%;
+		}
+		.place{
+			position:absolute;
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+		.place li{
+			position:absolute;
+			list-style:none;
+			width:250px;
+		}
+		.place li p.intro{
+			position: absolute;
+			background: #ffe7a5;
+			color: #f00;
+			font-weight: bold;
+			padding: 0;
+			margin-left: 20px;
+			margin-top: 20px;
+			padding: 2px 8px;
+			border-radius: 6px;
+			display:none;
+		}
+		.btnNext{
+			width:11%;
+			position:absolute;
+			left:44.5%;
+			bottom:5%;
+			display:none;
+			z-index:4;
+		}
+		#item0{
+			bottom:11%;
+			left:10%;
+		}
+		#item1{
+			bottom:15%;
+			left:19.2%;
+		}
+		#item2{
+			bottom:24.4%;
+			left:29%;
+		}
+		#item3{
+			bottom:32.4%;
+			left:40%;
+		}
+		#item4{
+			bottom:40.7%;
+			left:40%;
+		}
+		#item5{
+			bottom:62.3%;
+			left:57%;
+		}
+		
+		#item6{
+			bottom:71.9%;
+			left:59%;
+		}
+		#item7{
+			bottom:75%;
+			left:60.4%;
+		}
+		#item8{
+			bottom:81.3%;
+			left:93%;
+		}
+		#item9{
+			bottom:89%;
+			left:82%;
+		}
+		#item1 p.intro {
+			margin-top: -55px;
+		}
+		#item2 p.intro {
+			margin-top: -20px;
+			margin-left: 90px;
+			width:70%;
+		}
+		#item3 p.intro {
+			margin-top: -30px;
+			margin-left: 70px;
+		}
+		#item4 p.intro {
+			margin-top: -50px;
+			margin-left: 40px;
+		}
+		#item5 p.intro {
+			margin-left: -180px;
+			margin-top: 0;
+		}
+		#item6 p.intro {
+			margin-left: -200px;
+			margin-top: 20px;
+			width: 60%;
+		}	
+		#item7 p.intro {
+			margin-left: 10px;
+			margin-top: 20px;
+			width: 50%;
+		}
+		#item8 p.intro {
+			margin-left: -280px;
+			margin-top: -50px;
+			width: 60%;
+		}
+		#item9 p.intro {
+			margin-left: -255px;
+			margin-top: -14px;
+		}				
+				
+		
+		
+		
+		
+		.pannel{
+			position:absolute;
+			top:11.6%;
+			width:90%;
+			z-index:10;
+			overflow:hidden;
+		}
+		.pannel img{
+			width:100%;
+		}
+		.boat{
+			position:absolute;
+			display:block;
+			z-index:2;
+			width:11.5%;
+			bottom:12%;
+			left:7%;
+		}
+		.boat img{
+			position:absolute;
+			width:100%;
+			left: -60%;
+			top: -25px;
+		}
+		.pageLast{
+			position:absolute;
+			width:100%;
+			z-index:30;
+			display:none;
+		}
+		.pageLast img.bgd{
+			width:100%;
+		}
+		.pageLast .btnAgain{
+			position:absolute;
+			width:40.4%;
+			left:6.67%;
+			bottom:13.2%;
+		}
+		.pageLast .btnShare{
+			position:absolute;
+			width:40.4%;
+			right:6.67%;
+			bottom:13.2%;
+		}
+		.commTitle{
+			width:92%;
+			position:absolute;
+			top:3%;
+			left:4%;
+			z-index: 3;
+			display:none;
+		}
+		.path{
+			position:absolute;
+			top:0;
+			display:block;
+		}
+		#shareMask {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, .75);
+			z-index: 10;
+			display: none;
+		}
+		#shareMask>img {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		
+		.tip{
+			position:absolute;
+			z-index:10;
+			top:40px;
+			left:0;
+			width:100%;
+			display:none;
+		}
+		
+		
+		@media screen and (min-width:320px){
+		 html{font-size:42.6px;}
+		}
+		@media screen and (min-width:360px){
+		 html{font-size:48px;}
+		}
+		@media screen and (min-width:375px){
+		 html{font-size:50px;}
+		}
+		@media screen and (min-width:384px){
+		 html{font-size:51.2px;}
+		}
+		@media screen and (min-width:400px){
+		 html{font-size:53.3px;}
+		}
+		@media screen and (min-width:414px){
+		 html{font-size:55.2px;}
+		}
+		@media screen and (min-width:424px){
+		 html{font-size:56.5px;}
+		}
+		@media screen and (min-width:480px){
+		 html{font-size:64px;}
+		}
+		@media screen and (min-width:540px){
+		 html{font-size:72px;}
+		}
+		@media screen and (min-width:600px){
+		 html{font-size:80px;}
+		}
+		@media screen and (min-width:720px){
+		 html{font-size:96px;}
+		}
+		@media screen and (min-width:750px){
+		 html{font-size:100px;}
+		}
+		@media screen and (min-width:800px){
+		 html{font-size:107px;}
+		}
+		@media screen and (min-width:1024px){
+		 html{font-size:136px;}
+		}
+    </style>
+</head>
+<body>
+<div class="wrap">
+<div class="pageLast">
+	<img class="bgd" src="images/pageLast.png"/>
+	<img class="btnAgain" src="images/btnAgain.png"/>
+	<img class="btnShare" src="images/btnShare.png"/>
+	<div id="shareMask"><img src="images/share.png"></div>
+</div>
+<div class="map">
+	<img class="mapBgd" src="images/map.jpg"/>
+	<img class="path" src="images/path0.png"/>
+	<img class="path" src="images/path1.png"/>
+	<img class="path" src="images/path2.png"/>
+	<img class="path" src="images/path3.png"/>
+	<img class="path" src="images/path4.png"/>
+	<img class="path" src="images/path5.png"/>
+	<img class="path" src="images/path6.png"/>
+	<img class="path" src="images/path7.png"/>
+	<img class="path" src="images/path8.png"/>
+	<ul class="place">
+		<li id="item0" class="aniByScroll" data_showing="false">
+			<p class="intro"></p>
+		</li>
+		<li id="item1" class="aniByScroll" data_showing="false">
+			<p class="intro">中线工程重要水源地</p>
+		</li>
+		<li id="item2" class="aniByScroll" data_showing="false">
+			<p class="intro">一渠清水从“天”而过</p>
+		</li>
+		<li id="item3" class="aniByScroll" data_showing="false">
+			<p class="intro">昔日“干渴之城”><br>今日“水润之城”</p>
+		</li>
+		<li id="item4" class="aniByScroll" data_showing="false">
+			<p class="intro">黄河长江在此握手</p>
+		</li>
+		<li id="item5" class="aniByScroll" data_showing="false">
+			<p class="intro">千里水脉的守护者</p>
+		</li>
+		<li id="item6" class="aniByScroll" data_showing="false">
+			<p class="intro">从“大沙坑”到一渠清水，滹沱河风姿再现</p>
+		</li>
+		<li id="item7" class="aniByScroll" data_showing="false">
+			<p class="intro">告别“饮用”高氟水的历史</p>
+		</li>
+		<li id="item8" class="aniByScroll" data_showing="false">
+			<p class="intro">把196个西湖从长江搬到了天津</p>
+		</li>
+		<li id="item9" class="aniByScroll" data_showing="false">
+			<p class="intro">人均水资源增加近5成</p>
+		</li>
+	</ul>
+	<div class="boat">
+		<img src="images/boat.png" />
+	</div>
+	
+</div>
+
+<div class="tip">
+
+<!--
+	<p>地图高度mapH：<span class="tipMapH"></span></p>
+	<p>地图初始坐标initTop：<span class="tipInitTop"></span></p>
+	<p>地图下个位置距底部坐标pos：<span class="tipPos"></span></p>
+	<p>第一位置距底部坐标pos：<span class="tipPos0"></span></p>
+	<p>地图下个位置的顶部坐标nextPos：<span class="tipNextPos"></span></p>
+	<p>小船下个位置的底部坐标nextPosBottom：<span class="tipNextPosBottom"></span></p>
+	-->
+</div>
+
+<img class="commTitle" src="images/commTitle.png"/>
+<div class="pannel">
+	<img src="#"/>
+</div>
+<img class="btnNext" src="images/btnEnter1.png"/>
+<div class="cover">
+	<img class="imgCover" src="images/cover.jpg"/>
+	<img class="btnEnter" src="images/btnEnter1.png"></a>
+</div>
+</div><!--end wrap-->
+
+
+
+<script src="lib/jquery-1.8.3.min.js"></script>
+<script src="lib/TweenMax.min.js"></script>
+<script src="lib/howler.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+$(document).ready(function() {
+	var arrayPlaceB=[0.11,0.15,0.244,0.324,0.407,0.623,0.719,0.75,0.813,0.89];
+	
+	//设置pc端容器大小
+    var vh=$(window).height();
+    var vw=$(window).width();
+	var mapWOrig=750;
+	var mapHOrigh=2284;
+	var ratioMap=mapWOrig/mapHOrigh;
+	var mapH=vw/ratioMap;
+	//console.log("ddddddddddddd="+mapH1);
+	
+	var posBaodingB=0.807*mapH;
+	var posBaodingL=0.688*vw;
+	
+	$('.wrap').height(vh);
+	
+	$('.cover').height(vh);
+	$('.pageLast').css('top',-(vh+200));
+	$('.pageLast .bgd').css('height',vh);
+	$('.pannel').height(vh);
+	$('.pannel').css('left',vw+10);
+	//$('.place').height($('.mapBgd').height());
+	$('.place').height(mapH);
+	//var mapH=$('.place').height();
+	console.log(mapH);
+	$('.map').css('top',-mapH);
+	$('.path').hide();
+	//$('.map').height(vh);
+	var curPos;
+	var numPos=$('.map li').size();
+	var twP;//面板动画
+	var tlast;//封底进入动画
+	var initTop=vh-mapH;
+	//var initBoatY=parseInt($('.boat').css('bottom'));
+	//var initBoatL=parseInt($('.boat').css('left'));
+	var initBoatY=mapH*0.11;
+	var initBoatL=vw*0.10;
+	console.log("initBoatY="+initBoatY);
+	
+	var canNext=true;
+	
+	function showMap(){
+		//var tw=TweenMax.to($('.map'),1,{top:initTop,onComplete:showCurPos,ease:Power1.easeOut});
+		var tw=TweenMax.to($('.map'),1,{top:initTop,onComplete:moveTo(0),ease:Power1.easeOut});
+		curPos=0;
+		//$('.btnNext').fadeIn();
+		$('.commTitle').fadeIn();
+	}
+	function moveTo(posIdx){
+		var pos=arrayPlaceB[posIdx]*mapH;
+		/*
+		if(posIdx==7){
+			var bottom7y=arrayPlaceB[posIdx-1]*mapH;
+			var left7y=parseInt($('.place li').eq(posIdx-1).css('left'));
+			console.log("bottom7y="+bottom7y);
+			TweenMax.set($('.boat'),{bottom:bottom7y,left:left7y});
+		}
+		*/
+		if(posIdx==8){
+			TweenMax.set($('.boat'),{bottom:posBaodingB,left:posBaodingL});
+		}
+		var nextPosBottom=arrayPlaceB[posIdx+1]*mapH;
+		var nextPosLeft=parseInt($('.place li').eq(posIdx+1).css('left'));
+		console.log("pos="+pos);
+		console.log("nextPosBottom="+nextPosBottom);
+		var nextPos=initTop+pos;
+		var timeDelay=0;
+		
+		if(posIdx==0){
+			timeDelay=2;
+		}
+		
+		//调试代码开始
+		/*
+		$('.tipMapH').text(mapH);
+		$('.tipInitTop').text(initTop);
+		$('.tipPos').text(pos);
+		$('.tipPos0').text(parseInt($('.place li').eq(posIdx).css('bottom')));
+		$('.tipNextPos').text(nextPos);
+		$('.tipNextPosBottom').text(nextPosBottom);
+		*/
+		
+		//调试代码结束
+		
+		
+		$('.tipNextPos').text(nextPos);
+		if(nextPos>0){
+			nextPos=0;
+		}
+		//小船上移动画
+		var tw=TweenMax.to($('.boat'),1,{bottom:nextPosBottom,left:nextPosLeft,onComplete:function(){
+		},delay:timeDelay,ease:Power1.easeOut});
+		
+		//地图下移动画
+		var tw=TweenMax.to($('.map'),1,{top:nextPos,onComplete:function(){
+			curPos+=1;
+			showCurPos();
+		},delay:timeDelay,ease:Power1.easeOut});
+		
+		//路径显示动画
+		//$('.path').eq(posIdx).css('display','block');
+		$('.path').eq(posIdx).fadeIn(1000);
+		
+	}
+	function showCurPos(){
+		$('.place li').eq(curPos).find('p').fadeIn();
+		var strImg="images/p"+(curPos-1)+".png";
+		$('.pannel img').attr('src',strImg);
+		var timeWait=1;
+		if(curPos==1){
+			timeWait=1.5;
+		}
+		//面板进入动画
+		twP=TweenMax.to($('.pannel'),1,{left:'5%',delay:timeWait,onComplete:function(){},ease:Back.easeOut});
+	}
+	$('.pannel').click(function(){
+		twP.reverse();
+		canNext=true;
+		$('.btnNext').fadeIn();
+	})
+	
+	$('.btnEnter').click(function(){
+		$('.map').show();
+		showMap();
+	})
+	
+	$('.btnNext').click(function(){
+		//if(canNext){
+			$(this).fadeOut();
+			if((curPos+1)<numPos){
+				moveTo(curPos);
+				//canNext=false;
+			}else{
+				$('.pageLast').show();
+				showLastPage();
+			}
+		//}
+		
+		
+	})
+	function showLastPage(){
+		$('.commTitle').hide();
+		tlast=TweenMax.to($('.pageLast'),1,{top:0,ease:Power1.easeOut});
+	}
+	$('.btnAgain').click(function(){
+		tlast.reverse();
+		TweenMax.to($('.map'),0.2,{top:-mapH,ease:Power1.easeOut});
+		$('.btnNext').hide();
+		$('.boat').css('bottom',initBoatY);
+		$('.boat').css('left',initBoatL);
+		$('.place li p.intro').hide();
+		$('.path').hide();
+		curPos=0;
+	})
+	$('.btnShare').click(function(){
+		$("#shareMask").show();
+	})
+	$("#shareMask").click(function(){
+		$(this).hide();
+	})
+	//音乐
+	var aniMusic;
+    var sndBgd=new Howl({
+        src: ['bgd.mp3'],
+        autoplay: true,
+        loop: true,
+        volume: 0.4,
+        onload: function() {
+			
+			//aniMusic=TweenMax.to($('.btnMusic'), 7.2, {rotation:360, delay:0,ease:'Linear.easeNone',repeat:99})
+        }
+    })
+  });
+
+	//微信分享缩略图
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://partner.qianlong.com/api/weixin/share/qianlong",
+		dataType: "jsonp",
+		data: {
+			"weburl": location.href.split("#")[0]
+		},
+		success: function(json){
+			//console.log(json);
+			wx.config({
+				debug: false,
+				appId: json.appId,
+				timestamp: json.timestamp,
+				nonceStr: json.nonceStr,
+				signature: json.signature,
+				jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+			});
+		},
+		error: function(){
+			console.log("share error");
+		}
+	});
+
+	wx.ready(function(){
+		console.log("ready to share");
+		var obj_co = {
+					title: "4200万人受益，看南水北调带来新变化",
+					link: "http://partner.qianlong.com/h5/shuidaoqucheng/",
+					imgUrl: "http://partner.qianlong.com/h5/shuidaoqucheng/images/thumb.jpg",
+					success: function(){
+					},
+					cancel: function(){}
+				},
+				obj_co_desc = {
+					desc: "水到渠成共发展，探访南水北调中线工程"
+				},
+				obj_timeline = $.extend({}, obj_co),
+				obj_appmsg = $.extend({}, obj_co_desc, obj_co),
+				obj_qq = $.extend({}, obj_co_desc, obj_co),
+				obj_wb = $.extend({}, obj_co_desc, obj_co),
+				obj_qzone = $.extend({}, obj_co_desc, obj_co);
+
+		wx.onMenuShareTimeline(obj_timeline);
+		wx.onMenuShareAppMessage(obj_appmsg);
+		wx.onMenuShareQQ(obj_qq);
+		wx.onMenuShareWeibo(obj_wb);
+		wx.onMenuShareQZone(obj_qzone);
+
+
+	});
+
+	wx.error(function (res) {
+		console.log(res.errMsg);
+		
+	});
+	
+</script>
+</body>
+</html>
