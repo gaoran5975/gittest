@@ -61,6 +61,10 @@ input[type="text"]{-webkit-appearance: none;
 <script type="text/javascript">
     	//设置高度尺寸
     var winHeight = window.innerHeight;	
+	 $('html,body,.swiper-container,.swiper-slide').css({
+			 	       height:winHeight
+			      })	
+		
     	 + function() {
         remLayout();
 
@@ -87,13 +91,6 @@ function blur() {
 
       }, 100)
 } 
-	
-
- $('html,body,.swiper-container,.swiper-slide').css({
-			 	       width:winWidth,
-			 	       height:winHeight
-			      })	
-		
 	
 $('input,textarea').on('blur',function( ){
     $('html,body').css({'height':winHeight})
