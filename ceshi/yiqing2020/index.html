@@ -73,7 +73,20 @@ input[type="text"]{-webkit-appearance: none;
             remLayout();
         }, false);
     }();
-	  
+function blur() {
+
+      setTimeout(function () {
+
+      var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0
+
+        window.scrollTo(0, Math.max(scrollHeight - 1, 0))
+
+      }, 100)
+}  
+$('input,textarea').on('blur',function( ){
+    $('html,body').css({'height':winHeight})
+});
+  
         
     </script>
 
