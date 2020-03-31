@@ -82,7 +82,25 @@ function blur() {
         window.scrollTo(0, Math.max(scrollHeight - 1, 0))
 
       }, 100)
-}  
+} 
+	
+var winHeight = window.innerHeight;
+ $('html,body,.swiper-container,.swiper-slide').css({
+			 	       width:winWidth,
+			 	       height:winHeight
+			      })	
+	
+ window.addEventListener('resize', function() {
+            remLayout();
+            console.log(winWidth)
+            if(winWidth<750){
+            	  $('html,body,.swiper-container,.swiper-slide').css({
+			 	       width:winWidth,
+			 	       height:winHeight
+			      })
+            }
+        }, false);	
+	
 $('input,textarea').on('blur',function( ){
     $('html,body').css({'height':winHeight})
 });
