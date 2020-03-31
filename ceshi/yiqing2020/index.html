@@ -60,6 +60,7 @@ input[type="text"]{-webkit-appearance: none;
 <script src="jweixin-1.0.0.js"></script>
 <script type="text/javascript">
     	//设置高度尺寸
+    var winHeight = window.innerHeight;	
     	 + function() {
         remLayout();
 
@@ -70,7 +71,10 @@ input[type="text"]{-webkit-appearance: none;
             document.documentElement.style.fontSize = w / 7.5 + 'px';
         }
         window.addEventListener('resize', function() {
-            remLayout();
+           $('html,body,.swiper-container,.swiper-slide').css({
+			 	       width:'100%',
+			 	       height:winHeight
+			      })
         }, false);
     }();
 function blur() {
@@ -84,22 +88,12 @@ function blur() {
       }, 100)
 } 
 	
-var winHeight = window.innerHeight;
+
  $('html,body,.swiper-container,.swiper-slide').css({
 			 	       width:winWidth,
 			 	       height:winHeight
 			      })	
-	
- window.addEventListener('resize', function() {
-            remLayout();
-            console.log(winWidth)
-            if(winWidth<750){
-            	  $('html,body,.swiper-container,.swiper-slide').css({
-			 	       width:winWidth,
-			 	       height:winHeight
-			      })
-            }
-        }, false);	
+		
 	
 $('input,textarea').on('blur',function( ){
     $('html,body').css({'height':winHeight})
