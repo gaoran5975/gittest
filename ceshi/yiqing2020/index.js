@@ -114,7 +114,6 @@ function swipergo(){
                        }    
 	            },
 	            onTransitionEnd: function(swiper){
-	                 swiperAnimate(swiper);
 	                 
 	            },
 	            watchSlidesProgress: true,	            
