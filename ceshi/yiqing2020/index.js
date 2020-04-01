@@ -76,10 +76,8 @@ function swipergo(){
 				mousewheelControl: true,
 				onSlideChangeStart: function(swiper) {
 
-						swiperAnimate(swiper);
 				},
 				onSlideChangeEnd: function(swiper) {
-					swiperAnimate(swiper);
 				}
 	})
 	}
