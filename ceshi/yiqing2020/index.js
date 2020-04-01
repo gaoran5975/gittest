@@ -78,10 +78,10 @@ function swipergo(){
               preloadImages:false,
 	           onInit: function(swiper){
 	                 //swiperAnimateCache(swiper);
-	                 swiperAnimate(swiper);
+	                 swiperAnimate(mySwiper);
 	              },
 	          onSlideChangeStart: function(swiper){
-	                swiperAnimate(swiper);
+	                swiperAnimate(mySwiper);
                     var index = mySwiper.activeIndex;
                             for(i=0;i<myVideos.length;i++){
                               myVideos[i].pause();
