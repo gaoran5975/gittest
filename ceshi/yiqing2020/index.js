@@ -77,7 +77,7 @@ function swipergo(){
               spaceBetween: 0,
               preloadImages:false,
 	           onInit: function(swiper){
-	                 swiperAnimateCache(swiper);
+	      
 	                 swiperAnimate(swiper);
 	              },
 	          onSlideChangeStart: function(swiper){
