@@ -81,5 +81,7 @@ function swipergo(){
 				onSlideChangeEnd: function(swiper) {
 					
 				}
+	})
+	}
       
 })
