@@ -74,10 +74,16 @@ function swipergo(){
 				direction: 'vertical',
 				spaceBetween: 0,
 				mousewheelControl: true,
+			  onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+    swiperAnimateCache(swiper); //隐藏动画元素 
+    swiperAnimate(swiper); //初始化完成开始动画
+  }, 
 				onSlideChangeStart: function(swiper) {
+						    
 
 				},
 				onSlideChangeEnd: function(swiper) {
+					swiperAnimate(swiper); //初始化完成开始动画
 				}
 	})
 	}
