@@ -68,62 +68,19 @@ function swipergo(){
             }
 		$('.swiper-container').css('display','block')
         var p62 = $('.p6-2').hasClass('scalebig');
-        var mySwiper = new Swiper ('.swiper-container', {
-	           direction: 'vertical',
-	            loop: false,
-	            freeMode : false,
-	           mousewheelControl : true,
-             touchRatio:0.8,
-              spaceBetween: 0,
-              preloadImages:false,
-	           onInit: function(swiper){
-	                 //swiperAnimateCache(swiper);
-	                 swiperAnimate(mySwiper);
-	              },
-	          onSlideChangeStart: function(swiper){
-	                swiperAnimate(mySwiper);
-                    var index = mySwiper.activeIndex;
-                            for(i=0;i<myVideos.length;i++){
-                              myVideos[i].pause();
-                            }        
+        var swiperV = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination-v',
+				paginationClickable: true,
+				direction: 'vertical',
+				spaceBetween: 0,
+				mousewheelControl: true,
+				onSlideChangeStart: function(swiper) {
 
-                    if(index==7){
-                         $('.p6-2').removeClass('scalebig').hide();
-                    }
-                    else if(index==12){
-                         $('#mask,#fxts').hide();
-                    }
-                    else{}
-	            },
-	           onSlideChangeEnd: function(swiper){ 
-	                  // swiperAnimate(swiper);    
-                    var index = mySwiper.activeIndex;
-                    console.log(index)
-                    if(winHeight < 620 ){
-                          if(index==11 || index ==12) {
-                                //设备适配
-                                 console.log('short phone')
-                                  $('.p8-0').css('top','-0.2rem')
-                                  $('.p8-1').css('height','8.7rem')
-                                  $('.jiyan').css({
-                                    'top':'1.7rem',
-                                    'height':  '6.8rem'
-                                  }) 
-                          }
 
-                       }    
-	            },
-	            onTransitionEnd: function(swiper){
-	                 
-	            },
-	            watchSlidesProgress: true,	            
-	            onSetTransition: function(swiper, speed) {
-	                for (var i = 0; i < swiper.slides.length; i++){
-	                  es = swiper.slides[i].style;
-	                  es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
-	                }
-	              }
-	        })
+				},
+				onSlideChangeEnd: function(swiper) {
+					
+				}
        $('#xh').click(function(){
             $('#xh').fadeOut(300);
             $('.p6-2').addClass('scalebig');
